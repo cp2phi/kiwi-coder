@@ -202,6 +202,8 @@
     active = self;
     var myRun = ++this.runId;
     var code = this.getCode();
+    // Skulpt 的 turtle 模块没有 bgcolor、setup 这类「屏幕」指令，换成 Screen() 上的同名指令（行数不变，报错行号照样准）
+    var runCode = code.replace(/\bturtle\.(bgcolor|setup|exitonclick|listen|onkey|onkeypress|ontimer|onscreenclick)\(/g, 'turtle.Screen().$1(');
 
     this.clearMark();
     this.out.textContent = '';
@@ -242,7 +244,7 @@
     });
 
     Sk.misceval.asyncToPromise(function () {
-      return Sk.importMainWithBody('<stdin>', false, code, true);
+      return Sk.importMainWithBody('<stdin>', false, runCode, true);
     }, {
       '*': function () { if (myRun !== self.runId) throw new Error('__kc_stopped__'); }
     }).then(function () {
