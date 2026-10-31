@@ -32,6 +32,15 @@ title_en: Engineer's Notebook
 - 🧱 **我卡在哪里 / I got stuck on:**
 - 🔧 **我怎么解决的 / I fixed it by:**
 
+
+---
+
+## 第 3 课 Lesson 3
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+
 ---
 
 ## 📚 我的指令小词典 / My command dictionary
