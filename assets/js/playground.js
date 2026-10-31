@@ -498,8 +498,8 @@
     this.saveBox.innerHTML =
       both('<b>📤 准备好了！</b>点下面的按钮打开 GitHub：', '<b>📤 Ready!</b> Click the button to open GitHub:') + '<br>' +
       '<a class="go" target="_blank" rel="noopener" href="' + esc(url) + '">' + both('打开 GitHub，保存 ' + esc(name) + '.py', 'Open GitHub to save ' + esc(name) + '.py') + '</a><br>' +
-      both('然后：点右上角绿色的 <b>Commit changes...</b> → 再点一次 <b>Commit changes</b>。1～2 分钟后作品墙上就会出现！<br><span class="muted">（如果提示名字已存在，就换一个名字再存）</span>',
-        'Then click the green <b>Commit changes...</b> button → click <b>Commit changes</b> again. Your work shows up in the Gallery in 1–2 minutes!<br><span class="muted">(If it says the name already exists, pick a different name.)</span>');
+      both('然后：点右上角绿色的 <b>Commit changes...</b> → 再点一次 <b>Commit changes</b>。1～2 分钟后作品墙上就会出现！<br><span class="muted">（如果提示名字已存在，就换一个名字再存）</span><br>⚠️ 如果绿色按钮写的是 <b>Propose changes</b> 而不是 Commit changes，说明你的账号还没有保存权限——请找老师把你加为仓库协作者。',
+        'Then click the green <b>Commit changes...</b> button → click <b>Commit changes</b> again. Your work shows up in the Gallery in 1–2 minutes!<br><span class="muted">(If it says the name already exists, pick a different name.)</span><br>⚠️ If the green button says <b>Propose changes</b> instead of Commit changes, your account can\'t save here yet — ask your teacher to add you as a collaborator.');
     this.saveBox.className = 'pg-save show';
   };
 
