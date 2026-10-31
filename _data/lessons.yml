@@ -1,88 +1,125 @@
 # 12 关冒险地图（老师维护）
 # ready: true 表示教材已经放好，可以点进去预习
 # stage: 1 = 点燃兴趣  2 = 组合与合作  3 = 独立与创造
+# 带 _en 的是英文版
 
 - n: 1
-  title: "AI 初体验：GitHub + Codex + 海龟画画"
   icon: "🐢"
   stage: 1
-  learn: "GitHub 存档、Codex 写代码、print、turtle"
-  make: "一个会打招呼的程序 + 一个几何图形"
   ready: true
+  title: "AI 初体验：GitHub + Codex + 海龟画画"
+  title_en: "First taste of AI: GitHub + Codex + Turtle"
+  learn: "GitHub 存档、Codex 写代码、print、turtle"
+  learn_en: "Saving on GitHub, coding with Codex, print, turtle"
+  make: "一个会打招呼的程序 + 一个几何图形"
+  make_en: "A program that says hello + a shape"
 
 - n: 2
-  title: "会聊天的程序"
   icon: "💬"
   stage: 1
+  title: "会聊天的程序"
+  title_en: "A program that chats"
   learn: "变量、input()、字符串拼接"
+  learn_en: "Variables, input(), joining text"
   make: "会问名字、会回应的小聊天程序"
+  make_en: "A chat program that asks your name"
 
 - n: 3
-  title: "重复的魔法"
   icon: "🌀"
   stage: 1
+  title: "重复的魔法"
+  title_en: "The magic of repeating"
   learn: "for 循环；用 AI 解释代码"
+  learn_en: "for loops; asking AI to explain code"
   make: "螺旋图案 / 万花筒"
+  make_en: "Spirals / kaleidoscope"
 
 - n: 4
-  title: "猜数字游戏"
   icon: "🎲"
   stage: 1
+  title: "猜数字游戏"
+  title_en: "Guess the number"
   learn: "if / else、random、卡住了怎么办四步法"
+  learn_en: "if / else, random, the 4 steps when you're stuck"
   make: "猜数字游戏"
+  make_en: "A number guessing game"
 
 - n: 5
-  title: "随机生成器"
   icon: "🎰"
   stage: 2
+  title: "随机生成器"
+  title_en: "Random generators"
   learn: "列表、random.choice"
+  learn_en: "Lists, random.choice"
   make: "搞笑故事生成器 / 毛利语单词测验"
+  make_en: "Silly story maker / te reo Māori word quiz"
 
 - n: 6
-  title: "AI 是怎么学习的？"
   icon: "🧠"
   stage: 2
+  title: "AI 是怎么学习的？"
+  title_en: "How does AI learn?"
   learn: "写规则 vs 从数据学；Teachable Machine；数据偏见"
+  learn_en: "Rules vs learning from data; Teachable Machine; data bias"
   make: "一个更好的 AI 模型"
+  make_en: "A better AI model"
 
 - n: 7
-  title: "把代码打包"
   icon: "📦"
   stage: 2
+  title: "把代码打包"
+  title_en: "Packing code into functions"
   learn: "函数 def、参数"
+  learn_en: "Functions (def), parameters"
   make: "用函数画一条街 / 一个小镇"
+  make_en: "Draw a street / a town with functions"
 
 - n: 8
-  title: "迷你项目：石头剪刀布"
   icon: "✊"
   stage: 2
+  title: "迷你项目：石头剪刀布"
+  title_en: "Mini project: Rock Paper Scissors"
   learn: "综合运用；AI 当排错伙伴"
+  learn_en: "Putting it together; AI as a debugging buddy"
   make: "能和电脑对战的石头剪刀布"
+  make_en: "Rock Paper Scissors against the computer"
 
 - n: 9
-  title: "做一个聪明的 AI 用户"
   icon: "🕵️"
   stage: 3
+  title: "做一个聪明的 AI 用户"
+  title_en: "Being a smart AI user"
   learn: "AI 会编造、怎么核实、隐私、好问题"
+  learn_en: "AI can make things up, checking facts, privacy, good questions"
   make: "AI 侦探：找出 AI 的错误"
+  make_en: "AI detective: find the AI's mistakes"
 
 - n: 10
-  title: "项目策划"
   icon: "🗺️"
   stage: 3
+  title: "项目策划"
+  title_en: "Planning a project"
   learn: "自己选项目、拆成小步骤"
+  learn_en: "Choosing a project, breaking it into small steps"
   make: "一页项目计划书"
+  make_en: "A one-page project plan"
 
 - n: 11
-  title: "项目制作"
   icon: "🛠️"
   stage: 3
+  title: "项目制作"
+  title_en: "Building the project"
   learn: "独立写代码、四步法排错"
+  learn_en: "Coding on your own, fixing bugs with the 4 steps"
   make: "项目的可运行版本"
+  make_en: "A working version of your project"
 
 - n: 12
-  title: "展示日 + 回顾"
   icon: "🏆"
   stage: 3
+  title: "展示日 + 回顾"
+  title_en: "Show day + looking back"
   learn: "展示、回顾笔记本、规划下一步"
+  learn_en: "Presenting, reviewing your notebook, planning what's next"
   make: "展示 + 我的下一个项目清单"
+  make_en: "A presentation + my next-project list"

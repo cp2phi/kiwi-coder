@@ -1,10 +1,13 @@
 ---
 title: 第 1 课 · 教案
+title_en: Lesson 1 · Teacher plan
 lesson: "01"
 tab: teacher
 ---
 
 # 👩‍🏫 第 1 课教案（给老师 / 家长）
+
+<p class="en box box-tip">This page is the lesson plan for the teacher / parent and is written in Chinese only.</p>
 
 **目标：** 让孩子觉得 AI 和编程**很酷**，而且**自己能做到**。知识点很少，「我做出来了」的体验最重要。
 

@@ -1,17 +1,26 @@
 /* 🐢 代码画板：在网页里运行 Python（turtle 海龟画画）
  * 用法（写在 .md 里）：
- *   <div class="playground" data-src="code/square.py" data-title="正方形" data-save="my-square"></div>
- *   data-src     起始代码文件（相对当前页面）
- *   data-canvas  "no" = 不需要海龟画布（只用 print）
- *   data-save    「存到作品墙」时默认的文件名
- *   data-draft   填一个名字 = 自动在这台电脑上记住没写完的代码
+ *   <div class="playground" data-src="code/square.py" data-title="正方形" data-title-en="Square" data-save="my-square"></div>
+ *   data-src       起始代码文件
+ *   data-title-en  英文标题（不写就用中文标题）
+ *   data-canvas    "no" = 不需要海龟画布（只用 print）
+ *   data-save      「存到作品墙」时默认的文件名
+ *   data-draft     填一个名字 = 自动在这台电脑上记住没写完的代码
  */
 (function () {
   'use strict';
 
   var active = null;
   var SIZE = 600;
-  var PRAISE = ['太棒了！', '电脑听你的话了！', '漂亮！', '你真是个程序员！', '一次就跑通！', '海龟为你点赞 🐢👍'];
+  var PRAISE = [
+    ['太棒了！', 'Awesome!'], ['电脑听你的话了！', 'The computer listened to you!'], ['漂亮！', 'Beautiful!'],
+    ['你真是个程序员！', 'You are a real programmer!'], ['一次就跑通！', 'Worked first time!'], ['海龟为你点赞 🐢👍', 'The turtle says nice work 🐢👍']
+  ];
+
+  // 当前语言选一句
+  function T(zh, en) { return window.KC && KC.lang() === 'en' ? en : zh; }
+  // 两种语言都放进页面，切换按钮一点就变
+  function both(zh, en) { return '<span class="zh">' + zh + '</span><span class="en">' + en + '</span>'; }
 
   function builtinRead(x) {
     if (Sk.builtinFiles === undefined || Sk.builtinFiles.files[x] === undefined) {
@@ -31,50 +40,64 @@
     return e;
   }
 
-  // 把 Python 的报错翻译成小朋友看得懂的话
+  // 把 Python 的报错翻译成小朋友看得懂的话：返回 [中文, English]
   function explain(type, msg, lineText) {
     var m;
+    var isSyntax = type === 'SyntaxError' || type === 'ParseError' || type === 'TokenError';
+    // 引号里的字不算（比如 print("你好！") 里的「！」没问题）
+    var codePart = (lineText || '').replace(/"[^"]*"|'[^']*'/g, '');
     if (type === 'NameError' && (m = /name '(_+)' is not defined/.exec(msg))) {
-      return '这里有个 <b>' + esc(m[1]) + '</b> 空格还没填哦！把它换成你想好的数字（或颜色）。';
+      return ['这里有个 <b>' + esc(m[1]) + '</b> 空格还没填哦！把它换成你想好的数字（或颜色）。',
+        'There is a blank <b>' + esc(m[1]) + '</b> to fill in! Replace it with a number (or a colour).'];
     }
     if (type === 'NameError' && (m = /name '(.+?)' is not defined/.exec(msg))) {
-      return '电脑不认识「<b>' + esc(m[1]) + '</b>」这个名字。检查一下：<br>① 拼写对吗？② 大小写对吗？（<code>Turtle</code> 和 <code>turtle</code> 不一样）<br>③ 如果是文字，记得用引号包起来，比如 <code>"red"</code>。';
+      return ['电脑不认识「<b>' + esc(m[1]) + '</b>」这个名字。检查一下：<br>① 拼写对吗？② 大小写对吗？（<code>Turtle</code> 和 <code>turtle</code> 不一样）<br>③ 如果是文字，记得用引号包起来，比如 <code>"red"</code>。',
+        'The computer doesn\'t know the name "<b>' + esc(m[1]) + '</b>". Check:<br>① Is it spelled right? ② Are the capital letters right? (<code>Turtle</code> and <code>turtle</code> are different)<br>③ If it\'s a word like a colour, put it in quotes, like <code>"red"</code>.'];
     }
-    if (/[（）：，“”‘’；。！]/.test(lineText || '') && (type === 'SyntaxError' || type === 'ParseError' || type === 'TokenError')) {
-      var ch = (lineText.match(/[（）：，“”‘’；。！]/) || [''])[0];
-      return '这一行有<b>中文符号「' + esc(ch) + '」</b>！写代码要用英文符号 <code>( ) : , "</code>。<br>把输入法切换成英文，再把这个符号重新打一次。';
+    if (isSyntax && /[（）：，“”‘’；。！]/.test(codePart)) {
+      var ch = codePart.match(/[（）：，“”‘’；。！]/)[0];
+      return ['这一行有<b>中文符号「' + esc(ch) + '」</b>！写代码要用英文符号 <code>( ) : , "</code>。<br>把输入法切换成英文，再把这个符号重新打一次。',
+        'This line has a <b>Chinese symbol "' + esc(ch) + '"</b>! Code needs English symbols <code>( ) : , "</code>.<br>Switch your keyboard to English and type it again.'];
     }
     if (type === 'IndentationError') {
-      return '这一行前面的<b>空格（缩进）</b>不对。普通的代码要顶格写，前面不要有空格；<code>for</code> 下面的代码前面要有一样多的空格。';
+      return ['这一行前面的<b>空格（缩进）</b>不对。普通的代码要顶格写，前面不要有空格；<code>for</code> 下面的代码前面要有一样多的空格。',
+        'The <b>spaces at the start</b> of this line (indentation) are wrong. Normal lines start right at the edge; lines inside a <code>for</code> need the same number of spaces.'];
     }
-    if (type === 'SyntaxError' || type === 'ParseError' || type === 'TokenError') {
-      return '电脑<b>看不懂这一行的写法</b>。检查：括号 <code>( )</code> 是不是成对？引号 <code>" "</code> 是不是成对？<br>小秘密：错误有时候其实在<b>上一行</b>（比如上一行少了一个括号）。';
+    if (isSyntax) {
+      return ['电脑<b>看不懂这一行的写法</b>。检查：括号 <code>( )</code> 是不是成对？引号 <code>" "</code> 是不是成对？<br>小秘密：错误有时候其实在<b>上一行</b>（比如上一行少了一个括号）。',
+        'The computer <b>can\'t read how this line is written</b>. Check: do the brackets <code>( )</code> come in pairs? Do the quotes <code>" "</code> come in pairs?<br>Secret tip: sometimes the mistake is really on the <b>line above</b>.'];
     }
     if (type === 'AttributeError' && (m = /has no attribute '(.+?)'/.exec(msg))) {
-      return '海龟不认识「<b>' + esc(m[1]) + '</b>」这个指令。是不是拼错了？对照一下指令卡片。';
+      return ['海龟不认识「<b>' + esc(m[1]) + '</b>」这个指令。是不是拼错了？对照一下指令卡片。',
+        'The turtle doesn\'t know the command "<b>' + esc(m[1]) + '</b>". Is it spelled wrong? Check the command cards.'];
     }
     if (type === 'TypeError' && /missing|takes|argument/.test(msg)) {
-      return '括号里放的东西<b>太多或太少</b>了。比如 <code>forward()</code> 括号里要放一个数字：<code>forward(100)</code>。';
+      return ['括号里放的东西<b>太多或太少</b>了。比如 <code>forward()</code> 括号里要放一个数字：<code>forward(100)</code>。',
+        'There are <b>too many or too few</b> things inside the brackets. For example, <code>forward()</code> needs one number: <code>forward(100)</code>.'];
     }
     if (type === 'TypeError') {
-      return '<b>东西的种类</b>搞混了。比如 <code>forward()</code> 里要放数字，<code>color()</code> 里要放带引号的颜色名 <code>"red"</code>。';
+      return ['<b>东西的种类</b>搞混了。比如 <code>forward()</code> 里要放数字，<code>color()</code> 里要放带引号的颜色名 <code>"red"</code>。',
+        'Something is the <b>wrong kind</b>. For example, <code>forward()</code> needs a number and <code>color()</code> needs a colour name in quotes, like <code>"red"</code>.'];
     }
     if (type === 'ImportError' || type === 'ModuleNotFoundError') {
-      return '网页画板只认识 <code>turtle</code>、<code>random</code>、<code>math</code>、<code>time</code> 这几个工具箱。电脑上装的 Python 认识的更多。';
+      return ['网页画板只认识 <code>turtle</code>、<code>random</code>、<code>math</code>、<code>time</code> 这几个工具箱。电脑上装的 Python 认识的更多。',
+        'This web playground only knows the <code>turtle</code>, <code>random</code>, <code>math</code> and <code>time</code> toolboxes. Python on a computer knows many more.'];
     }
     if (/color/i.test(msg)) {
-      return '海龟<b>不认识这个颜色</b>。颜色名要用英文、加引号，比如 <code>"red"</code>、<code>"gold"</code>。';
+      return ['海龟<b>不认识这个颜色</b>。颜色名要用英文、加引号，比如 <code>"red"</code>、<code>"gold"</code>。',
+        'The turtle <b>doesn\'t know this colour</b>. Use an English colour name in quotes, like <code>"red"</code> or <code>"gold"</code>.'];
     }
-    if (type === 'ZeroDivisionError') return '不能<b>除以 0</b>，数学老师也不允许 😄';
-    if (type === 'TimeLimitError') return '程序运行<b>太久</b>了，是不是有个停不下来的循环？';
-    if (type === 'ValueError') return '这个<b>值</b>不对，比如本来要数字，却给了文字。';
-    return '出错啦！别担心——<b>报错是电脑在给你线索</b>。看看是第几行，再读一读英文提示。';
+    if (type === 'ZeroDivisionError') return ['不能<b>除以 0</b>，数学老师也不允许 😄', 'You can\'t <b>divide by 0</b> — your maths teacher wouldn\'t allow it either 😄'];
+    if (type === 'ValueError') return ['这个<b>值</b>不对，比如本来要数字，却给了文字。', 'This <b>value</b> is wrong — for example, it wanted a number but got words.'];
+    return ['出错啦！别担心——<b>报错是电脑在给你线索</b>。看看是第几行，再读一读英文提示。',
+      'Oops! Don\'t worry — <b>an error is the computer giving you a clue</b>. Look at the line number and read the message.'];
   }
 
   function Playground(root) {
     this.root = root;
     this.src = root.getAttribute('data-src');
     this.title = root.getAttribute('data-title') || '🐢 代码画板';
+    this.titleEn = root.getAttribute('data-title-en') || (root.getAttribute('data-title') ? this.title : '🐢 Code Playground');
     this.hasCanvas = root.getAttribute('data-canvas') !== 'no';
     this.saveName = root.getAttribute('data-save') || 'my-drawing';
     this.draftKey = root.getAttribute('data-draft') ? 'kc-draft-' + root.getAttribute('data-draft') : null;
@@ -92,19 +115,16 @@
     r.classList.add('pg');
 
     var head = el('div', 'pg-head');
-    head.appendChild(el('span', 'pg-title', esc(this.title)));
-    this.btnRun = el('button', 'pg-btn run', '▶ 运行');
-    this.btnReset = el('button', 'pg-btn', '↺ 还原');
-    this.btnCopy = el('button', 'pg-btn', '📋 复制');
-    this.btnDown = el('button', 'pg-btn', '⬇ 下载');
-    this.btnSave = el('button', 'pg-btn', '📤 存到作品墙');
-    this.btnRun.title = '快捷键：Ctrl + Enter';
-    this.btnReset.title = '回到最开始的代码';
-    this.btnCopy.title = '复制代码（可以粘贴给 AI 问问题）';
-    this.btnDown.title = '下载成 .py 文件，在电脑上的 Python 里运行';
-    this.btnSave.title = '打开 GitHub，把这段代码存进 my-work 文件夹';
+    head.appendChild(el('span', 'pg-title', both(esc(this.title), esc(this.titleEn))));
+    this.btnRun = el('button', 'pg-btn run');
+    this.btnReset = el('button', 'pg-btn', both('↺ 还原', '↺ Reset'));
+    this.btnCopy = el('button', 'pg-btn', both('📋 复制', '📋 Copy'));
+    this.btnDown = el('button', 'pg-btn', both('⬇ 下载', '⬇ Download'));
+    this.btnSave = el('button', 'pg-btn', both('📤 存到作品墙', '📤 Save to Gallery'));
+    this.btnRun.title = 'Ctrl + Enter';
     [this.btnRun, this.btnReset, this.btnCopy, this.btnDown, this.btnSave].forEach(function (b) { head.appendChild(b); });
     r.appendChild(head);
+    this.setRunning(false);
 
     var main = el('div', 'pg-main' + (this.hasCanvas ? '' : ' no-canvas'));
     var ed = el('div', 'pg-editor');
@@ -117,7 +137,7 @@
     var stage = el('div', 'pg-stage');
     if (this.hasCanvas) {
       this.canvasEl = el('div', 'pg-canvas');
-      this.canvasEl.appendChild(el('div', 'pg-empty', '<span>点 <b>▶ 运行</b>，海龟会在这里画画 🐢</span>'));
+      this.canvasEl.appendChild(el('div', 'pg-empty', both('点 <b>▶ 运行</b>，海龟会在这里画画 🐢', 'Click <b>▶ Run</b> and the turtle will draw here 🐢')));
       stage.appendChild(this.canvasEl);
     }
     this.out = el('pre', 'pg-out');
@@ -127,8 +147,10 @@
 
     this.errBox = el('div', 'pg-err');
     this.okBox = el('div', 'pg-ok');
+    this.saveBox = el('div', 'pg-save');
     r.appendChild(this.errBox);
     r.appendChild(this.okBox);
+    r.appendChild(this.saveBox);
 
     if (window.CodeMirror) {
       this.cm = CodeMirror.fromTextArea(ta, {
@@ -148,7 +170,7 @@
 
     this.btnRun.onclick = function () { self.running ? self.stop() : self.run(); };
     this.btnReset.onclick = function () {
-      if (self.getCode() === self.initial || confirm('要回到最开始的代码吗？你改的地方会消失哦。')) self.setCode(self.initial);
+      if (self.getCode() === self.initial || confirm(T('要回到最开始的代码吗？你改的地方会消失哦。', 'Go back to the starting code? Your changes will be lost.'))) self.setCode(self.initial);
     };
     this.btnCopy.onclick = function () { self.copy(self.getCode(), self.btnCopy); };
     this.btnDown.onclick = function () { self.download(); };
@@ -167,7 +189,7 @@
       self.initial = text;
       self.setCode(draft || text);
     }).catch(function () {
-      self.setCode('# 😢 没找到代码文件：' + self.src + '\n');
+      self.setCode('# 😢 ' + T('没找到代码文件：', 'Code file not found: ') + self.src + '\n');
     });
   };
 
@@ -184,7 +206,7 @@
 
   Playground.prototype.setRunning = function (on) {
     this.running = on;
-    this.btnRun.textContent = on ? '■ 停下' : '▶ 运行';
+    this.btnRun.innerHTML = on ? both('■ 停下', '■ Stop') : both('▶ 运行', '▶ Run');
     this.btnRun.className = 'pg-btn ' + (on ? 'stop' : 'run');
   };
 
@@ -192,12 +214,12 @@
     this.runId++;
     if (window.Sk && Sk.TurtleGraphics && Sk.TurtleGraphics.stop) { try { Sk.TurtleGraphics.stop(); } catch (e) {} }
     this.setRunning(false);
-    this.out.textContent += '\n⏹ 停下了。\n';
+    this.out.textContent += T('\n⏹ 停下了。\n', '\n⏹ Stopped.\n');
   };
 
   Playground.prototype.run = function () {
     var self = this;
-    if (!window.Sk) { alert('Python 还在加载，等几秒再试试～'); return; }
+    if (!window.Sk) { alert(T('Python 还在加载，等几秒再试试～', 'Python is still loading — try again in a few seconds.')); return; }
     if (active && active !== self && active.running) active.stop();
     active = self;
     var myRun = ++this.runId;
@@ -209,6 +231,7 @@
     this.out.textContent = '';
     this.errBox.className = 'pg-err';
     this.okBox.className = 'pg-ok';
+    this.saveBox.className = 'pg-save';
     this.setRunning(true);
 
     if (Sk.TurtleGraphics && Sk.TurtleGraphics.stop) { try { Sk.TurtleGraphics.stop(); } catch (e) {} }
@@ -231,16 +254,18 @@
       inputfun: function (prompt) {
         return new Promise(function (resolve) {
           setTimeout(function () {
-            var v = window.prompt(prompt || '请输入：', '');
+            var v = window.prompt(prompt || T('请输入：', 'Type your answer:'), '');
             v = v === null ? '' : v;
             self.out.textContent += (prompt || '') + v + '\n';
             resolve(v);
           }, 30);
         });
       },
+      // 不限时间（慢慢画的大图也不会被打断）；每 100 毫秒让一下浏览器，死循环时「停下」按钮也能点
+      execLimit: null,
+      yieldLimit: 100,
       killableWhile: true,
-      killableFor: true,
-      execLimit: 60000
+      killableFor: true
     });
 
     Sk.misceval.asyncToPromise(function () {
@@ -250,9 +275,10 @@
     }).then(function () {
       if (myRun !== self.runId) return;
       self.setRunning(false);
-      self.okBox.innerHTML = '✅ 运行成功！' + PRAISE[Math.floor(Math.random() * PRAISE.length)];
+      var p = PRAISE[Math.floor(Math.random() * PRAISE.length)];
+      self.okBox.innerHTML = both('✅ 运行成功！' + p[0], '✅ It worked! ' + p[1]);
       self.okBox.className = 'pg-ok show';
-      document.dispatchEvent(new CustomEvent('kc-run-ok', { detail: { title: self.title } }));
+      document.dispatchEvent(new CustomEvent('kc-run-ok'));
     }, function (err) {
       if (myRun !== self.runId) return;
       if (err && err.message === '__kc_stopped__') return;
@@ -279,24 +305,32 @@
       this.cm.scrollIntoView({ line: this.markLine, ch: 0 }, 80);
     }
 
-    var html = '<b>🐞 第 ' + (line || '?') + ' 行出了个小问题</b><br>' + explain(type, msg, lineText) +
-      '<span class="raw">电脑的原话：' + esc(raw) + '</span>' +
-      '<div style="margin-top:10px;font-size:.9rem">🛟 卡住了？① 看第 ' + (line || '?') + ' 行 → ② 翻笔记本 → ③ <button class="pg-btn kc-ask">📋 复制「问 AI 要提示」的话</button> → ④ 问老师</div>';
-    this.errBox.innerHTML = html;
+    var L = line || '?';
+    var ex = explain(type, msg, lineText);
+    this.errBox.innerHTML =
+      '<b>' + both('🐞 第 ' + L + ' 行出了个小问题', '🐞 Small problem on line ' + L) + '</b><br>' + both(ex[0], ex[1]) +
+      '<span class="raw">' + both('电脑的原话：', 'What the computer said: ') + esc(raw) + '</span>' +
+      '<div style="margin-top:10px;font-size:.9rem">' +
+      both('🛟 卡住了？① 看第 ' + L + ' 行 → ② 翻笔记本 → ③ ', '🛟 Stuck? ① Look at line ' + L + ' → ② Check your notebook → ③ ') +
+      '<button class="pg-btn kc-ask">' + both('📋 复制「问 AI 要提示」的话', '📋 Copy a "hint please" message for AI') + '</button>' +
+      both(' → ④ 问老师', ' → ④ Ask your teacher') + '</div>';
     this.errBox.className = 'pg-err show';
     this.errBox.querySelector('.kc-ask').onclick = function () {
-      var ask = '我在学 Python turtle，我是小学生。\n我想让程序：___（写下你想让它做什么）\n但是运行时报错了：\n' + raw +
-        '\n\n我的代码是：\n```python\n' + code + '\n```\n请给我一个提示，告诉我去看哪里，不要直接给我改好的答案。';
+      var ask = T(
+        '我在学 Python turtle，我是小学生。\n我想让程序：___（写下你想让它做什么）\n但是运行时报错了：\n' + raw + '\n\n我的代码是：\n```python\n' + code + '\n```\n请给我一个提示，告诉我去看哪里，不要直接给我改好的答案。',
+        'I\'m a primary school student learning Python turtle.\nI want my program to: ___ (write what you want it to do)\nBut I got this error:\n' + raw + '\n\nMy code:\n```python\n' + code + '\n```\nPlease give me a hint about where to look. Don\'t give me the fixed code.'
+      );
       self.copy(ask, this);
     };
   };
 
   Playground.prototype.copy = function (text, btn) {
-    var done = function () { var t = btn.textContent; btn.textContent = '✅ 复制好了'; setTimeout(function () { btn.textContent = t; }, 1500); };
+    var old = btn.innerHTML;
+    var done = function () { btn.innerHTML = both('✅ 复制好了', '✅ Copied'); setTimeout(function () { btn.innerHTML = old; }, 1500); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { window.prompt('复制下面的文字：', text); });
+      navigator.clipboard.writeText(text).then(done, function () { window.prompt(T('复制下面的文字：', 'Copy this text:'), text); });
     } else {
-      window.prompt('复制下面的文字：', text);
+      window.prompt(T('复制下面的文字：', 'Copy this text:'), text);
     }
   };
 
@@ -311,16 +345,22 @@
     setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
   };
 
+  // 不自动弹新窗口（容易被浏览器拦截），而是给出一个让孩子自己点的按钮
   Playground.prototype.saveToGitHub = function () {
     var cfg = window.KC || {};
-    var name = window.prompt('给作品起个英文文件名（字母、数字、- 都可以）：\n比如 rainbow-star、week01-homework', this.saveName);
+    var name = window.prompt(T('给作品起个英文文件名（字母、数字、- 都可以）：\n比如 rainbow-star、week01-homework',
+      'Give your work a file name (letters, numbers and - are OK):\ne.g. rainbow-star, week01-homework'), this.saveName);
     if (!name) return;
     name = name.trim().toLowerCase().replace(/\.py$/, '').replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'my-drawing';
     var url = 'https://github.com/' + cfg.repo + '/new/' + cfg.branch + '/my-work' +
       '?filename=' + encodeURIComponent(name + '.py') +
       '&value=' + encodeURIComponent(this.getCode());
-    alert('马上打开 GitHub 👉\n\n1. 检查文件名是 ' + name + '.py\n2. 点右上角绿色的「Commit changes...」\n3. 再点一次「Commit changes」\n\n1~2 分钟后，作品墙上就会出现你的作品！\n（如果说名字已经存在，就换一个名字）');
-    window.open(url, '_blank', 'noopener');
+    this.saveBox.innerHTML =
+      both('<b>📤 准备好了！</b>点下面的按钮打开 GitHub：', '<b>📤 Ready!</b> Click the button to open GitHub:') + '<br>' +
+      '<a class="go" target="_blank" rel="noopener" href="' + esc(url) + '">' + both('打开 GitHub，保存 ' + esc(name) + '.py', 'Open GitHub to save ' + esc(name) + '.py') + '</a><br>' +
+      both('然后：点右上角绿色的 <b>Commit changes...</b> → 再点一次 <b>Commit changes</b>。1～2 分钟后作品墙上就会出现！<br><span class="muted">（如果提示名字已存在，就换一个名字再存）</span>',
+        'Then click the green <b>Commit changes...</b> button → click <b>Commit changes</b> again. Your work shows up in the Gallery in 1–2 minutes!<br><span class="muted">(If it says the name already exists, pick a different name.)</span>');
+    this.saveBox.className = 'pg-save show';
   };
 
   function init() {

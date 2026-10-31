@@ -1,9 +1,9 @@
 {% assign cur = site.current_lesson %}
-{% assign stages = "1|🔥 第一阶段：点燃兴趣，打好基础,2|🤝 第二阶段：组合与合作,3|🚀 第三阶段：独立与创造" | split: "," %}
+{% assign stages = "1|🔥 第一阶段：点燃兴趣，打好基础|🔥 Stage 1: Spark and basics,2|🤝 第二阶段：组合与合作|🤝 Stage 2: Combine and build,3|🚀 第三阶段：独立与创造|🚀 Stage 3: Create on your own" | split: "," %}
 {% for s in stages %}
   {% assign parts = s | split: "|" %}
   {% assign sn = parts[0] | plus: 0 %}
-  <div class="stage-label">{{ parts[1] }}</div>
+  <div class="stage-label"><span class="zh">{{ parts[1] }}</span><span class="en">{{ parts[2] }}</span></div>
   <div class="map">
   {% for l in site.data.lessons %}{% if l.stage == sn %}
     {% capture slug %}{% if l.n < 10 %}0{% endif %}{{ l.n }}{% endcapture %}
@@ -11,12 +11,12 @@
     {% if l.ready %}
     <a class="{{ cls }}" href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}">
     {% else %}
-    <div class="{{ cls }}" title="还没开放，敬请期待！">
+    <div class="{{ cls }}">
     {% endif %}
       <span class="ico">{% if l.ready %}{{ l.icon }}{% else %}🔒{% endif %}</span>
-      <span class="num">第 {{ l.n }} 关</span>
-      <span class="t">{{ l.title }}</span>
-      <span class="make">🎁 {{ l.make }}</span>
+      <span class="num"><span class="zh">第 {{ l.n }} 关</span><span class="en">Level {{ l.n }}</span></span>
+      <span class="t"><span class="zh">{{ l.title }}</span><span class="en">{{ l.title_en }}</span></span>
+      <span class="make">🎁 <span class="zh">{{ l.make }}</span><span class="en">{{ l.make_en }}</span></span>
     {% if l.ready %}</a>{% else %}</div>{% endif %}
   {% endif %}{% endfor %}
   </div>

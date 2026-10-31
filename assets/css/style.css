@@ -310,14 +310,6 @@ tr:last-child td { border-bottom: 0; }
 .recipe .result { margin-top: 14px; background: var(--code-bg); border: 2px dashed var(--brand); border-radius: 14px; padding: 12px 14px; white-space: pre-wrap; font-size: .95rem; }
 .recipe .score { font-weight: 700; margin-top: 8px; }
 
-/* 角度实验室 */
-.lab { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: center; background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 16px; }
-.lab canvas { width: 100%; height: auto; background: #fff; border-radius: 12px; border: 2px solid var(--line); }
-.lab label { display: block; font-weight: 700; margin-top: 8px; }
-.lab input[type=range] { width: 100%; accent-color: var(--brand); }
-.lab .readout { font-family: "JetBrains Mono", monospace; background: var(--code-bg); border-radius: 10px; padding: 8px 12px; margin-top: 10px; font-size: .95rem; }
-@media (max-width: 640px) { .lab { grid-template-columns: 1fr; } }
-
 /* 作品墙 */
 .gallery-item h3 { margin-top: 0; }
 
@@ -332,3 +324,17 @@ tr:last-child td { border-bottom: 0; }
 .level .medal { font-size: 2.4rem; text-align: center; line-height: 1.2; }
 .level h3 { margin: 0 0 .2em; }
 .level p, .level ul { margin: .3em 0; }
+
+/* ===== 中英切换 ===== */
+html:not([data-lang="en"]) .en { display: none !important; }
+html[data-lang="en"] .zh { display: none !important; }
+.lang-btn { border: 2px solid var(--brand); background: var(--card); color: var(--brand); border-radius: 999px; height: 38px; padding: 0 12px; font: 800 .9rem -apple-system, sans-serif; cursor: pointer; }
+.lang-btn:hover { background: var(--brand); color: #fff; }
+html[data-lang="en"] .pg-out:empty::before { content: "(text from print shows up here)"; }
+.quiz button.right::before { content: "✅ "; }
+.quiz button.wrong::before { content: "❌ "; }
+.pg-save { display: none; padding: 12px 16px; background: var(--blue); color: var(--blue-ink); border-top: 2px solid var(--line); }
+.pg-save.show { display: block; }
+.pg-save a.go { display: inline-block; margin: 6px 0; background: #1f883d; color: #fff; text-decoration: none; padding: 6px 16px; border-radius: 10px; }
+html[data-lang="en"] .quiz .q::before { content: "🤔 Guess first: "; }
+html[data-lang="en"] .stop.now::after { content: "This week ⭐"; }

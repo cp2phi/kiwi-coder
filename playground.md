@@ -1,14 +1,15 @@
 ---
 title: 自由画板
+title_en: Playground
 playground: true
 ---
 
-# 🧪 自由画板
+# 🧪 <span class="zh">自由画板</span><span class="en">Playground</span>
 
-想试什么就试什么！代码会<b>自动记在这台电脑上</b>。做出满意的作品，就点 <b>📤 存到作品墙</b>。
+<p><span class="zh">想试什么就试什么！代码会<b>自动记在这台电脑上</b>。做出满意的作品，就点 <b>📤 存到作品墙</b>。</span><span class="en">Try anything you like! Your code is <b>saved on this computer automatically</b>. Made something you love? Click <b>📤 Save to Gallery</b>.</span></p>
 
-<div class="playground" data-title="🧪 自由画板" data-save="my-drawing" data-draft="free">
-<textarea># 🎨 我的新作品
+<div class="playground" data-title="🧪 自由画板" data-title-en="🧪 Playground" data-save="my-drawing" data-draft="free">
+<textarea># 🎨 我的新作品 My new drawing
 import turtle
 
 t = turtle.Turtle()
@@ -19,18 +20,18 @@ t.forward(100)
 </div>
 
 <div class="cmds">
-  <div class="cmd"><code>t.forward(100)</code><span>往前走</span></div>
-  <div class="cmd"><code>t.left(90)</code> / <code>t.right(90)</code><span>左转 / 右转</span></div>
-  <div class="cmd"><code>t.color("red")</code><span>笔的颜色</span></div>
-  <div class="cmd"><code>t.pensize(5)</code><span>笔的粗细</span></div>
-  <div class="cmd"><code>t.speed(0)</code><span>最快速度</span></div>
-  <div class="cmd"><code>turtle.bgcolor("black")</code><span>背景颜色</span></div>
-  <div class="cmd"><code>t.penup()</code> / <code>t.pendown()</code><span>抬笔 / 落笔</span></div>
-  <div class="cmd"><code>t.goto(x, y)</code><span>走到某个位置</span></div>
-  <div class="cmd"><code>t.circle(50)</code><span>画圆</span></div>
-  <div class="cmd"><code>t.begin_fill()</code> … <code>t.end_fill()</code><span>涂满颜色</span></div>
+  <div class="cmd"><code>t.forward(100)</code><span><span class="zh">往前走</span><span class="en">Move forward</span></span></div>
+  <div class="cmd"><code>t.left(90)</code> / <code>t.right(90)</code><span><span class="zh">左转 / 右转</span><span class="en">Turn left / right</span></span></div>
+  <div class="cmd"><code>t.color("red")</code><span><span class="zh">笔的颜色</span><span class="en">Pen colour</span></span></div>
+  <div class="cmd"><code>t.pensize(5)</code><span><span class="zh">笔的粗细</span><span class="en">Pen thickness</span></span></div>
+  <div class="cmd"><code>t.speed(0)</code><span><span class="zh">最快速度</span><span class="en">Fastest speed</span></span></div>
+  <div class="cmd"><code>turtle.bgcolor("black")</code><span><span class="zh">背景颜色</span><span class="en">Background colour</span></span></div>
+  <div class="cmd"><code>t.penup()</code> / <code>t.pendown()</code><span><span class="zh">抬笔 / 落笔</span><span class="en">Pen up / pen down</span></span></div>
+  <div class="cmd"><code>t.goto(x, y)</code><span><span class="zh">走到某个位置</span><span class="en">Go to a spot</span></span></div>
+  <div class="cmd"><code>t.circle(50)</code><span><span class="zh">画圆</span><span class="en">Draw a circle</span></span></div>
+  <div class="cmd"><code>t.begin_fill()</code> … <code>t.end_fill()</code><span><span class="zh">涂满颜色</span><span class="en">Fill with colour</span></span></div>
 </div>
 
 <div class="swatches" data-colors="red orange gold yellow limegreen green turquoise deepskyblue blue navy purple violet hotpink pink brown black white gray"></div>
 
-<div class="box box-tip"><span class="box-title">💻 想在电脑上运行？</span>点 <b>⬇ 下载</b> 得到 <code>.py</code> 文件，用 <b>Thonny</b> 或 <b>VS Code</b> 打开运行。电脑上的 Python 能做的事情比网页更多！</div>
+<div class="box box-tip"><span class="zh">💻 <b>想在电脑上运行？</b>点 <b>⬇ 下载</b> 得到 <code>.py</code> 文件，用 <b>Thonny</b> 或 <b>VS Code</b> 打开运行。</span><span class="en">💻 <b>Want to run it on your computer?</b> Click <b>⬇ Download</b> to get a <code>.py</code> file and open it in <b>Thonny</b> or <b>VS Code</b>.</span></div>

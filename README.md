@@ -56,6 +56,16 @@ assets/              样式和脚本（playground.js = 网页里运行 Python �
 1. 孩子把作业存为 `my-work/weekNN-homework.py`，作业页会自动显示「✅ 已交」。
 2. 在 `feedback.md` 最上面写反馈（文件底部的注释里有模板）。
 
+### 中英双语
+
+网站右上角的 **EN / 中文** 按钮会切换全站语言（浏览器会记住选择）。写新教材时：
+
+- 行内文字：`<span class="zh">中文</span><span class="en">English</span>`
+- 整段：`<p class="zh">…</p><p class="en">…</p>`
+- 页面开头加 `title_en: 英文标题`；`_data/lessons.yml` 里每课填 `title_en` / `learn_en` / `make_en`
+- 画板加 `data-title-en="English title"`；输入框提示用 `data-ph-zh="…" data-ph-en="…"`
+- 孩子要自己改的文件（笔记本、反馈）直接写「中文 / English」，不用标签，方便编辑
+
 ### 在网页上写画板
 
 在任何 `.md` 页面里（页面开头要有 `playground: true`）：

@@ -12,7 +12,10 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <style>:root{ --brand: {{ site.data.me.favorite_color | default: '#16a34a' }}; }</style>
   <script>
-    try { var t = localStorage.getItem('kc-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    try {
+      var t = localStorage.getItem('kc-theme'); if (t) document.documentElement.setAttribute('data-theme', t);
+      if (localStorage.getItem('kc-lang') === 'en') { document.documentElement.setAttribute('data-lang', 'en'); document.documentElement.lang = 'en'; }
+    } catch (e) {}
   </script>
 </head>
 <body>
@@ -21,16 +24,16 @@
       <span class="brand-avatar">{{ site.data.me.avatar | default: '🐢' }}</span>
       <span class="brand-text">Kiwi Coder</span>
     </a>
-    <button class="nav-toggle" aria-label="菜单" onclick="document.body.classList.toggle('nav-open')">☰</button>
+    <button class="lang-btn" onclick="kcToggleLang()" title="中文 / English"><span class="zh">EN</span><span class="en">中文</span></button>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.body.classList.toggle('nav-open')">☰</button>
     <nav class="nav">
-      {% assign cur = site.current_lesson %}
-      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>🏠 首页</a>
-      <a href="{{ '/lessons/' | relative_url }}" {% if page.url contains '/lessons/' %}class="active"{% endif %}>🗺️ 课程</a>
-      <a href="{{ '/gallery/' | relative_url }}" {% if page.url contains '/gallery/' %}class="active"{% endif %}>🎨 作品墙</a>
-      <a href="{{ '/notebook/' | relative_url }}" {% if page.url contains '/notebook/' %}class="active"{% endif %}>📓 笔记本</a>
-      <a href="{{ '/playground/' | relative_url }}" {% if page.url contains '/playground/' %}class="active"{% endif %}>🧪 画板</a>
-      <a href="{{ '/ai-rules/' | relative_url }}" {% if page.url contains '/ai-rules/' %}class="active"{% endif %}>🤖 AI 守则</a>
-      <button class="theme-btn" aria-label="切换白天/黑夜" onclick="kcToggleTheme()">🌙</button>
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>🏠 <span class="zh">首页</span><span class="en">Home</span></a>
+      <a href="{{ '/lessons/' | relative_url }}" {% if page.url contains '/lessons/' %}class="active"{% endif %}>🗺️ <span class="zh">课程</span><span class="en">Lessons</span></a>
+      <a href="{{ '/gallery/' | relative_url }}" {% if page.url contains '/gallery/' %}class="active"{% endif %}>🎨 <span class="zh">作品墙</span><span class="en">Gallery</span></a>
+      <a href="{{ '/notebook/' | relative_url }}" {% if page.url contains '/notebook/' %}class="active"{% endif %}>📓 <span class="zh">笔记本</span><span class="en">Notebook</span></a>
+      <a href="{{ '/playground/' | relative_url }}" {% if page.url contains '/playground/' %}class="active"{% endif %}>🧪 <span class="zh">画板</span><span class="en">Playground</span></a>
+      <a href="{{ '/ai-rules/' | relative_url }}" {% if page.url contains '/ai-rules/' %}class="active"{% endif %}>🤖 <span class="zh">AI 守则</span><span class="en">AI Rules</span></a>
+      <button class="theme-btn" aria-label="Dark / light" onclick="kcToggleTheme()">🌙</button>
     </nav>
   </header>
 
@@ -38,19 +41,19 @@
     {% if page.lesson %}
     <div class="lesson-tabs">
       {% assign base = '/lessons/' | append: page.lesson | append: '/' %}
-      <a href="{{ base | relative_url }}" {% if page.tab == 'home' %}class="active"{% endif %}>🎯 今日任务</a>
+      <a href="{{ base | relative_url }}" {% if page.tab == 'home' %}class="active"{% endif %}>🎯 <span class="zh">今日任务</span><span class="en">Today</span></a>
       <a href="{{ base | append: 'github/' | relative_url }}" {% if page.tab == 'github' %}class="active"{% endif %}>🐙 GitHub</a>
       <a href="{{ base | append: 'codex/' | relative_url }}" {% if page.tab == 'codex' %}class="active"{% endif %}>🤖 Codex</a>
       <a href="{{ base | append: 'python/' | relative_url }}" {% if page.tab == 'python' %}class="active"{% endif %}>🐍 Python</a>
-      <a href="{{ base | append: 'homework/' | relative_url }}" {% if page.tab == 'homework' %}class="active"{% endif %}>🏠 作业</a>
+      <a href="{{ base | append: 'homework/' | relative_url }}" {% if page.tab == 'homework' %}class="active"{% endif %}>🏠 <span class="zh">作业</span><span class="en">Homework</span></a>
     </div>
     {% endif %}
 
     {{ content }}
 
     <footer class="page-foot">
-      <a class="edit-link" href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/{{ page.path }}" target="_blank" rel="noopener">✏️ 在 GitHub 上改这一页</a>
-      <span class="muted">Kiwi Coder · 一起学 AI 和 Python</span>
+      <a class="edit-link" href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/{{ page.path }}" target="_blank" rel="noopener">✏️ <span class="zh">在 GitHub 上改这一页</span><span class="en">Edit this page on GitHub</span></a>
+      <span class="muted">Kiwi Coder · <span class="zh">一起学 AI 和 Python</span><span class="en">Learning AI and Python</span></span>
     </footer>
   </main>
 
@@ -59,7 +62,11 @@
     window.KC = {
       repo: "{{ site.github_repo }}",
       branch: "{{ site.github_branch }}",
-      base: "{{ site.baseurl }}"
+      base: "{{ site.baseurl }}",
+      titles: { zh: {{ page.title | default: '' | append: ' · ' | append: site.title | jsonify }}, en: {{ page.title_en | default: page.title | default: '' | append: ' · ' | append: site.title | jsonify }} },
+      lang: function () { return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh'; },
+      // 按当前语言选文字：KC.t('中文', 'English')
+      t: function (zh, en) { return this.lang() === 'en' ? en : zh; }
     };
     function kcToggleTheme() {
       var root = document.documentElement;
@@ -69,6 +76,21 @@
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('kc-theme', next); } catch (e) {}
     }
+    function kcApplyLang(lang) {
+      var root = document.documentElement;
+      if (lang === 'en') root.setAttribute('data-lang', 'en'); else root.removeAttribute('data-lang');
+      root.lang = lang === 'en' ? 'en' : 'zh-CN';
+      document.title = KC.titles[lang];
+      // <input data-ph-zh="…" data-ph-en="…">：输入框里的灰色提示字
+      document.querySelectorAll('[data-ph-zh]').forEach(function (el) { el.placeholder = el.getAttribute('data-ph-' + lang); });
+      document.dispatchEvent(new CustomEvent('kc-lang', { detail: { lang: lang } }));
+    }
+    function kcToggleLang() {
+      var next = KC.lang() === 'en' ? 'zh' : 'en';
+      try { localStorage.setItem('kc-lang', next); } catch (e) {}
+      kcApplyLang(next);
+    }
+    document.addEventListener('DOMContentLoaded', function () { kcApplyLang(KC.lang()); });
   </script>
   <script src="{{ '/assets/js/fun.js' | relative_url }}"></script>
   {% if page.playground %}

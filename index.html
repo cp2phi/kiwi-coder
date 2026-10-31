@@ -1,5 +1,6 @@
 ---
 title: 首页
+title_en: Home
 ---
 {% assign me = site.data.me %}
 {% assign cur = site.current_lesson %}
@@ -7,10 +8,10 @@ title: 首页
 {% capture slug %}{% if cur < 10 %}0{% endif %}{{ cur }}{% endcapture %}
 
 <section class="hero">
-  <div class="hero-avatar" title="点我试试！">{{ me.avatar }}</div>
+  <div class="hero-avatar" title="Click me!">{{ me.avatar }}</div>
   <div>
-    <div class="muted">欢迎来到我的编程基地 👋</div>
-    <h1>我是 {{ me.nickname }}</h1>
+    <div class="muted"><span class="zh">欢迎来到我的编程基地 👋</span><span class="en">Welcome to my coding base 👋</span></div>
+    <h1><span class="zh">我是 </span><span class="en">I'm </span>{{ me.nickname }}</h1>
     <div class="motto">「{{ me.motto }}」</div>
     <div class="tags">
       {% for l in me.likes %}<span class="tag">❤️ {{ l }}</span>{% endfor %}
@@ -20,36 +21,36 @@ title: 首页
 </section>
 
 <p style="text-align:right;margin:.4em 0 0;font-size:.9rem">
-  <a href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/_data/me.yml" target="_blank" rel="noopener">✏️ 改我的名片（_data/me.yml）</a>
+  <a href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/_data/me.yml" target="_blank" rel="noopener">✏️ <span class="zh">改我的名片</span><span class="en">Edit my name card</span>（_data/me.yml）</a>
 </p>
 
-<h2>⭐ 本周任务：第 {{ cur }} 课</h2>
+<h2>⭐ <span class="zh">本周任务：第 {{ cur }} 课</span><span class="en">This week: Lesson {{ cur }}</span></h2>
 <a class="card" href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}" style="border-color:var(--brand)">
   <div class="big-emoji">{{ now.icon }}</div>
-  <h3>{{ now.title }}</h3>
-  <p class="muted" style="margin:.2em 0">学：{{ now.learn }}</p>
-  <p style="margin:.2em 0">🎁 带回家的作品：{{ now.make }}</p>
-  <span class="pill pill-brand">点我开始 →</span>
+  <h3><span class="zh">{{ now.title }}</span><span class="en">{{ now.title_en }}</span></h3>
+  <p class="muted" style="margin:.2em 0"><span class="zh">学：{{ now.learn }}</span><span class="en">Learn: {{ now.learn_en }}</span></p>
+  <p style="margin:.2em 0">🎁 <span class="zh">带回家的作品：{{ now.make }}</span><span class="en">Take home: {{ now.make_en }}</span></p>
+  <span class="pill pill-brand"><span class="zh">点我开始 →</span><span class="en">Start here →</span></span>
 </a>
 
 <div class="grid">
   <a class="card" href="{{ '/gallery/' | relative_url }}">
-    <div class="big-emoji">🎨</div><h3>作品墙</h3>
-    <p class="muted">我做出来的所有东西，点一下就能运行</p>
+    <div class="big-emoji">🎨</div><h3><span class="zh">作品墙</span><span class="en">Gallery</span></h3>
+    <p class="muted"><span class="zh">我做出来的所有东西，点一下就能运行</span><span class="en">Everything I've made — click to run it</span></p>
   </a>
   <a class="card" href="{{ '/notebook/' | relative_url }}">
-    <div class="big-emoji">📓</div><h3>工程师笔记本</h3>
-    <p class="muted">每节课 3 行：学会了 / 卡在哪 / 怎么解决</p>
+    <div class="big-emoji">📓</div><h3><span class="zh">工程师笔记本</span><span class="en">Engineer's Notebook</span></h3>
+    <p class="muted"><span class="zh">每节课 3 行：学会了 / 卡在哪 / 怎么解决</span><span class="en">3 lines each lesson: learned / stuck / fixed</span></p>
   </a>
   <a class="card" href="{{ '/feedback/' | relative_url }}">
-    <div class="big-emoji">💌</div><h3>老师的话</h3>
-    <p class="muted">每周作业的反馈和小星星</p>
+    <div class="big-emoji">💌</div><h3><span class="zh">老师的话</span><span class="en">Teacher's Notes</span></h3>
+    <p class="muted"><span class="zh">每周作业的反馈和小星星</span><span class="en">Weekly feedback and stars</span></p>
   </a>
   <a class="card" href="{{ '/playground/' | relative_url }}">
-    <div class="big-emoji">🧪</div><h3>自由画板</h3>
-    <p class="muted">随时写代码、画画、试想法</p>
+    <div class="big-emoji">🧪</div><h3><span class="zh">自由画板</span><span class="en">Playground</span></h3>
+    <p class="muted"><span class="zh">随时写代码、画画、试想法</span><span class="en">Code, draw and try ideas any time</span></p>
   </a>
 </div>
 
-<h2>🗺️ 我的 12 关冒险地图</h2>
+<h2>🗺️ <span class="zh">我的 12 关冒险地图</span><span class="en">My 12-level adventure map</span></h2>
 {% include lesson-map.html %}
