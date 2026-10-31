@@ -1,0 +1,32 @@
+# 🥝 Kiwi Coder 网站设置（一般不用改）
+title: "Kiwi Coder"
+description: "我的 AI + Python 编程冒险"
+baseurl: "/kiwi-coder"
+url: "https://cp2phi.github.io"
+
+# 用来生成「✏️ 在 GitHub 上改这一页」和「📤 存到作品墙」按钮
+github_repo: "cp2phi/kiwi-coder"
+github_branch: "main"
+
+# 老师每周改这里：现在上到第几课
+current_lesson: 1
+
+permalink: pretty
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - README.md
+  - TEACHER.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

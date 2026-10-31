@@ -1,0 +1,23 @@
+{% assign cur = site.current_lesson %}
+{% assign stages = "1|🔥 第一阶段：点燃兴趣，打好基础,2|🤝 第二阶段：组合与合作,3|🚀 第三阶段：独立与创造" | split: "," %}
+{% for s in stages %}
+  {% assign parts = s | split: "|" %}
+  {% assign sn = parts[0] | plus: 0 %}
+  <div class="stage-label">{{ parts[1] }}</div>
+  <div class="map">
+  {% for l in site.data.lessons %}{% if l.stage == sn %}
+    {% capture slug %}{% if l.n < 10 %}0{% endif %}{{ l.n }}{% endcapture %}
+    {% capture cls %}stop{% if l.n == cur %} now{% endif %}{% unless l.ready %} locked{% endunless %}{% endcapture %}
+    {% if l.ready %}
+    <a class="{{ cls }}" href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}">
+    {% else %}
+    <div class="{{ cls }}" title="还没开放，敬请期待！">
+    {% endif %}
+      <span class="ico">{% if l.ready %}{{ l.icon }}{% else %}🔒{% endif %}</span>
+      <span class="num">第 {{ l.n }} 关</span>
+      <span class="t">{{ l.title }}</span>
+      <span class="make">🎁 {{ l.make }}</span>
+    {% if l.ready %}</a>{% else %}</div>{% endif %}
+  {% endif %}{% endfor %}
+  </div>
+{% endfor %}

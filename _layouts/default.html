@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{{ site.data.me.avatar | default: '🐢' }}</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>:root{ --brand: {{ site.data.me.favorite_color | default: '#16a34a' }}; }</style>
+  <script>
+    try { var t = localStorage.getItem('kc-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-avatar">{{ site.data.me.avatar | default: '🐢' }}</span>
+      <span class="brand-text">Kiwi Coder</span>
+    </a>
+    <button class="nav-toggle" aria-label="菜单" onclick="document.body.classList.toggle('nav-open')">☰</button>
+    <nav class="nav">
+      {% assign cur = site.current_lesson %}
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>🏠 首页</a>
+      <a href="{{ '/lessons/' | relative_url }}" {% if page.url contains '/lessons/' %}class="active"{% endif %}>🗺️ 课程</a>
+      <a href="{{ '/gallery/' | relative_url }}" {% if page.url contains '/gallery/' %}class="active"{% endif %}>🎨 作品墙</a>
+      <a href="{{ '/notebook/' | relative_url }}" {% if page.url contains '/notebook/' %}class="active"{% endif %}>📓 笔记本</a>
+      <a href="{{ '/playground/' | relative_url }}" {% if page.url contains '/playground/' %}class="active"{% endif %}>🧪 画板</a>
+      <a href="{{ '/ai-rules/' | relative_url }}" {% if page.url contains '/ai-rules/' %}class="active"{% endif %}>🤖 AI 守则</a>
+      <button class="theme-btn" aria-label="切换白天/黑夜" onclick="kcToggleTheme()">🌙</button>
+    </nav>
+  </header>
+
+  <main class="page {{ page.page_class }}">
+    {% if page.lesson %}
+    <div class="lesson-tabs">
+      {% assign base = '/lessons/' | append: page.lesson | append: '/' %}
+      <a href="{{ base | relative_url }}" {% if page.tab == 'home' %}class="active"{% endif %}>🎯 今日任务</a>
+      <a href="{{ base | append: 'github/' | relative_url }}" {% if page.tab == 'github' %}class="active"{% endif %}>🐙 GitHub</a>
+      <a href="{{ base | append: 'codex/' | relative_url }}" {% if page.tab == 'codex' %}class="active"{% endif %}>🤖 Codex</a>
+      <a href="{{ base | append: 'python/' | relative_url }}" {% if page.tab == 'python' %}class="active"{% endif %}>🐍 Python</a>
+      <a href="{{ base | append: 'homework/' | relative_url }}" {% if page.tab == 'homework' %}class="active"{% endif %}>🏠 作业</a>
+    </div>
+    {% endif %}
+
+    {{ content }}
+
+    <footer class="page-foot">
+      <a class="edit-link" href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/{{ page.path }}" target="_blank" rel="noopener">✏️ 在 GitHub 上改这一页</a>
+      <span class="muted">Kiwi Coder · 一起学 AI 和 Python</span>
+    </footer>
+  </main>
+
+  <div id="confetti-layer" aria-hidden="true"></div>
+  <script>
+    window.KC = {
+      repo: "{{ site.github_repo }}",
+      branch: "{{ site.github_branch }}",
+      base: "{{ site.baseurl }}"
+    };
+    function kcToggleTheme() {
+      var root = document.documentElement;
+      var dark = root.getAttribute('data-theme') === 'dark' ||
+        (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('kc-theme', next); } catch (e) {}
+    }
+  </script>
+  <script src="{{ '/assets/js/fun.js' | relative_url }}"></script>
+  {% if page.playground %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+  <script src="{{ '/assets/js/playground.js' | relative_url }}"></script>
+  {% endif %}
+</body>
+</html>
