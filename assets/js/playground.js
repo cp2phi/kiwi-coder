@@ -6,6 +6,7 @@
  *   data-canvas    "no" = 不需要海龟画布（只用 print）
  *   data-save      「存到作品墙」时默认的文件名
  *   data-draft     填一个名字 = 自动在这台电脑上记住没写完的代码
+ *   data-images    显示「🖼️ 图片」按钮：上传图片，用 screen.addshape("dog.gif") 让海龟变成它
  */
 (function () {
   'use strict';
@@ -16,6 +17,49 @@
     ['太棒了！', 'Awesome!'], ['电脑听你的话了！', 'The computer listened to you!'], ['漂亮！', 'Beautiful!'],
     ['你真是个程序员！', 'You are a real programmer!'], ['一次就跑通！', 'Worked first time!'], ['海龟为你点赞 🐢👍', 'The turtle says nice work 🐢👍']
   ];
+
+  // 海龟的图片形状（screen.addshape("dog.gif")）
+  // IMAGES：孩子在画板上传的图（存在这台电脑上）；REPO_IMAGES：从 GitHub 的 my-work/ 读来的图（只在本次打开页面时有效）
+  var SHAPE_MAX = 80;
+  var IMAGES = {};
+  var REPO_IMAGES = {};
+  try { IMAGES = JSON.parse(localStorage.getItem('kc-images') || '{}'); } catch (e) {}
+  function saveImages() {
+    try { localStorage.setItem('kc-images', JSON.stringify(IMAGES)); return true; } catch (e) { return false; }
+  }
+  // 图片太大就缩到 max 像素以内（不缩的话海龟会变成一张巨大的图）
+  function shrink(src, max) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () {
+        var w = img.naturalWidth, h = img.naturalHeight;
+        if (w <= max && h <= max) { resolve(src); return; }
+        var k = max / Math.max(w, h);
+        var c = document.createElement('canvas');
+        c.width = Math.max(1, Math.round(w * k));
+        c.height = Math.max(1, Math.round(h * k));
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        resolve(c.toDataURL('image/png'));
+      };
+      img.onerror = reject;
+      img.src = src;
+    });
+  }
+  function shapeNames(code) {
+    var names = [], re = /(?:addshape|register_shape)\(\s*["']([^"']+)["']/g, m;
+    while ((m = re.exec(code))) names.push(m[1]);
+    return names;
+  }
+  // Skulpt 1.2.0 的 bug：addshape / register_shape 漏写了参数名，一调用就报「takes 1 positional argument」
+  // 在 turtle 模块被载入前，给它的源码补上（和 setup 等指令的写法一样）
+  function patchSkulpt() {
+    var files = Sk.builtinFiles && Sk.builtinFiles.files;
+    var src = files && files['src/lib/turtle.js'];
+    if (src && src.indexOf('$register_shape.co_varnames') < 0) {
+      files['src/lib/turtle.js'] = src.replace('e.$register_shape.minArgs=1,', 'e.$register_shape.minArgs=1,e.$register_shape.co_varnames=["name","shape"],');
+    }
+  }
+  function imageUrl(name) { return ((window.KC && KC.base) || '') + '/my-work/' + encodeURIComponent(name); }
 
   // 当前语言选一句
   function T(zh, en) { return window.KC && KC.lang() === 'en' ? en : zh; }
@@ -53,6 +97,11 @@
     if (type === 'NameError' && (m = /name '(.+?)' is not defined/.exec(msg))) {
       return ['电脑不认识「<b>' + esc(m[1]) + '</b>」这个名字。检查一下：<br>① 拼写对吗？② 大小写对吗？（<code>Turtle</code> 和 <code>turtle</code> 不一样）<br>③ 如果是文字，记得用引号包起来，比如 <code>"red"</code>。',
         'The computer doesn\'t know the name "<b>' + esc(m[1]) + '</b>". Check:<br>① Is it spelled right? ② Are the capital letters right? (<code>Turtle</code> and <code>turtle</code> are different)<br>③ If it\'s a word like a colour, put it in quotes, like <code>"red"</code>.'];
+    }
+    if ((m = /Missing asset: .*\/([^\/\s]+)/.exec(msg))) {
+      var img = esc(decodeURIComponent(m[1]));
+      return ['找不到图片「<b>' + img + '</b>」。先点画板上的 <b>🖼️ 图片</b> 上传它；文件名要和代码里写的<b>一模一样</b>。',
+        'Can\'t find the picture "<b>' + img + '</b>". Click <b>🖼️ Picture</b> on the playground to upload it first. The file name must match your code <b>exactly</b>.'];
     }
     if (isSyntax && /[（）：，“”‘’；。！]/.test(codePart)) {
       var ch = codePart.match(/[（）：，“”‘’；。！]/)[0];
@@ -101,6 +150,7 @@
     this.hasCanvas = root.getAttribute('data-canvas') !== 'no';
     this.saveName = root.getAttribute('data-save') || 'my-drawing';
     this.draftKey = root.getAttribute('data-draft') ? 'kc-draft-' + root.getAttribute('data-draft') : null;
+    this.allowImages = root.hasAttribute('data-images') && this.hasCanvas;
     var inline = root.querySelector('textarea');
     this.initial = inline ? inline.value.replace(/^\n/, '') : '';
     this.runId = 0;
@@ -125,6 +175,7 @@
     [this.btnRun, this.btnReset, this.btnCopy, this.btnDown, this.btnSave].forEach(function (b) { head.appendChild(b); });
     r.appendChild(head);
     this.setRunning(false);
+    if (this.allowImages) this.buildImages(head);
 
     var main = el('div', 'pg-main' + (this.hasCanvas ? '' : ' no-canvas'));
     var ed = el('div', 'pg-editor');
@@ -175,6 +226,68 @@
     this.btnCopy.onclick = function () { self.copy(self.getCode(), self.btnCopy); };
     this.btnDown.onclick = function () { self.download(); };
     this.btnSave.onclick = function () { self.saveToGitHub(); };
+  };
+
+  // 🖼️ 上传图片，让海龟变成这张图
+  Playground.prototype.buildImages = function (head) {
+    var self = this;
+    var btn = el('button', 'pg-btn', both('🖼️ 图片', '🖼️ Picture'));
+    btn.title = 'GIF / PNG / JPG';
+    head.insertBefore(btn, this.btnReset);
+    var input = el('input');
+    input.type = 'file';
+    input.accept = 'image/gif,image/png,image/jpeg,image/webp';
+    input.style.display = 'none';
+    this.imgPanel = el('div', 'pg-imgs');
+    this.root.appendChild(input);
+    this.root.appendChild(this.imgPanel);
+    btn.onclick = function () { input.click(); };
+    input.onchange = function () {
+      var f = input.files && input.files[0];
+      input.value = '';
+      if (!f) return;
+      if (f.size > 5 * 1024 * 1024) { alert(T('图片太大了（超过 5MB），换一张小一点的吧。', 'That picture is too big (over 5 MB). Try a smaller one.')); return; }
+      var name = f.name.trim().toLowerCase().replace(/\s+/g, '-');
+      var rd = new FileReader();
+      rd.onload = function () {
+        shrink(rd.result, SHAPE_MAX).then(function (d) {
+          IMAGES[name] = d;
+          self.renderImages(saveImages());
+        }, function () { alert(T('这个文件打不开，换一张图片试试。', 'Couldn\'t open that file — try another picture.')); });
+      };
+      rd.readAsDataURL(f);
+    };
+    this.renderImages(true);
+  };
+
+  Playground.prototype.renderImages = function (saved) {
+    var self = this;
+    var names = Object.keys(IMAGES);
+    if (!names.length) {
+      this.imgPanel.innerHTML = '<span class="muted">' + both('点 <b>🖼️ 图片</b> 上传一张图（GIF / PNG / JPG），就能让海龟变成它！', 'Click <b>🖼️ Picture</b> to upload an image (GIF / PNG / JPG) and turn the turtle into it!') + '</span>';
+      return;
+    }
+    var html = names.map(function (n) {
+      return '<span class="pg-img"><img src="' + IMAGES[n] + '" alt=""><code>' + esc(n) + '</code>' +
+        '<button class="pg-btn kc-use" data-n="' + esc(n) + '">' + both('📋 复制用法', '📋 Copy code') + '</button>' +
+        '<button class="pg-btn kc-del" data-n="' + esc(n) + '" title="Delete">✕</button></span>';
+    }).join('');
+    if (!saved) html += '<div class="muted">' + both('⚠️ 这台电脑存不下了，关掉网页后图片会消失。', '⚠️ No space left on this computer — the picture disappears when you close the page.') + '</div>';
+    html += '<div class="muted" style="font-size:.85rem">' + both('💡 想让作品墙也显示这张图？把原图上传到 GitHub 的 my-work 文件夹（Add file → Upload files），文件名要一样。',
+      '💡 Want it in the Gallery too? Upload the picture to the my-work folder on GitHub (Add file → Upload files) with the same name.') + '</div>';
+    this.imgPanel.innerHTML = html;
+    this.imgPanel.querySelectorAll('.kc-use').forEach(function (b) {
+      b.onclick = function () {
+        var n = b.getAttribute('data-n');
+        self.copy('screen = turtle.Screen()\nscreen.addshape("' + n + '")\nt.shape("' + n + '")\n', b);
+      };
+    });
+    this.imgPanel.querySelectorAll('.kc-del').forEach(function (b) {
+      b.onclick = function () {
+        delete IMAGES[b.getAttribute('data-n')];
+        self.renderImages(saveImages());
+      };
+    });
   };
 
   Playground.prototype.load = function () {
@@ -234,6 +347,31 @@
     this.saveBox.className = 'pg-save';
     this.setRunning(true);
 
+    // 代码里用到、但没在画板上传过的图片，先从 GitHub 的 my-work/ 读进来并缩小
+    var missing = shapeNames(code).filter(function (n) { return !IMAGES[n] && !REPO_IMAGES[n]; });
+    if (missing.length) {
+      Promise.all(missing.map(function (n) {
+        return shrink(imageUrl(n), SHAPE_MAX).then(function (d) { REPO_IMAGES[n] = d; }, function () {});
+      })).then(function () {
+        if (myRun !== self.runId) return;
+        // 哪儿都找不到的图片：Skulpt 不会报错，海龟会悄悄消失，所以这里先告诉孩子
+        var lost = missing.filter(function (n) { return !REPO_IMAGES[n]; })[0];
+        if (lost) {
+          var lineNo = code.split('\n').findIndex(function (l) { return l.indexOf(lost) >= 0 && /addshape|register_shape/.test(l); }) + 1;
+          self.setRunning(false);
+          self.showError({ tp$name: 'Error', toString: function () { return 'Missing asset: ' + imageUrl(lost) + ' on line ' + lineNo; } }, code);
+          return;
+        }
+        self.start(myRun, code, runCode);
+      });
+      return;
+    }
+    this.start(myRun, code, runCode);
+  };
+
+  Playground.prototype.start = function (myRun, code, runCode) {
+    var self = this;
+    patchSkulpt();
     if (Sk.TurtleGraphics && Sk.TurtleGraphics.stop) { try { Sk.TurtleGraphics.stop(); } catch (e) {} }
     Sk.TurtleGraphics = Sk.TurtleGraphics || {};
     if (this.hasCanvas) {
@@ -245,6 +383,8 @@
     }
     Sk.TurtleGraphics.width = SIZE;
     Sk.TurtleGraphics.height = SIZE;
+    // addshape("dog.gif") 按名字找图：先找上传的，再找 GitHub my-work/ 里的
+    Sk.TurtleGraphics.assets = function (name) { return IMAGES[name] || REPO_IMAGES[name] || imageUrl(name); };
 
     Sk.configure({
       output: function (t) { if (myRun === self.runId) { self.out.textContent += t; self.out.scrollTop = 1e9; } },

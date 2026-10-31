@@ -8,7 +8,7 @@ playground: true
 
 <p><span class="zh">想试什么就试什么！代码会<b>自动记在这台电脑上</b>。做出满意的作品，就点 <b>📤 存到作品墙</b>。</span><span class="en">Try anything you like! Your code is <b>saved on this computer automatically</b>. Made something you love? Click <b>📤 Save to Gallery</b>.</span></p>
 
-<div class="playground" data-title="🧪 自由画板" data-title-en="🧪 Playground" data-save="my-drawing" data-draft="free">
+<div class="playground" data-title="🧪 自由画板" data-title-en="🧪 Playground" data-save="my-drawing" data-draft="free" data-images>
 <textarea># 🎨 我的新作品 My new drawing
 import turtle
 
@@ -17,6 +17,20 @@ t.shape("turtle")
 
 t.forward(100)
 </textarea>
+</div>
+
+<div class="box box-tip"><span class="box-title"><span class="zh">🖼️ 让海龟变成你的图片</span><span class="en">🖼️ Turn the turtle into your picture</span></span>
+<span class="zh">① 点画板上的 <b>🖼️ 图片</b>，选一张 GIF / PNG / JPG（会自动缩小）。② 在代码里这样写（文件名要和上传的<b>一模一样</b>）：</span>
+<span class="en">① Click <b>🖼️ Picture</b> on the playground and choose a GIF / PNG / JPG (it gets shrunk automatically). ② Write this in your code (the file name must match <b>exactly</b>):</span>
+<pre style="margin:.6em 0">import turtle
+
+screen = turtle.Screen()
+screen.addshape("dog.gif")   # 先把图片注册成形状 / register the picture as a shape
+
+t = turtle.Turtle()
+t.shape("dog.gif")           # 再使用它 / then use it
+t.forward(100)</pre>
+<span class="zh">图片不会跟着海龟转方向（电脑上的 Python 也是这样）。</span><span class="en">The picture doesn't turn when the turtle turns (same as Python on a computer).</span>
 </div>
 
 <div class="cmds">

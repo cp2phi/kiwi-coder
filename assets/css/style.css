@@ -338,3 +338,8 @@ html[data-lang="en"] .pg-out:empty::before { content: "(text from print shows up
 .pg-save a.go { display: inline-block; margin: 6px 0; background: #1f883d; color: #fff; text-decoration: none; padding: 6px 16px; border-radius: 10px; }
 html[data-lang="en"] .quiz .q::before { content: "🤔 Guess first: "; }
 html[data-lang="en"] .stop.now::after { content: "This week ⭐"; }
+/* 画板：上传的图片 */
+.pg-imgs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 12px; border-bottom: 2px solid var(--line); background: var(--card); font-size: .9rem; }
+.pg-img { display: inline-flex; align-items: center; gap: 6px; border: 2px solid var(--line); border-radius: 12px; padding: 3px 6px; background: var(--bg); }
+.pg-img img { width: 32px; height: 32px; object-fit: contain; image-rendering: auto; }
+.pg-img .pg-btn { font-size: .8rem; padding: 1px 8px; }
