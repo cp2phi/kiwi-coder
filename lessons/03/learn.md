@@ -214,7 +214,7 @@ and give a tiny example. Don't change my code.</pre>
     print(i)   # 0 1 2 3 4</code><span><span class="zh">计数变量，每次 +1，从 0 开始</span><span class="en">The counter: starts at 0, +1 each time</span></span></div>
   <div class="k"><b>range(a, b, step)</b><code>range(5, 0, -1)
 # 5 4 3 2 1</code><span><span class="zh">从 a 到 b 之前，每次跳 step</span><span class="en">From a up to b, jumping by step</span></span></div>
-  <div class="k"><b>360 ÷ 边数</b><code>for i in range(sides):
+  <div class="k"><b><span class="zh">360 ÷ 边数</span><span class="en">360 ÷ sides</span></b><code>for i in range(sides):
     t.left(360 / sides)</code><span><span class="zh">任何多边形的角度公式</span><span class="en">The angle formula for any polygon</span></span></div>
   <div class="k"><b><span class="zh">循环套循环</span><span class="en">Nested loops</span></b><code>for i in range(12):
     for j in range(4):

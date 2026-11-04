@@ -220,13 +220,13 @@ playground: true
 ## 📚 <span class="zh">知识卡片</span><span class="en">Knowledge cards</span>
 
 <div class="know">
-  <div class="k"><b>🚀 部署 deploy</b><code>改文件 → commit → Actions → 网站更新</code><span><span class="zh">把程序放到网上让别人用</span><span class="en">Put the program online for others</span></span></div>
+  <div class="k"><b>🚀 <span class="zh">部署</span><span class="en">Deploy</span></b><code><span class="zh">改文件 → commit → Actions → 网站更新</span><span class="en">edit file → commit → Actions → site updates</span></code><span><span class="zh">把程序放到网上让别人用</span><span class="en">Put the program online for others</span></span></div>
   <div class="k"><b>💾 commit</b><code>Commit changes + 一句说明</code><span><span class="zh">存档，可以回到任何一版</span><span class="en">A save point you can return to</span></span></div>
   <div class="k"><b>🤖 Actions</b><code>仓库 → Actions → 🟢</code><span><span class="zh">GitHub 的机器人在干活</span><span class="en">GitHub's robot at work</span></span></div>
-  <div class="k"><b>✨ 标题画面</b><code>pen.write("标题", align="center",
+  <div class="k"><b>✨ <span class="zh">标题画面</span><span class="en">Title screen</span></b><code>pen.write("标题", align="center",
   font=("Arial", 32, "bold"))</code><span><span class="zh">门面</span><span class="en">The front door</span></span></div>
-  <div class="k"><b>✈️ 起飞前检查</b><code>没红字 · test() ✅ · 有标题 · 存了</code><span><span class="zh">部署前的清单</span><span class="en">Pre-deploy checklist</span></span></div>
-  <div class="k"><b>🎤 展示稿</b><code>是什么 → 怎么玩 → 最难的 bug → 学到了</code><span><span class="zh">3 分钟</span><span class="en">3 minutes</span></span></div>
+  <div class="k"><b>✈️ <span class="zh">起飞前检查</span><span class="en">Pre-flight check</span></b><code><span class="zh">没红字 · test() ✅ · 有标题 · 存了</span><span class="en">no red · test() ✅ · has title · saved</span></code><span><span class="zh">部署前的清单</span><span class="en">Pre-deploy checklist</span></span></div>
+  <div class="k"><b>🎤 <span class="zh">展示稿</span><span class="en">Demo script</span></b><code><span class="zh">是什么 → 怎么玩 → 最难的 bug → 学到了</span><span class="en">what → how to play → hardest bug → what I learned</span></code><span><span class="zh">3 分钟</span><span class="en">3 minutes</span></span></div>
 </div>
 
 <p class="muted"><span class="zh">全部指令在 <a href="{{ '/cheatsheet/' | relative_url }}">📖 小词典</a>——12 课的都在，随时回来查。</span><span class="en">Everything is in the <a href="{{ '/cheatsheet/' | relative_url }}">📖 cheat sheet</a> — all 12 lessons, come back any time.</span></p>

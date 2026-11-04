@@ -128,7 +128,7 @@ else:
 </div><div>
 <div class="quiz" data-answer="2">
   <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
-  <div class="opts"><button>Great</button><button>OK</button><button>（什么都不打印 / nothing）</button></div>
+  <div class="opts"><button>Great</button><button>OK</button><button><span class="zh">（什么都不打印）</span><span class="en">(prints nothing)</span></button></div>
   <div class="why"><span class="zh">7 > 7 是 False（7 不比 7 大），所以走 else。</span><span class="en">7 > 7 is False (7 isn't bigger than 7), so it goes to else.</span></div>
 </div></div></div>
 <div class="playground" data-title="▶ 验证第 1 题" data-title-en="▶ Check question 1" data-save="reader-3-1" data-rows="4" data-canvas="no"><textarea>score = 7

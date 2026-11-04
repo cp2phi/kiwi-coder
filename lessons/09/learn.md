@@ -82,7 +82,7 @@ playground: true
 
 <ul class="quests" data-key="l9-ex3">
   <li><span class="zh">加两道<b>你自己的</b>题（关于你喜欢的游戏、动物都行）。</span><span class="en">Add two questions of <b>your own</b> (about your favourite game or animal).</span></li>
-  <li><span class="zh">答错时显示「❌ 不对，是 XX」——把它改成更友好的话。</span><span class="en">When wrong it says "❌ 不对，是 XX" — make it friendlier.</span></li>
+  <li><span class="zh">答错时显示「❌ 不对，是 XX」——把它改成更友好的话。</span><span class="en">When wrong it says "❌ 不对，是 XX" (Wrong, it's XX) — make it friendlier.</span></li>
   <li><span class="zh">最后加一个 <code>if score == len(quiz):</code> 显示「🏆 全对！」。</span><span class="en">Add <code>if score == len(quiz):</code> at the end to show "🏆 All correct!".</span></li>
 </ul>
 
