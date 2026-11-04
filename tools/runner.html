@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Kiwi Coder code runner</title></head>
+<body>
+<div id="tg" style="width:600px;height:600px"></div>
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+<script>
+// 和 assets/js/playground.js 一样的补丁和前置代码（保持同步！）
+var SHIM = [
+  'import turtle as _kc_t',
+  '_kc_t.Turtle.shapesize = lambda self, *a, **k: None',
+  '_kc_t.Turtle.turtlesize = lambda self, *a, **k: None',
+  '_kc_t.Screen.colormode = lambda self, *a, **k: None',
+  '_kc_t.Screen.onkeypress = _kc_t.Screen.onkey',
+  '_kc_t.Screen.onkeyrelease = lambda self, *a, **k: None',
+  ''
+].join('\n');
+function patchSkulpt() {
+  var files = Sk.builtinFiles && Sk.builtinFiles.files;
+  var src = files && files['src/lib/turtle.js'];
+  if (src && src.indexOf('$register_shape.co_varnames') < 0) {
+    files['src/lib/turtle.js'] = src.replace('e.$register_shape.minArgs=1,', 'e.$register_shape.minArgs=1,e.$register_shape.co_varnames=["name","shape"],');
+  }
+}
+window.runPy = function (code, inputs, limitMs) {
+  return new Promise(function (resolve) {
+    patchSkulpt();
+    try { if (Sk.TurtleGraphics && Sk.TurtleGraphics.reset) Sk.TurtleGraphics.reset(); } catch (e) {}
+    var tg = document.getElementById('tg'); tg.innerHTML = '';
+    Sk.TurtleGraphics = { target: tg, width: 600, height: 600, assets: function (n) { return 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; } };
+    var out = '', q = (inputs || []).slice();
+    var full = 'import turtle as _kc_t0\n_kc_t0.Screen().tracer(0)\n' + SHIM + code.replace(/\.speed\(\s*[^)]*\)/g, '.speed(0)');
+    full = full.replace(/\bturtle\.(bgcolor|setup|exitonclick|listen|onkey|onkeypress|onkeyrelease|ontimer|onscreenclick|tracer|update|title|delay)\(/g, 'turtle.Screen().$1(');
+    var offset = 2 + SHIM.split('\n').length - 1;
+    Sk.configure({
+      output: function (t) { out += t; },
+      read: function (x) { if (Sk.builtinFiles === undefined || Sk.builtinFiles.files[x] === undefined) throw "File not found: '" + x + "'"; return Sk.builtinFiles.files[x]; },
+      __future__: Sk.python3, inputfunTakesPrompt: true,
+      inputfun: function (p) { var v = q.length ? q.shift() : '5'; out += (p || '') + v + '\n'; return Promise.resolve(v); },
+      execLimit: limitMs || 20000, yieldLimit: 100, killableWhile: true, killableFor: true
+    });
+    Sk.misceval.asyncToPromise(function () { return Sk.importMainWithBody('<stdin>', false, full, true); }).then(function () {
+      resolve({ ok: true, out: out });
+    }, function (e) {
+      var raw = e.toString().replace(/line (\d+)/g, function (_, n) { return 'line ' + (+n - offset); });
+      var line = null; try { line = e.traceback && e.traceback[0] ? e.traceback[0].lineno - offset : null; } catch (x) {}
+      resolve({ ok: false, out: out, err: raw, type: e.tp$name || 'Error', line: line });
+    });
+  });
+};
+</script>
+</body></html>

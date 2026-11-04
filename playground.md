@@ -48,4 +48,9 @@ t.forward(100)</pre>
 
 <div class="swatches" data-colors="red orange gold yellow limegreen green turquoise deepskyblue blue navy purple violet hotpink pink brown black white gray"></div>
 
+<div class="grid">
+  <a class="card" href="{{ '/cheatsheet/' | relative_url }}"><div class="big-emoji">📖</div><h3><span class="zh">忘了指令怎么写？</span><span class="en">Forgot a command?</span></h3><p class="muted"><span class="zh">小词典里有学过的每一个指令，点一下就能复制</span><span class="en">The cheat sheet has every command we've learned; click to copy</span></p></a>
+  <a class="card" href="{{ '/games/' | relative_url }}"><div class="big-emoji">🎮</div><h3><span class="zh">想找点事做？</span><span class="en">Looking for something to do?</span></h3><p class="muted"><span class="zh">去游戏板块过关，或者复刻一个图案</span><span class="en">Beat a game level or copy a pattern</span></p></a>
+</div>
+
 <div class="box box-tip"><span class="zh">💻 <b>想在电脑上运行？</b>点 <b>⬇ 下载</b> 得到 <code>.py</code> 文件，用 <b>Thonny</b> 或 <b>VS Code</b> 打开运行。</span><span class="en">💻 <b>Want to run it on your computer?</b> Click <b>⬇ Download</b> to get a <code>.py</code> file and open it in <b>Thonny</b> or <b>VS Code</b>.</span></div>

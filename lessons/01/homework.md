@@ -10,12 +10,7 @@ playground: true
 
 <p><span class="zh">用海龟画一座<b>你的房子</b>！</span><span class="en">Use the turtle to draw <b>your house</b>!</span> <span class="pill">⏱ <span class="zh">大约 30 分钟</span><span class="en">about 30 minutes</span></span> <span class="pill pill-brand">📅 <span class="zh">下节课前交</span><span class="en">due before next lesson</span></span></p>
 
-{% assign hw = site.static_files | where: "path", "/my-work/week01-homework.py" | first %}
-{% if hw %}
-<div class="box box-good"><span class="zh">✅ <b>作业已经交啦！</b>点下面的 ▶ 运行看看。</span><span class="en">✅ <b>Homework handed in!</b> Click ▶ Run below to see it.</span></div>
-{% else %}
-<div class="box box-warn"><span class="zh">⏳ <b>还没交</b>：做完后按最下面的步骤提交，这里会变成 ✅。</span><span class="en">⏳ <b>Not handed in yet</b>: when you're done, follow the steps at the bottom and this turns into ✅.</span></div>
-{% endif %}
+<div class="hw-status" data-file="week01-homework.py"></div>
 
 ## 🎖️ <span class="zh">三个等级</span><span class="en">Three levels</span>
 
@@ -45,7 +40,7 @@ playground: true
 
 <p class="muted"><span class="zh">写的代码会自动记在这台电脑上，关掉网页也不会丢。</span><span class="en">Your code is saved on this computer automatically, even if you close the page.</span></p>
 
-<div class="playground" data-src="{% if hw %}{{ '/my-work/week01-homework.py' | relative_url }}{% else %}{{ '/lessons/01/code/homework.py' | relative_url }}{% endif %}" data-title="🏠 海龟建筑师" data-title-en="🏠 Turtle Builder" data-save="week01-homework" data-draft="l1-homework"></div>
+<div class="playground" data-src="{{ '/lessons/01/code/homework.py' | relative_url }}" data-title="🏠 海龟建筑师" data-title-en="🏠 Turtle Builder" data-save="week01-homework" data-draft="l1-homework"></div>
 
 <details class="hint"><summary><span class="zh">💡 屋顶提示 1</span><span class="en">💡 Roof hint 1</span></summary><span class="zh">画完正方形，海龟回到了<b>左下角</b>，脸朝<b>右</b>。屋顶要从<b>左上角</b>开始画。</span><span class="en">After the square, the turtle is back at the <b>bottom left</b>, facing <b>right</b>. The roof starts at the <b>top left</b>.</span></details>
 <details class="hint"><summary><span class="zh">💡 屋顶提示 2</span><span class="en">💡 Roof hint 2</span></summary><span class="zh">先 <code>left(90)</code> 再 <code>forward(150)</code> 就到左上角了，但这时脸朝上——要先转回朝右，再画三角形。</span><span class="en"><code>left(90)</code> then <code>forward(150)</code> gets you to the top left — but now the turtle faces up. Turn it back to face right, then draw the triangle.</span></details>

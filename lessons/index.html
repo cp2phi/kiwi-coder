@@ -3,13 +3,50 @@ title: 课程地图
 title_en: Lessons
 ---
 <h1>🗺️ <span class="zh">课程地图</span><span class="en">Lesson Map</span></h1>
-<p class="zh">一共 12 关，每周解锁一关。<b>🔒 还没开放</b>的关卡，老师放好教材后就会亮起来——到时候可以先来<b>预习</b>！</p>
-<p class="en">There are 12 levels — one unlocks each week. <b>🔒 Locked</b> levels light up when the teacher adds the lesson, so you can <b>preview</b> it before class!</p>
+<p class="zh">一共 12 关，每周一关。每一关都有一个<b>新的 Python 魔法</b>、一个<b>带回家的作品</b>，还会用到前面学过的东西。<b>🔒 还没开放</b>的关卡，老师放好教材后就会亮起来。</p>
+<p class="en">12 levels, one each week. Every level has a <b>new piece of Python magic</b>, something to <b>take home</b>, and uses what you learned before. <b>🔒 Locked</b> levels light up when the teacher adds the lesson.</p>
 
 <div class="box box-tip">
   <span class="box-title"><span class="zh">🧭 我们的「放手」路线</span><span class="en">🧭 How we'll learn</span></span>
-  <span class="zh">第 1–4 关：<b>老师做，我看</b>（跟着做、改数字）→ 第 5–8 关：<b>一起做</b>（我写大部分，老师给提示）→ 第 9–12 关：<b>我做，老师看</b>（自己规划、自己写、自己找 bug）</span>
-  <span class="en">Levels 1–4: <b>teacher shows, I follow</b> (copy and change numbers) → Levels 5–8: <b>we do it together</b> (I write most, teacher gives hints) → Levels 9–12: <b>I do it, teacher watches</b> (I plan, write and debug)</span>
+  <span class="zh">第 1–4 关：<b>老师做，我看</b>（跟着做、改数字）→ 第 5–8 关：<b>一起做</b>（我写大部分，老师给提示）→ 第 9–12 关：<b>我做，老师看</b>（自己规划、自己写、自己找 bug，最后把作品发布到网上）</span>
+  <span class="en">Levels 1–4: <b>teacher shows, I follow</b> (copy and change numbers) → Levels 5–8: <b>we do it together</b> (I write most, teacher gives hints) → Levels 9–12: <b>I do it, teacher watches</b> (I plan, write, debug and finally publish my project online)</span>
+</div>
+
+<p><span class="zh">每一关都是这样上的：</span><span class="en">Every level goes like this:</span></p>
+<div class="flow">
+  <div class="f"><span class="e">🎯</span><b><span class="zh">今日任务</span><span class="en">Today</span></b><small><span class="zh">清单 + 打勾</span><span class="en">checklist</span></small></div>
+  <div class="arrow">→</div>
+  <div class="f"><span class="e">📖</span><b><span class="zh">学一学</span><span class="en">Learn</span></b><small><span class="zh">先猜 → 运行 → 改一改 → 自己写</span><span class="en">guess → run → change → make</span></small></div>
+  <div class="arrow">→</div>
+  <div class="f"><span class="e">🎮</span><b><span class="zh">玩游戏</span><span class="en">Play</span></b><small><span class="zh">用新魔法过关</span><span class="en">use the new magic</span></small></div>
+  <div class="arrow">→</div>
+  <div class="f"><span class="e">🏠</span><b><span class="zh">作业</span><span class="en">Homework</span></b><small><span class="zh">🥉🥈🥇 三个等级</span><span class="en">3 levels</span></small></div>
+  <div class="arrow">→</div>
+  <div class="f"><span class="e">📓</span><b><span class="zh">写 3 行笔记</span><span class="en">3-line notes</span></b><small><span class="zh">学会了 / 卡住 / 解决</span><span class="en">learned / stuck / fixed</span></small></div>
 </div>
 
 {% include lesson-map.html %}
+
+<h2 id="overview">📋 <span class="zh">课程总览：每一课学什么</span><span class="en">Overview: what each lesson teaches</span></h2>
+<div class="table-wrap">
+<table class="overview">
+<tr><th><span class="zh">课</span><span class="en">#</span></th><th><span class="zh">主题</span><span class="en">Topic</span></th><th>🐍 <span class="zh">新的 Python 魔法</span><span class="en">New Python magic</span></th><th>🔁 <span class="zh">复习</span><span class="en">Review</span></th><th>🎁 <span class="zh">作品</span><span class="en">Make</span></th><th>🎮</th></tr>
+{% for l in site.data.lessons %}
+{% capture slug %}{% if l.n < 10 %}0{% endif %}{{ l.n }}{% endcapture %}
+{% assign g = site.data.games | where: "id", l.game | first %}
+<tr class="stage{{ l.stage }}{% if l.n == site.current_lesson %} now{% endif %}">
+  <td>{{ l.icon }} {{ l.n }}</td>
+  <td>{% if l.ready %}<a href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}">{% endif %}<span class="zh">{{ l.title }}</span><span class="en">{{ l.title_en }}</span>{% if l.ready %}</a>{% endif %}</td>
+  <td><span class="zh">{{ l.syntax }}</span><span class="en">{{ l.syntax_en }}</span></td>
+  <td class="muted"><span class="zh">{{ l.review }}</span><span class="en">{{ l.review_en }}</span></td>
+  <td><span class="zh">{{ l.make }}</span><span class="en">{{ l.make_en }}</span></td>
+  <td>{% if g %}<a href="{{ '/games/' | append: g.id | append: '/' | relative_url }}" title="{{ g.title }}">{{ g.icon }}</a>{% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="box box-think"><span class="box-title"><span class="zh">🎓 12 课之后，我能……</span><span class="en">🎓 After 12 lessons, I can…</span></span>
+<span class="zh">✅ 看懂一段 Python 代码在做什么 &nbsp; ✅ 自己做一个小游戏和一个小 app &nbsp; ✅ 把它们放到自己的网站上 &nbsp; ✅ 知道程序员是怎么「计划 → 写 → 测 → 修 → 发布」的 &nbsp; ✅ 卡住了知道怎么办（读报错、翻笔记、问 AI 要提示、问老师）</span>
+<span class="en">✅ Read a piece of Python and say what it does &nbsp; ✅ Build a small game and a small app &nbsp; ✅ Put them on my own website &nbsp; ✅ Know how programmers "plan → code → test → fix → ship" &nbsp; ✅ Know what to do when stuck (read the error, check notes, ask AI for a hint, ask the teacher)</span>
+</div>

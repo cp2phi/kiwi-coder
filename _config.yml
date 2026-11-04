@@ -24,6 +24,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - docs
+  - tools
+  - node_modules
+  - package.json
+  - package-lock.json
 
 defaults:
   - scope:

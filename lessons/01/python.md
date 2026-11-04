@@ -40,7 +40,7 @@ playground: true
   <div class="cmd"><code>t.pensize(5)</code><span><span class="zh">笔变粗</span><span class="en">Make the pen thicker</span></span></div>
 </div>
 
-### 🤔 <span class="zh">先猜，再运行</span><span class="en">Guess first, then run</span>
+### 🤔 <span class="zh">第 ① 步：先猜</span><span class="en">Step ①: Predict</span> → <span class="zh">第 ② 步：运行</span><span class="en">Step ②: Run</span>
 
 <div class="quiz" data-answer="2">
   <p class="q"><span class="zh">下面的代码，海龟会画出什么？（先别点运行！）</span><span class="en">What will the turtle draw with the code below? (Don't click Run yet!)</span></p>
@@ -50,7 +50,7 @@ playground: true
 
 <div class="playground" data-src="{{ '/lessons/01/code/square.py' | relative_url }}" data-title="🟩 正方形" data-title-en="🟩 Square" data-save="my-square"></div>
 
-### 🔍 <span class="zh">改一改</span><span class="en">Change it</span>
+### 🔍 <span class="zh">第 ③ 步：改一改</span><span class="en">Step ③: Change it</span>
 
 <div class="quiz" data-answer="2">
   <p class="q"><span class="zh">如果把<b>所有的 90</b> 都改成 <b>120</b>，会画出什么？先猜，再去上面改了试试！</span><span class="en">If you change <b>every 90</b> to <b>120</b>, what will it draw? Guess first, then try it above!</span></p>
@@ -66,7 +66,7 @@ playground: true
 
 <div class="box box-tip"><span class="zh">⚠️ 颜色要加<b>英文引号</b>：<code>"red"</code> ✅ &nbsp; <code>red</code> ❌ &nbsp; <code>“red”</code> ❌（中文引号）</span><span class="en">⚠️ Colours need <b>straight quotes</b>: <code>"red"</code> ✅ &nbsp; <code>red</code> ❌ &nbsp; <code>“red”</code> ❌ (curly/Chinese quotes)</span></div>
 
-### 🏆 <span class="zh">挑战：三角形，然后五角星！</span><span class="en">Challenge: a triangle, then a star!</span>
+### 🏆 <span class="zh">第 ④ 步：自己写——三角形，然后五角星！</span><span class="en">Step ④: Make your own — a triangle, then a star!</span>
 
 <p><span class="zh">把 <code>___</code> 换成正确的数字，画出三角形。画好了？再改一改，试试<b>五角星</b>！</span><span class="en">Replace <code>___</code> with the right number to draw a triangle. Done? Now change it to make a <b>star</b>!</span></p>
 
@@ -113,5 +113,23 @@ playground: true
   <li>❓ <span class="zh">找一行看不懂的，问 Codex：「这一行是什么意思？用小学生能懂的话解释」</span><span class="en">Find a line you don't understand and ask Codex: "What does this line mean? Explain it simply."</span></li>
   <li>📤 <span class="zh">满意了？点 <b>存到作品墙</b>！</span><span class="en">Happy with it? Click <b>Save to Gallery</b>!</span></li>
 </ul>
+
+---
+
+## 📚 <span class="zh">知识卡片：今天的魔法</span><span class="en">Knowledge cards: today's magic</span>
+
+<div class="know">
+  <div class="k"><b>print()</b><code>print("Hello!")</code><span><span class="zh">在屏幕上显示文字</span><span class="en">Show text on the screen</span></span></div>
+  <div class="k"><b>import turtle</b><code>import turtle
+t = turtle.Turtle()</code><span><span class="zh">拿出海龟工具箱，做一只叫 t 的海龟</span><span class="en">Get the turtle toolbox and make a turtle called t</span></span></div>
+  <div class="k"><b>t.forward()</b><code>t.forward(100)</code><span><span class="zh">往前走 100 步，边走边画</span><span class="en">Move 100 steps forward, drawing a line</span></span></div>
+  <div class="k"><b>t.left() / t.right()</b><code>t.left(90)</code><span><span class="zh">左转 / 右转多少度。转一圈 = 360</span><span class="en">Turn left / right by degrees. A full turn = 360</span></span></div>
+  <div class="k"><b>t.color()</b><code>t.color("hotpink")</code><span><span class="zh">笔的颜色，英文名加引号</span><span class="en">Pen colour: an English name in quotes</span></span></div>
+  <div class="k"><b>t.pensize()</b><code>t.pensize(8)</code><span><span class="zh">笔的粗细</span><span class="en">Pen thickness</span></span></div>
+</div>
+
+<p><span class="zh">全部指令都在 <a href="{{ '/cheatsheet/' | relative_url }}">📖 Python 小词典</a> 里，忘了就去查。</span><span class="en">Every command is in the <a href="{{ '/cheatsheet/' | relative_url }}">📖 Python cheat sheet</a> — look it up whenever you forget.</span></p>
+
+<div class="box box-think"><span class="zh">🔁 <b>预告：</b>正方形要写 4 次 <code>forward</code>、4 次 <code>left</code>。想换大小就要改 4 个数字……好麻烦！下节课学<b>变量</b>：改 1 个数字，整个图形一起变。</span><span class="en">🔁 <b>Coming up:</b> a square needs <code>forward</code> 4 times and <code>left</code> 4 times. To change its size you edit 4 numbers… annoying! Next lesson: <b>variables</b> — change 1 number and the whole shape changes.</span></div>
 
 <p style="text-align:center;margin-top:2em"><a class="pg-btn run" style="text-decoration:none;font-size:1.1rem" href="{{ '/lessons/01/homework/' | relative_url }}"><span class="zh">下一步：看看作业 🏠 →</span><span class="en">Next: homework 🏠 →</span></a></p>

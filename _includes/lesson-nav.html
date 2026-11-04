@@ -1,0 +1,15 @@
+{% comment %} 课程页面底部的「上一课 / 下一课」 {% endcomment %}
+{% assign ln = page.lesson | plus: 0 %}
+{% assign prev_n = ln | minus: 1 %}
+{% assign next_n = ln | plus: 1 %}
+{% assign P = site.data.lessons | where: "n", prev_n | first %}
+{% assign N = site.data.lessons | where: "n", next_n | first %}
+<nav class="lesson-nav">
+  {% if P %}{% capture ps %}{% if prev_n < 10 %}0{% endif %}{{ prev_n }}{% endcapture %}
+  <a class="prev" href="{{ '/lessons/' | append: ps | append: '/' | relative_url }}">← {{ P.icon }} <span class="zh">第 {{ prev_n }} 课：{{ P.title }}</span><span class="en">Lesson {{ prev_n }}: {{ P.title_en }}</span></a>
+  {% else %}<span></span>{% endif %}
+  <a class="map" href="{{ '/lessons/' | relative_url }}">🗺️ <span class="zh">地图</span><span class="en">Map</span></a>
+  {% if N and N.ready %}{% capture ns %}{% if next_n < 10 %}0{% endif %}{{ next_n }}{% endcapture %}
+  <a class="next" href="{{ '/lessons/' | append: ns | append: '/' | relative_url }}">{{ N.icon }} <span class="zh">第 {{ next_n }} 课：{{ N.title }}</span><span class="en">Lesson {{ next_n }}: {{ N.title_en }}</span> →</a>
+  {% else %}<span></span>{% endif %}
+</nav>
