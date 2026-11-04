@@ -41,7 +41,13 @@ playground: true
 ### 🤔 <span class="zh">先猜，再运行</span><span class="en">Guess first, then run</span>
 
 <div class="quiz" data-answer="2">
-  <p class="q"><span class="zh"><code>n = 5</code>，然后 <code>while n > 0: print(n); n = n - 1</code>。最后一个打印的数字是？</span><span class="en"><code>n = 5</code>, then <code>while n > 0: print(n); n = n - 1</code>. What's the last number printed?</span></p>
+  <p class="q"><span class="zh">下面的代码，最后一个打印的数字是？<pre style="margin:.4em 0">n = 5
+while n > 0:
+    print(n)
+    n = n - 1</pre></span><span class="en">What's the last number this prints?<pre style="margin:.4em 0">n = 5
+while n > 0:
+    print(n)
+    n = n - 1</pre></span></p>
   <div class="opts"><button>0</button><button>1</button><button>5</button></div>
   <div class="why"><span class="zh">打印 5、4、3、2、1。n 变成 0 的时候，<code>0 &gt; 0</code> 是 False，就不进去了——所以 0 不会被打印。</span><span class="en">It prints 5, 4, 3, 2, 1. When n becomes 0, <code>0 &gt; 0</code> is False, so it stops — 0 is never printed.</span></div>
 </div>
@@ -125,13 +131,15 @@ playground: true
 {: #rules}
 
 <div class="box box-think"><span class="box-title"><span class="zh">✂️ 不插电活动（5 分钟，和老师一起）</span><span class="en">✂️ Unplugged (5 min, with your teacher)</span></span>
-<span class="zh">桌上有 10 张动物卡：猫、狗、tui、kiwi、鲨鱼、金鱼、马、企鹅、蝙蝠、海龟。<br>① 你是「AI」，<b>写 3 条规则</b>把它们分成「鸟 / 不是鸟」，比如「会飞 → 鸟」。<br>② 老师拿一张卡，你<b>只能按规则</b>回答。<br>③ 现在试试<b>企鹅</b>（鸟，但不会飞）和<b>蝙蝠</b>（会飞，但不是鸟）。规则出错了吗？改规则！<br>👉 这就是今天要写的程序：<b>只知道我们写进去的规则</b>。</span>
-<span class="en">10 animal cards on the table: cat, dog, tui, kiwi, shark, goldfish, horse, penguin, bat, turtle.<br>① You are the "AI". <b>Write 3 rules</b> to sort them into "bird / not bird", e.g. "can fly → bird".<br>② The teacher holds up a card; you may <b>only answer by the rules</b>.<br>③ Now try the <b>penguin</b> (a bird that can't fly) and the <b>bat</b> (flies but isn't a bird). Did the rules fail? Fix them!<br>👉 That's the program we write next: it <b>only knows the rules we put in</b>.</span>
+<span class="zh">桌上有 10 张动物卡：猫、狗、tūī、kiwi、鲨鱼、金鱼、马、企鹅、蝙蝠、海龟。<br>① 你是「AI」，<b>写 3 条规则</b>把它们分成「鸟 / 不是鸟」，比如「会飞 → 鸟」。<br>② 老师拿一张卡，你<b>只能按规则</b>回答。<br>③ 现在试试<b>企鹅</b>（鸟，但不会飞）和<b>蝙蝠</b>（会飞，但不是鸟）。规则出错了吗？改规则！<br>👉 这就是今天要写的程序：<b>只知道我们写进去的规则</b>。</span>
+<span class="en">10 animal cards on the table: cat, dog, tūī, kiwi, shark, goldfish, horse, penguin, bat, turtle.<br>① You are the "AI". <b>Write 3 rules</b> to sort them into "bird / not bird", e.g. "can fly → bird".<br>② The teacher holds up a card; you may <b>only answer by the rules</b>.<br>③ Now try the <b>penguin</b> (a bird that can't fly) and the <b>bat</b> (flies but isn't a bird). Did the rules fail? Fix them!<br>👉 That's the program we write next: it <b>only knows the rules we put in</b>.</span>
 </div>
 
 ### 🧪 <span class="zh">例 4：动物猜猜猜（规则版 AI）</span><span class="en">Example 4: animal guesser (rule-based AI)</span>
 
 <p><span class="zh">程序问 3 个 yes / no 问题，然后用 <code>if / elif</code> + <code>and</code> 按规则猜。外面套一个 <code>while again == "yes":</code>，想玩几次玩几次。里面有一个 <code>___</code>：蝙蝠会飞吗？</span><span class="en">The program asks 3 yes / no questions, then guesses by rules with <code>if / elif</code> + <code>and</code>. It's wrapped in <code>while again == "yes":</code> so you can play as often as you like. There's one <code>___</code>: can a bat fly?</span></p>
+
+<p class="muted"><span class="zh">⌨️ 回答只打 <b>yes</b> 或 <b>no</b>（英文、小写）。打「有」「是」或者 Yes，程序都听不懂——第 8 课会教怎么让它听懂大写。</span><span class="en">⌨️ Answer only <b>yes</b> or <b>no</b> (English, lowercase). "Yes" with a capital won't be understood — Lesson 8 shows how to fix that.</span></p>
 
 <div class="playground" data-src="{{ '/lessons/06/code/animal.py' | relative_url }}" data-canvas="no" data-title="🕵️ 动物猜猜猜" data-title-en="🕵️ Animal guesser" data-save="animal-guesser" data-draft="l6-animal" data-rows="18"></div>
 
@@ -153,7 +161,7 @@ playground: true
 ## 📸 <span class="zh">训练一个真正会学习的 AI</span><span class="en">Train an AI that really learns</span>
 {: #tm}
 
-<p><span class="zh">打开 <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a>（需要摄像头，和老师一起）。这次我们<b>不写任何规则</b>，只给它<b>例子</b>。</span><span class="en">Open <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a> (needs a camera; do it with your teacher). This time we write <b>no rules at all</b> — we only give it <b>examples</b>.</span></p>
+<p><span class="zh">打开 <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a>（需要摄像头，和老师一起）。这次我们<b>不写任何规则</b>，只给它<b>例子</b>。<br>📷 没有摄像头或者摄像头被禁用？点 <b>Upload</b> 上传照片也可以。🔒 拍手、玩具、文具，<b>不拍脸</b>；不要点「保存到 Google Drive」。</span><span class="en">Open <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a> (needs a camera; do it with your teacher). This time we write <b>no rules at all</b> — we only give it <b>examples</b>.<br>📷 No camera, or it's blocked? Click <b>Upload</b> and use photos instead. 🔒 Photograph hands, toys or pencils — <b>not faces</b> — and don't save to Google Drive.</span></p>
 
 <ol class="steps">
   <li><strong><span class="zh">好好教它</span><span class="en">Teach it well</span></strong><br><span class="zh">两个类别：「✊ 拳头」和「✋ 手掌」。每个用摄像头拍 <b>20 张以上</b>，角度、远近都换一换。点 <b>Train Model</b>，然后测试：它认得出来吗？</span><span class="en">Two classes: "✊ fist" and "✋ open hand". Take <b>20+ photos</b> of each with the webcam, changing angle and distance. Click <b>Train Model</b> and test it. Does it get it right?</span></li>

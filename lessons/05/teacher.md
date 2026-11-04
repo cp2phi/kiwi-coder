@@ -20,7 +20,7 @@ tab: teacher
 <ul class="quests" data-key="teacher-prep-5">
   <li>自己把 <a href="../learn/">学一学</a> 从头跑一遍，特别是毛利语测验的填空和「和 AI 一起」部分。</li>
   <li>把 AI 给的 5 个毛利语单词提前自己核对一次（<a href="https://maoridictionary.co.nz" target="_blank" rel="noopener">Te Aka</a>）。如果 AI 真的出了错，那是今天最好的教材；如果没出错，也要强调「这次对了，不代表下次对」。</li>
-  <li>打开 <a href="{{ '/games/copy/' | relative_url }}">🎨 图案复刻</a>，确认第 1 关能过（需要颜色列表 + 循环）。</li>
+  <li>打开 <a href="{{ '/games/copy/' | relative_url }}">🎨 图案复刻</a>，确认第 1、2 关能过；第 5 关（螺旋 + 颜色列表）是今天知识的练习，可以留到回家玩。</li>
   <li>准备几张小纸条当「抽屉」：写上 0、1、2、3 贴在桌上，不插电演示 <code>animals[1]</code> 是哪一个。</li>
 </ul>
 

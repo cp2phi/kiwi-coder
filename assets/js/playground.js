@@ -123,8 +123,9 @@
       return ['找不到图片「<b>' + img + '</b>」。先点画板上的 <b>🖼️ 图片</b> 上传它；文件名要和代码里写的<b>一模一样</b>。',
         'Can\'t find the picture "<b>' + img + '</b>". Click <b>🖼️ Picture</b> on the playground to upload it first. The file name must match your code <b>exactly</b>.'];
     }
-    if (isSyntax && /[（）：，“”‘’；。！]/.test(codePart)) {
-      var ch = codePart.match(/[（）：，“”‘’；。！]/)[0];
+    if (isSyntax && /[（）：，“”‘’；。！　「」【】、＝＋－]/.test(codePart)) {
+      var ch = codePart.match(/[（）：，“”‘’；。！　「」【】、＝＋－]/)[0];
+      if (ch === '　') ch = '全角空格 / full-width space';
       return ['这一行有<b>中文符号「' + esc(ch) + '」</b>！写代码要用英文符号 <code>( ) : , "</code>。<br>把输入法切换成英文，再把这个符号重新打一次。',
         'This line has a <b>Chinese symbol "' + esc(ch) + '"</b>! Code needs English symbols <code>( ) : , "</code>.<br>Switch your keyboard to English and type it again.'];
     }
@@ -617,7 +618,7 @@
       this.okBox.innerHTML = both('🏆 <b>过关！</b>太厉害了！', '🏆 <b>Level complete!</b> Amazing!');
       this.okBox.className = 'pg-ok show win';
       if (window.kcConfetti) kcConfetti(160);
-      if (this.badge && window.KC && KC.badge) KC.badge(this.badge);
+      if (this.badge && window.KC && KC.badge) KC.badge(this.badge, [this.title, this.titleEn]);
       document.dispatchEvent(new CustomEvent('kc-win', { detail: { badge: this.badge, playground: this } }));
       return;
     }
@@ -670,7 +671,7 @@
     return new Promise(function (resolve) {
       if (myRun !== self.runId) { resolve(''); return; }
       var box = self.inBox;
-      box.innerHTML = '<label>' + esc(prompt || '') + '</label><input type="text" autocomplete="off"><button class="pg-btn run">↵ ' + both('确定', 'OK') + '</button>';
+      box.innerHTML = '<label>' + esc(prompt || '') + '</label><input type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"><button class="pg-btn run">↵ ' + both('确定', 'OK') + '</button>';
       box.className = 'pg-in show';
       var input = box.querySelector('input'), btn = box.querySelector('button');
       var done = function () {
@@ -684,7 +685,10 @@
       };
       self.pendingInput = function () { resolve(''); };
       btn.onclick = done;
-      input.onkeydown = function (e) { if (e.key === 'Enter') { e.preventDefault(); done(); } };
+      input.onkeydown = function (e) {
+        if (e.isComposing || e.keyCode === 229) return;   // 中文输入法还在选字，不算回车
+        if (e.key === 'Enter') { e.preventDefault(); done(); }
+      };
       setTimeout(function () { input.focus(); }, 30);
     });
   };
@@ -784,15 +788,25 @@
     name = name.trim().toLowerCase().replace(/\.py$/, '').replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || 'my-drawing';
     var code = this.getCode();
     if (!/^#/.test(code.trim())) code = '# 🎨 ' + name + '\n' + code;
-    var url = 'https://github.com/' + cfg.repo + '/new/' + cfg.branch + '/my-work' +
-      '?filename=' + encodeURIComponent(name + '.py') +
-      '&value=' + encodeURIComponent(code);
+    var base = 'https://github.com/' + cfg.repo + '/new/' + cfg.branch + '/my-work' +
+      '?filename=' + encodeURIComponent(name + '.py');
+    var url = base + '&value=' + encodeURIComponent(code);
+    // GitHub 不接受太长的网址（大约 6000 个字符以上会失败；一个中文字要占 9 个字符）
+    // 太长就只带文件名，代码先复制到剪贴板，让孩子自己粘贴
+    var long = url.length > 5000;
+    if (long) url = base;
     this.saveBox.innerHTML =
       both('<b>📤 准备好了！</b>点下面的按钮打开 GitHub：', '<b>📤 Ready!</b> Click the button to open GitHub:') + '<br>' +
       '<a class="go" target="_blank" rel="noopener" href="' + esc(url) + '">' + both('打开 GitHub，保存 ' + esc(name) + '.py', 'Open GitHub to save ' + esc(name) + '.py') + '</a><br>' +
-      both('然后：点右上角绿色的 <b>Commit changes...</b> → 再点一次 <b>Commit changes</b>。回到<a href="' + (cfg.base || '') + '/gallery/">作品墙</a>刷新一下，马上就能看到！<br><span class="muted">（如果提示名字已存在，就换一个名字再存）</span><br>⚠️ 如果绿色按钮写的是 <b>Propose changes</b> 而不是 Commit changes，说明你的账号还没有保存权限——请找老师把你加为仓库协作者。',
-        'Then click the green <b>Commit changes...</b> button → click <b>Commit changes</b> again. Go back to the <a href="' + (cfg.base || '') + '/gallery/">Gallery</a> and refresh — it shows up right away!<br><span class="muted">(If it says the name already exists, pick a different name.)</span><br>⚠️ If the green button says <b>Propose changes</b> instead of Commit changes, your account can\'t save here yet — ask your teacher to add you as a collaborator.');
+      (long ? '<div class="box box-warn" style="margin:6px 0">' + both('📋 你的代码比较长，已经<b>复制到剪贴板</b>了。GitHub 打开以后，点一下中间的大框，按 <kbd>Ctrl</kbd>+<kbd>V</kbd>（Mac 是 <kbd>⌘</kbd>+<kbd>V</kbd>）粘贴进去。', '📋 Your code is long, so it has been <b>copied to the clipboard</b>. When GitHub opens, click the big box in the middle and press <kbd>Ctrl</kbd>+<kbd>V</kbd> (Mac: <kbd>⌘</kbd>+<kbd>V</kbd>) to paste.') + '</div>' : '') +
+      both('然后：点右上角绿色的 <b>Commit changes...</b> → 再点一次 <b>Commit changes</b>。回到<a href="' + (cfg.base || '') + '/gallery/">作品墙</a>刷新一下，马上就能看到！<br><span class="muted">（如果提示名字已存在，就换一个名字再存）</span><br>⚠️ 如果绿色按钮写的是 <b>Propose changes</b> 而不是 Commit changes，说明你的账号还没有保存权限——请找老师把你加为仓库协作者。<br>👨‍👩‍👧 还不到 13 岁？用<b>家长的 GitHub 账号</b>，请家长在旁边一起点。',
+        'Then click the green <b>Commit changes...</b> button → click <b>Commit changes</b> again. Go back to the <a href="' + (cfg.base || '') + '/gallery/">Gallery</a> and refresh — it shows up right away!<br><span class="muted">(If it says the name already exists, pick a different name.)</span><br>⚠️ If the green button says <b>Propose changes</b> instead of Commit changes, your account can\'t save here yet — ask your teacher to add you as a collaborator.<br>👨‍👩‍👧 Under 13? Use a <b>parent\'s GitHub account</b>, with a parent next to you.');
     this.saveBox.className = 'pg-save show';
+    if (long) {
+      var copyIt = function () { if (navigator.clipboard) navigator.clipboard.writeText(code).catch(function () {}); };
+      copyIt();
+      this.saveBox.querySelector('a.go').addEventListener('click', copyIt);   // 点按钮时再复制一次（这时一定允许）
+    }
   };
 
   function init() {

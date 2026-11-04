@@ -107,10 +107,14 @@ playground: true
 
 <div class="box box-tip"><span class="box-title"><span class="zh">🤖 没有鸭子？AI 也可以当鸭子</span><span class="en">🤖 No duck? AI can be the duck</span></span>
 <span class="zh">复制下面的话发给 AI（注意：是<b>你</b>解释，AI 只负责听和提问）：</span><span class="en">Copy this to the AI (note: <b>you</b> explain, the AI only listens and asks):</span>
-<pre style="white-space:pre-wrap;margin:.5em 0">我在排错。我会一行一行解释我的代码，请你当小黄鸭：只问我问题，不要告诉我答案。
+<pre class="zh" style="white-space:pre-wrap;margin:.5em 0">我在排错。我会一行一行解释我的代码，请你当小黄鸭：只问我问题，不要告诉我答案。
 我的代码：
 （粘贴代码）
 第 1 行：…</pre>
+<pre class="en" style="white-space:pre-wrap;margin:.5em 0">I'm debugging. I'll explain my code line by line. Please be my rubber duck: only ask me questions, don't tell me the answer.
+My code:
+(paste the code)
+Line 1: …</pre>
 <button class="pg-btn copy-prev">📋 <span class="zh">复制</span><span class="en">Copy</span></button>
 </div>
 
@@ -200,14 +204,14 @@ playground: true
 ## 🏗️ <span class="zh">开工：做我的项目</span><span class="en">Build time: my project</span>
 {: #build}
 
-<p><span class="zh">打开你的计划（作品墙上的 <code>week10-plan</code>）和第 10 课的<a href="{{ '/lessons/10/learn/' | relative_url }}">骨架代码</a>。<b>一次只做一个功能</b>，做完就测、测完就存。</span><span class="en">Open your plan (<code>week10-plan</code> on the gallery) and the <a href="{{ '/lessons/10/learn/' | relative_url }}">skeleton code</a> from Lesson 10. <b>One feature at a time</b>: build it, test it, save it.</span></p>
+<p><span class="zh">打开你的计划（作品墙上的 <code>week10-plan</code>）和<a href="../homework/">作业页</a>的画板——你第 10 课写的骨架会自动出现在那里。<b>一次只做一个功能</b>，做完就测、测完就存。</span><span class="en">Open your plan (<code>week10-plan</code> on the gallery) and the playground on the <a href="../homework/">homework page</a> — the skeleton you wrote in Lesson 10 shows up there automatically. <b>One feature at a time</b>: build it, test it, save it.</span></p>
 
 <div class="progress" data-for="l11-build"><span></span></div>
 <ul class="quests" data-key="l11-build">
   <li><b>📋 <span class="zh">打开我的计划</span><span class="en">Open my plan</span></b><br><span class="zh">功能 1、2、3 分别是什么？念一遍。</span><span class="en">What are features 1, 2, 3? Read them out.</span></li>
-  <li><b>🦴 <span class="zh">打开骨架，粘贴到作业画板</span><span class="en">Open the skeleton, paste it into the homework playground</span></b><br><span class="zh">在 <a href="../homework/">作业页</a>的画板里。先运行一次，确认骨架能跑。</span><span class="en">In the playground on the <a href="../homework/">homework page</a>. Run it once to check it works.</span></li>
+  <li><b>🦴 <span class="zh">在作业画板里找到我的骨架</span><span class="en">Find my skeleton in the homework playground</span></b><br><span class="zh">打开 <a href="../homework/">作业页</a>：同一台电脑上，第 10 课写的骨架已经在画板里了。没有？从<a href="{{ '/gallery/' | relative_url }}">作品墙</a>的 <code>week10-skeleton</code> 或<a href="{{ '/lessons/10/learn/#plan' | relative_url }}">第 10 课的骨架</a>复制过来。先运行一次，确认能跑。</span><span class="en">Open the <a href="../homework/">homework page</a>: on the same computer, your Lesson 10 skeleton is already in the playground. Not there? Copy it from <code>week10-skeleton</code> on the <a href="{{ '/gallery/' | relative_url }}">Gallery</a> or from <a href="{{ '/lessons/10/learn/#plan' | relative_url }}">the Lesson 10 skeletons</a>. Run it once to check it works.</span></li>
   <li><b>1️⃣ <span class="zh">做功能 1</span><span class="en">Build feature 1</span></b><br><span class="zh">最小的那个。只写让它<b>能跑</b>的代码，不要漂亮。</span><span class="en">The smallest one. Only enough code to make it <b>run</b>, not pretty.</span></li>
-  <li><b>🧪 <span class="zh">测功能 1</span><span class="en">Test feature 1</span></b><br><span class="zh">按下面的测试清单试一遍 + 在 <code>test()</code> 里加一个 <code>assert</code>。</span><span class="en">Go through the test checklist below + add one <code>assert</code> in <code>test()</code>.</span></li>
+  <li><b>🧪 <span class="zh">测功能 1</span><span class="en">Test feature 1</span></b><br><span class="zh">按下面的测试清单试一遍 + 在骨架<b>已经有的</b> <code>test()</code> 里加一个 <code>assert</code>（不要再写第二个 <code>def test()</code>）。</span><span class="en">Go through the test checklist below + add one <code>assert</code> to the skeleton's <b>existing</b> <code>test()</code> (don't write a second <code>def test()</code>).</span></li>
   <li><b>📤 <span class="zh">存档</span><span class="en">Save</span></b><br><code>week11-project</code></li>
   <li><b>2️⃣ <span class="zh">做功能 2 → 测 → 存</span><span class="en">Feature 2 → test → save</span></b></li>
   <li><b>3️⃣ <span class="zh">做功能 3 → 测 → 存</span><span class="en">Feature 3 → test → save</span></b></li>
@@ -228,7 +232,7 @@ playground: true
   </div>
   <div class="card"><b>📱 <span class="zh">App</span><span class="en">App</span></b>
     <ul style="font-size:.95rem;margin:.4em 0;padding-left:1.2em">
-      <li><span class="zh">要数字的时候输入「abc」会崩吗？（<code>try / except</code> 或先检查 <code>isdigit()</code>）</span><span class="en">Type "abc" when it wants a number: crash? (<code>try / except</code> or check <code>isdigit()</code>)</span></li>
+      <li><span class="zh">要数字的时候输入「abc」会崩吗？（<b>进阶</b>：怎么先检查「是不是数字」？问 AI 要提示）</span><span class="en">Type "abc" when it wants a number: crash? (<b>Advanced</b>: how do you check "is it a number?" first? Ask AI for a hint)</span></li>
       <li><span class="zh">什么都不输直接回车？</span><span class="en">Press Enter with nothing typed?</span></li>
       <li><span class="zh">大写 / 小写 / 多打一个空格（<code>.lower().strip()</code>）</span><span class="en">Upper / lower case / extra space (<code>.lower().strip()</code>)</span></li>
       <li><span class="zh">问完最后一个问题，程序有好好结束吗？</span><span class="en">After the last question, does it end nicely?</span></li>
@@ -261,8 +265,8 @@ playground: true
 
 <div class="chat">
   <div class="bubble me"><span class="zh">我在做接水果游戏。我想让分数每接到一个加 1，但运行时报错：UnboundLocalError: local variable 'score' referenced before assignment。我的函数是：def catch(): score = score + 1。请给我一个提示，不要直接给答案。</span><span class="en">I'm making a catch game. I want the score to go up by 1 each catch, but I get: UnboundLocalError: local variable 'score' referenced before assignment. My function: def catch(): score = score + 1. Please give me a hint, not the answer.</span></div>
-  <div class="bubble ai"><span class="zh">提示：函数里面的 score 和外面的 score，电脑默认当成两个不同的东西。有一个关键字可以告诉电脑「我说的是外面那个」——你在第 11 课的小魔法里见过它 😉</span><span class="en">Hint: inside the function, the computer treats score as a brand-new variable, separate from the one outside. There's a keyword that says "I mean the outside one" — you met it in Lesson 11's little magic 😉</span></div>
-  <div class="bubble me"><span class="zh">是 global！谢谢，我自己改。</span><span class="en">It's global! Thanks, I'll fix it myself.</span></div>
+  <div class="bubble ai"><span class="zh">提示：函数里面的 score 和外面的 score，电脑默认当成两个不同的东西。有一个以 g 开头的关键字可以告诉电脑「我说的是外面那个」。你学过的东西里找找看，或者搜「Python 函数里改外面的变量」😉</span><span class="en">Hint: inside the function, the computer treats score as a brand-new variable, separate from the one outside. There's a keyword starting with g that says "I mean the outside one". Look through what you've learned, or search "Python change outside variable in function" 😉</span></div>
+  <div class="bubble me"><span class="zh">是 global！我在第 11 课的小魔法里见过。谢谢，我自己改。</span><span class="en">It's global! I saw it in Lesson 11's little magic. Thanks, I'll fix it myself.</span></div>
 </div>
 
 <p><span class="zh">👆 好的问法：说了<b>在做什么</b>、<b>想要什么</b>、<b>报错原话</b>、<b>相关的几行</b>，并且要的是<b>提示</b>。</span><span class="en">👆 A good question says <b>what you're making</b>, <b>what you want</b>, <b>the exact error</b>, <b>the few lines involved</b>, and asks for a <b>hint</b>.</span></p>
@@ -272,17 +276,17 @@ playground: true
 ## 📚 <span class="zh">知识卡片</span><span class="en">Knowledge cards</span>
 
 <div class="know">
-  <div class="k"><b>🔍 print 侦探</b><code>print("到这里了", x)</code><span><span class="zh">没报错但答案不对：让程序把心里的数说出来</span><span class="en">No error but wrong answer: make it say what it's thinking</span></span></div>
-  <div class="k"><b>📜 读报错</b><code>第几行 → 错误种类 → 原话 → 看那行</code><span><span class="zh">红字是藏宝图</span><span class="en">Red text is a treasure map</span></span></div>
-  <div class="k"><b>🦆 小黄鸭</b><code>"第 3 行是说……"</code><span><span class="zh">念出来，自己就发现了</span><span class="en">Say it out loud and you'll see it</span></span></div>
-  <div class="k"><b>✂️ 二分法</b><code># 注释掉一半</code><span><span class="zh">对 → 问题在另一半</span><span class="en">Works → the bug is in the other half</span></span></div>
-  <div class="k"><b>⌨️ 键盘</b><code>screen.onkey(go, "Left")
+  <div class="k"><b>🔍 <span class="zh">print 侦探</span><span class="en">print detective</span></b><code>print("到这里了", x)</code><span><span class="zh">没报错但答案不对：让程序把心里的数说出来</span><span class="en">No error but wrong answer: make it say what it's thinking</span></span></div>
+  <div class="k"><b>📜 <span class="zh">读报错</span><span class="en">Read the error</span></b><code><span class="zh">第几行 → 错误种类 → 原话 → 看那行</span><span class="en">line → error kind → message → look at the line</span></code><span><span class="zh">红字是藏宝图</span><span class="en">Red text is a treasure map</span></span></div>
+  <div class="k"><b>🦆 <span class="zh">小黄鸭</span><span class="en">Rubber duck</span></b><code><span class="zh">"第 3 行是说……"</span><span class="en">"Line 3 says…"</span></code><span><span class="zh">念出来，自己就发现了</span><span class="en">Say it out loud and you'll see it</span></span></div>
+  <div class="k"><b>✂️ <span class="zh">二分法</span><span class="en">Halving</span></b><code><span class="zh"># 注释掉一半</span><span class="en"># comment out half</span></code><span><span class="zh">对 → 问题在另一半</span><span class="en">Works → the bug is in the other half</span></span></div>
+  <div class="k"><b>⌨️ <span class="zh">键盘</span><span class="en">Keys</span></b><code>screen.onkey(go, "Left")
 screen.listen()</code><span><span class="zh">函数名不加括号</span><span class="en">Function name, no brackets</span></span></div>
-  <div class="k"><b>⏱️ 心跳</b><code>def tick():
+  <div class="k"><b>⏱️ <span class="zh">心跳</span><span class="en">Heartbeat</span></b><code>def tick():
     ...
     screen.ontimer(tick, 50)
 tick()</code><span><span class="zh">自己叫自己 = 一直跑</span><span class="en">Calls itself = keeps going</span></span></div>
-  <div class="k"><b>🖱️ 点击</b><code>def hit(x, y): ...
+  <div class="k"><b>🖱️ <span class="zh">点击</span><span class="en">Clicks</span></b><code>def hit(x, y): ...
 screen.onclick(hit)</code><span><span class="zh">电脑把 x, y 交给你</span><span class="en">The computer hands you x, y</span></span></div>
   <div class="k"><b>🧮 global</b><code>def add():
     global score

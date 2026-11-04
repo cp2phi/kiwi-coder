@@ -18,6 +18,7 @@ tab: teacher
 ## 📋 课前准备
 
 <ul class="quests" data-key="teacher-prep-10">
+  <li>把 <code>_config.yml</code> 的 <code>current_lesson</code> 改成 <code>10</code>（首页地图会高亮本周这一课）。</li>
   <li>自己跑一遍 <a href="../learn/">学一学</a>：todo.py、tests.py（看清楚最后那个 assert 是故意写错的）、三个骨架（A 游戏要先点画布再按方向键）。</li>
   <li>玩一下 <a href="{{ '/games/catch/' | relative_url }}">🍎 接水果</a>，课上用来给孩子看「做好的游戏长什么样」。</li>
   <li>打印或准备一张纸的计划书（网页表格和纸都可以，有的孩子写纸上更顺）。</li>
@@ -99,7 +100,7 @@ tab: teacher
 
 ## 📝 为第 11 课做准备
 
-- 把孩子选的骨架**贴进第 10 课作业画板 2**（draft 会自动记在他的电脑上），下周打开作业页就能继续。
+- 把孩子选的骨架**贴进第 10 课作业画板 2**（draft 会自动记在他的电脑上；第 11 课作业画板用的是同一个 draft，下周打开第 11 课作业页就能接着写）。存档名用 <code>week10-skeleton</code>，这样第 11 课存 <code>week11-project</code> 时不会撞名。
 - 把计划书打印一份放在桌上，第 11 课每做完一步就打一个勾。
 - 第 11 课老师的台词只有三句：「计划书上下一步是什么？」「报错说了什么？」「你打算先问谁？」
 

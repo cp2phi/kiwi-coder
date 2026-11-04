@@ -35,10 +35,6 @@ entries:
     zh: "用编号走一遍列表（可以打印序号）"
     en: "Go through the list by number (handy for numbering)"
     example: "for i in range(len(fruits)):\n    print(i + 1, fruits[i])"
-  - code: '"kiwi" in fruits'
-    zh: "问：列表里有没有这个？（True / False）"
-    en: "Ask: is this in the list? (True / False)"
-    example: 'if "kiwi" in fruits:\n    print("yes!")'
   - code: "i % 6"
     zh: "i 除以 6 的余数（永远是 0～5）"
     en: "Remainder of i ÷ 6 (always 0–5)"

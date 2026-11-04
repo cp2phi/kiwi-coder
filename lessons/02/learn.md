@@ -100,6 +100,8 @@ playground: true
   <div class="why"><span class="zh">你打的「小海龟」被放进了 <code>name</code> 盒子，最后一行从盒子里拿出来用。</span><span class="en">What you typed (小海龟) went into the <code>name</code> box, and the last line takes it back out.</span></div>
 </div>
 
+<div class="box box-warn"><span class="zh">⌨️ <b>第一次在代码里打中文！</b>中文只能写在<b>引号里面</b>。打 <code>" ( ) : ,</code> 之前，一定先把输入法切回<b>英文</b>——中文的 “ ” （ ） ：会让程序报错。</span><span class="en">⌨️ <b>First time typing Chinese in code!</b> Chinese only goes <b>inside quotes</b>. Before typing <code>" ( ) : ,</code> switch your keyboard back to <b>English</b> — Chinese “ ” （ ） ： symbols cause errors.</span></div>
+
 <div class="playground" data-src="{{ '/lessons/02/code/chatbot.py' | relative_url }}" data-canvas="no" data-title="💬 例 4：聊天机器人" data-title-en="💬 Example 4: chatbot" data-save="chatbot" data-draft="l2-chatbot"></div>
 
 <p class="muted"><span class="zh">运行后，输入框会出现在黑色区域下面——在那里打字，按回车。</span><span class="en">After you click Run, a text box appears under the black area — type there and press Enter.</span></p>
@@ -154,6 +156,8 @@ playground: true
 
 <p><span class="zh">设计一个<b>关于你的爱好</b>的聊天机器人：问 3 个问题，每个都用 <code>f"…"</code> 回应，最后一句话总结。满意了就 📤 存到作品墙！</span><span class="en">Design a chatbot <b>about your hobby</b>: ask 3 questions, reply to each with <code>f"…"</code>, and finish with a summary line. Happy with it? 📤 Save to Gallery!</span></p>
 
+<p class="muted"><span class="zh">⏰ 课上没时间的话，这个挑战回家做。</span><span class="en">⏰ No time in class? Do this challenge at home.</span></p>
+
 <div class="playground" data-src="{{ '/lessons/02/code/challenge.py' | relative_url }}" data-canvas="no" data-title="🏆 挑战：爱好聊天机器人" data-title-en="🏆 Challenge: hobby chatbot" data-save="hobby-bot" data-draft="l2-challenge"></div>
 
 <details class="hint"><summary><span class="zh">💡 提示 1</span><span class="en">💡 Hint 1</span></summary><span class="zh">一个问题 = 两行：一行 <code>盒子 = input("问题？ ")</code>，一行 <code>print(f"回应 {盒子}")</code>。复制粘贴再改字就行。</span><span class="en">One question = two lines: <code>box = input("Question? ")</code> and <code>print(f"Reply {box}")</code>. Copy, paste, change the words.</span></details>
@@ -168,11 +172,12 @@ playground: true
 <div class="chat">
   <div class="bubble me">😕 <span class="zh">这段代码是什么意思？</span><span class="en">What does this code mean?</span></div>
   <div class="bubble ai"><span class="zh">（AI 解释了 10 行，你还是不知道 f 是干嘛的……）</span><span class="en">(AI explains 10 lines and you still don't know what f does…)</span></div>
-  <div class="bubble me">😃 <span class="zh">第 7 行 <code>print(f"你好，{name}")</code> 里的 <b>f</b> 和 <b>{ }</b> 是什么意思？用小学生能听懂的话解释，再举一个小例子。</span><span class="en">On line 7 <code>print(f"你好，{name}")</code>, what do the <b>f</b> and the <b>{ }</b> mean? Explain simply and give a small example.</span></div>
+  <div class="bubble me">😃 <span class="zh">第 7 行 <code>print(f"你好，我是 {name}！")</code> 里的 <b>f</b> 和 <b>{ }</b> 是什么意思？用小学生能听懂的话解释，再举一个小例子。</span><span class="en">On line 7 <code>print(f"你好，我是 {name}！")</code>, what do the <b>f</b> and the <b>{ }</b> mean? Explain simply and give a small example.</span></div>
   <div class="bubble ai"><span class="zh">f 告诉 Python「这句话里有要填的空」，{name} 就是空，会换成 name 盒子里的东西。例子：<code>pet = "狗"</code> → <code>print(f"我有一只{pet}")</code> 打印「我有一只狗」。</span><span class="en">The f tells Python "this sentence has blanks to fill", and {name} is a blank filled with what's in the name box. Example: <code>pet = "dog"</code> → <code>print(f"I have a {pet}")</code> prints "I have a dog".</span></div>
 </div>
 
-<pre style="white-space:pre-wrap">第 ___ 行的 ______ 是什么意思？请用小学生能听懂的话解释，再举一个小例子。</pre>
+<pre class="zh" style="white-space:pre-wrap">第 ___ 行的 ______ 是什么意思？请用小学生能听懂的话解释，再举一个小例子。</pre>
+<pre class="en" style="white-space:pre-wrap">What does ______ on line ___ mean? Please explain it in simple words and give a small example.</pre>
 <button class="pg-btn copy-prev">📋 <span class="zh">复制这个问法</span><span class="en">Copy this question</span></button>
 
 <div class="box box-think"><span class="box-title"><span class="zh">🤔 我的机器人 vs 真正的 AI</span><span class="en">🤔 My chatbot vs real AI</span></span>

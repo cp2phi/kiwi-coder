@@ -15,7 +15,7 @@ playground: true
 <a href="#lv1" data-badge-id="reader-1">1</a><a href="#lv2" data-badge-id="reader-2">2</a><a href="#lv3" data-badge-id="reader-3">3</a><a href="#lv4" data-badge-id="reader-4">4</a><a href="#lv5" data-badge-id="reader-5">5</a><a href="#lv6" data-badge-id="reader-6">6</a>
 </div>
 
-<div class="level-head" id="lv1" data-badge-id="reader-1"><span class="lv"><span class="zh">第 1 关</span><span class="en">Level 1</span></span><b><span class="zh">打招呼和变量</span><span class="en">Hello and variables</span></b><span class="done-mark">⭐</span></div>
+<div class="level-head" id="lv1" data-badge-id="reader-1"><span class="lv"><span class="zh">第 1 关</span><span class="en">Level 1</span></span><b><span class="zh">打招呼和变量</span><span class="en">Hello and variables</span></b><span class="pill">📘 <span class="zh">需要第 2 课</span><span class="en">Needs Lesson 2</span></span><span class="done-mark">⭐</span></div>
 <h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
 <div class="two"><div>
 <pre>name = &quot;Kiwi&quot;
@@ -70,7 +70,7 @@ x = 1
 print(x, y)
 </textarea></div>
 
-<div class="level-head" id="lv2" data-badge-id="reader-2"><span class="lv"><span class="zh">第 2 关</span><span class="en">Level 2</span></span><b><span class="zh">for 循环</span><span class="en">for loops</span></b><span class="done-mark">⭐</span></div>
+<div class="level-head" id="lv2" data-badge-id="reader-2"><span class="lv"><span class="zh">第 2 关</span><span class="en">Level 2</span></span><b><span class="zh">for 循环</span><span class="en">for loops</span></b><span class="pill">📘 <span class="zh">需要第 3 课</span><span class="en">Needs Lesson 3</span></span><span class="done-mark">⭐</span></div>
 <h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
 <div class="two"><div>
 <pre>for i in range(3):
@@ -117,7 +117,7 @@ for i in range(5):
 print(total)
 </textarea></div>
 
-<div class="level-head" id="lv3" data-badge-id="reader-3"><span class="lv"><span class="zh">第 3 关</span><span class="en">Level 3</span></span><b><span class="zh">if / elif / else</span><span class="en">if / elif / else</span></b><span class="done-mark">⭐</span></div>
+<div class="level-head" id="lv3" data-badge-id="reader-3"><span class="lv"><span class="zh">第 3 关</span><span class="en">Level 3</span></span><b><span class="zh">if / elif / else</span><span class="en">if / elif / else</span></b><span class="pill">📘 <span class="zh">需要第 4 课</span><span class="en">Needs Lesson 4</span></span><span class="done-mark">⭐</span></div>
 <h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
 <div class="two"><div>
 <pre>score = 7
@@ -188,7 +188,7 @@ if n &gt; 10:
 print(&quot;done&quot;)
 </textarea></div>
 
-<div class="level-head" id="lv4" data-badge-id="reader-4"><span class="lv"><span class="zh">第 4 关</span><span class="en">Level 4</span></span><b><span class="zh">列表</span><span class="en">Lists</span></b><span class="done-mark">⭐</span></div>
+<div class="level-head" id="lv4" data-badge-id="reader-4"><span class="lv"><span class="zh">第 4 关</span><span class="en">Level 4</span></span><b><span class="zh">列表</span><span class="en">Lists</span></b><span class="pill">📘 <span class="zh">需要第 5 课</span><span class="en">Needs Lesson 5</span></span><span class="done-mark">⭐</span></div>
 <h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
 <div class="two"><div>
 <pre>pets = [&quot;cat&quot;, &quot;dog&quot;, &quot;fish&quot;]
@@ -241,7 +241,7 @@ for c in colours:
 print(colours)
 </textarea></div>
 
-<div class="level-head" id="lv5" data-badge-id="reader-5"><span class="lv"><span class="zh">第 5 关</span><span class="en">Level 5</span></span><b><span class="zh">while 和 and / or</span><span class="en">while and and / or</span></b><span class="done-mark">⭐</span></div>
+<div class="level-head" id="lv5" data-badge-id="reader-5"><span class="lv"><span class="zh">第 5 关</span><span class="en">Level 5</span></span><b><span class="zh">while 和 and / or</span><span class="en">while and and / or</span></b><span class="pill">📘 <span class="zh">需要第 6 课</span><span class="en">Needs Lesson 6</span></span><span class="done-mark">⭐</span></div>
 <h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
 <div class="two"><div>
 <pre>n = 1
@@ -306,7 +306,7 @@ else:
     print(&quot;No&quot;)
 </textarea></div>
 
-<div class="level-head" id="lv6" data-badge-id="reader-6"><span class="lv"><span class="zh">第 6 关</span><span class="en">Level 6</span></span><b><span class="zh">函数和字典</span><span class="en">Functions and dictionaries</span></b><span class="done-mark">⭐</span></div>
+<div class="level-head" id="lv6" data-badge-id="reader-6"><span class="lv"><span class="zh">第 6 关</span><span class="en">Level 6</span></span><b><span class="zh">函数和字典</span><span class="en">Functions and dictionaries</span></b><span class="pill">📘 <span class="zh">需要第 7 + 9 课</span><span class="en">Needs Lessons 7 + 9</span></span><span class="done-mark">⭐</span></div>
 <h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
 <div class="two"><div>
 <pre>def greet(name):

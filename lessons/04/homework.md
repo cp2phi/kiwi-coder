@@ -33,7 +33,7 @@ playground: true
   <div class="cmd"><code>count = count + 1</code><span><span class="zh">盒子里的数加 1</span><span class="en">Add 1 to the box</span></span></div>
   <div class="cmd"><code>abs(guess - secret)</code><span><span class="zh">差多少（永远是正数）</span><span class="en">How far apart (always positive)</span></span></div>
   <div class="cmd"><code>answer = input("再玩一次吗? (y/n) ")</code><span><span class="zh">问 y 还是 n</span><span class="en">Ask y or n</span></span></div>
-  <div class="cmd"><code>colors[random.randint(0, 2)]</code><span><span class="zh">从 3 个颜色里随机挑（下标 0、1、2）</span><span class="en">Pick one of 3 colours (positions 0, 1, 2)</span></span></div>
+  <div class="cmd"><code>colors[random.randint(0, 2)]</code><span><span class="zh">从 3 个颜色里随机挑（下标 0、1、2；列表第 5 课学，先当魔法用）</span><span class="en">Pick one of 3 colours (positions 0, 1, 2; lists come in Lesson 5, magic for now)</span></span></div>
 </div>
 
 ## 🧪 <span class="zh">作业画板</span><span class="en">Homework playground</span>
@@ -43,7 +43,7 @@ playground: true
 <div class="playground" data-src="{{ '/lessons/04/code/homework.py' | relative_url }}" data-title="🎲 猜数字豪华版" data-title-en="🎲 Guess Deluxe" data-save="week04-homework" data-draft="l4-homework" data-rows="16"></div>
 
 <details class="hint"><summary><span class="zh">💡 TODO 1 提示</span><span class="en">💡 TODO 1 hint</span></summary><span class="zh">和「太大了」那行一样，只是文字不同。</span><span class="en">Same as the "too big" line, just different words.</span></details>
-<details class="hint"><summary><span class="zh">💡 TODO 2 提示</span><span class="en">💡 TODO 2 hint</span></summary><span class="zh">先在最上面写 <code>colors = ["red", "gold", "cyan"]</code>，然后在「猜对了」的 if 里面（<code>break</code> 之前）放一个画画的循环：<code>t.color(colors[random.randint(0, 2)])</code>。</span><span class="en">Write <code>colors = ["red", "gold", "cyan"]</code> at the top, then inside the "you got it" if (before <code>break</code>) put a drawing loop with <code>t.color(colors[random.randint(0, 2)])</code>.</span></details>
+<details class="hint"><summary><span class="zh">💡 TODO 2 提示</span><span class="en">💡 TODO 2 hint</span></summary><span class="zh">海龟 <code>t</code> 已经在最上面准备好了。先写 <code>colors = ["red", "gold", "cyan"]</code>，然后在「猜对了」的 if 里面（<code>break</code> 之前）放一个画画的循环：<code>t.color(colors[random.randint(0, 2)])</code>。</span><span class="en">The turtle <code>t</code> is already set up at the top. Write <code>colors = ["red", "gold", "cyan"]</code>, then inside the "you got it" if (before <code>break</code>) put a drawing loop with <code>t.color(colors[random.randint(0, 2)])</code>.</span></details>
 <details class="hint"><summary><span class="zh">💡 TODO 4 提示</span><span class="en">💡 TODO 4 hint</span></summary><span class="zh">在「太大了 / 太小了」之后再加：<code>diff = abs(guess - secret)</code>，然后 <code>if diff &lt;= 2:</code> … <code>elif diff &lt;= 5:</code> … <code>else:</code> …。注意缩进要和上面的 if 一样深。</span><span class="en">After the too big / too small part add <code>diff = abs(guess - secret)</code>, then <code>if diff &lt;= 2:</code> … <code>elif diff &lt;= 5:</code> … <code>else:</code> …. Match the indentation of the if above.</span></details>
 
 ## 📤 <span class="zh">怎么交</span><span class="en">How to hand it in</span>

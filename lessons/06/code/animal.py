@@ -17,7 +17,7 @@ while again == "yes":
     elif fur == "yes" and fly == ___:          # 填空：蝙蝠 bat 会飞吗？/ Fill in: can a bat fly? ("yes" or "no")
         print("🦇 是蝙蝠 bat？")
     elif fur == "no" and fly == "yes":
-        print("🐦 是 tui？")
+        print("🐦 是 tūī？")
     elif fur == "no" and fly == "no":
         print("🥝 是奇异鸟 kiwi？")
     else:

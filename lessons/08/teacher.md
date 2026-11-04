@@ -86,13 +86,13 @@ elif result == "输":
     computer_score = computer_score + 1</pre>5 分制只改一处：开头 <code>target = 5</code>，while 里用 <code>my_score &lt; target and computer_score &lt; target</code>。</details>
 
 <details class="hint"><summary>第 5 步 sad_face</summary><pre>def sad_face(x, y):
-    t.penup(); t.goto(x, y); t.pendown()
+    t.penup(); t.goto(x, y); t.setheading(0); t.pendown()
     t.color("gray")
     t.circle(25)
     t.penup(); t.goto(x - 10, y + 32); t.dot(6)
     t.goto(x + 10, y + 32); t.dot(6)
-    t.goto(x - 12, y + 10); t.setheading(60); t.pendown()
-    t.circle(14, -120)
+    t.goto(x + 12, y + 12); t.setheading(120); t.pendown()
+    t.circle(14, 120)          # 从右往左画一座小山 ∩ = 撇嘴
     t.setheading(0)
 # 在「输」的分支里：
 sad_face(-200 + computer_score * 100, -100)</pre></details>

@@ -21,7 +21,7 @@ while again == "yes":
     elif fur == "yes" and fly == "no":
         print("🐱 是猫 cat？")
     elif fur == "no" and fly == "yes":
-        print("🐦 是 tui？")
+        print("🐦 是 tūī？")
     elif fur == "no" and fly == "no":
         print("🥝 是奇异鸟 kiwi？")
     else:

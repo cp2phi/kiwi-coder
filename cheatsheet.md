@@ -10,12 +10,16 @@ title_en: Python cheat sheet
 {% assign keys = site.data.cheatsheet | sort %}
 <div class="dict-nav">
 {% for pair in site.data.cheatsheet %}{% assign sec = pair[1] %}
-  <a href="#l{{ pair[0] }}">{{ sec.icon }} <span class="zh">第 {{ pair[0] | plus: 0 }} 课</span><span class="en">L{{ pair[0] | plus: 0 }}</span></a>
+  <a href="#l{{ pair[0] }}"{% assign ln = pair[0] | plus: 0 %}{% if ln > site.current_lesson %} style="opacity:.45" onclick="var d=document.querySelector('.dict details');if(d)d.open=true"{% endif %}>{{ sec.icon }} <span class="zh">第 {{ pair[0] | plus: 0 }} 课</span><span class="en">L{{ pair[0] | plus: 0 }}</span></a>
 {% endfor %}
 </div>
 
 <div class="dict">
-{% for pair in site.data.cheatsheet %}{% assign sec = pair[1] %}
+{% assign later_shown = false %}
+{% for pair in site.data.cheatsheet %}{% assign sec = pair[1] %}{% assign ln = pair[0] | plus: 0 %}
+{% if ln > site.current_lesson and later_shown == false %}{% assign later_shown = true %}
+<details class="hint" style="margin-top:2em"><summary><span class="zh">🔒 以后会学到的（想先偷看可以点开）</span><span class="en">🔒 Coming in later lessons (click to peek)</span></summary>
+{% endif %}
 <h2 id="l{{ pair[0] }}">{{ sec.icon }} <span class="zh">第 {{ pair[0] | plus: 0 }} 课：{{ sec.title }}</span><span class="en">Lesson {{ pair[0] | plus: 0 }}: {{ sec.title_en }}</span></h2>
 <div class="table-wrap">
 <table>
@@ -26,6 +30,7 @@ title_en: Python cheat sheet
 </table>
 </div>
 {% endfor %}
+{% if later_shown %}</details>{% endif %}
 </div>
 
 <script>

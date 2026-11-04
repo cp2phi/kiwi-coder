@@ -22,7 +22,7 @@ score = 0
 wrong = []
 
 for i in range(5):
-    answer = input(f"「{maori[i]}」是什么意思？What does it mean? ")
+    answer = input(f"「{maori[i]}」是什么意思？（用英文小写回答）What does it mean? (lowercase English) ")
     if answer == english[i]:
         score = score + 1
     else:

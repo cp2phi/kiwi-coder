@@ -103,7 +103,7 @@ t.left(90)</pre></div>
 <p><span class="zh">还记得第 1 课作品墙上那个彩虹螺旋吗？现在你能看懂了！秘密是：<b><code>i</code> 每次都在变大</b>——0、1、2、3……所以 <code>t.forward(i * 2)</code> 每次走得比上次远一点。</span><span class="en">Remember the rainbow spiral from lesson 1's gallery? Now you can read it! The secret: <b><code>i</code> grows every time</b> — 0, 1, 2, 3… so <code>t.forward(i * 2)</code> goes a little further each time.</span></p>
 
 <div class="quiz" data-answer="2">
-  <p class="q"><span class="zh"><code>for i in range(100): t.forward(i * 2)</code>——第 50 次循环时，海龟走几步？</span><span class="en"><code>for i in range(100): t.forward(i * 2)</code> — on the 50th time round, how far does the turtle go?</span></p>
+  <p class="q"><span class="zh"><code>for i in range(100): t.forward(i * 2)</code>——当 <code>i = 50</code> 的时候，海龟走几步？</span><span class="en"><code>for i in range(100): t.forward(i * 2)</code> — when <code>i = 50</code>, how far does the turtle go?</span></p>
   <div class="opts"><button>50</button><button>100</button><button>200</button></div>
   <div class="why"><span class="zh">i = 50 时，i × 2 = 100 步。第 0 次走 0 步，最后一次（i = 99）走 198 步，越来越长就成了螺旋。</span><span class="en">When i = 50, i × 2 = 100 steps. The first time (i = 0) it goes 0, the last time (i = 99) it goes 198. Longer and longer = a spiral.</span></div>
 </div>
@@ -152,16 +152,16 @@ t.left(90)</pre></div>
 <ul class="quests" data-key="l3-countdown">
   <li><span class="zh">把「我爱 Python」改成重复 10 次。</span><span class="en">Make "I love Python" repeat 10 times.</span></li>
   <li><span class="zh">改成从 10 倒数。</span><span class="en">Count down from 10.</span></li>
-  <li><span class="zh">加一行 <code>for i in range(0, 20, 2): print(i)</code>——猜猜会打印什么？</span><span class="en">Add <code>for i in range(0, 20, 2): print(i)</code> — guess what it prints first.</span></li>
+  <li><span class="zh">加两行：<code>for i in range(0, 20, 2):</code>，下一行缩进 4 格写 <code>print(i)</code>——猜猜会打印什么？</span><span class="en">Add two lines: <code>for i in range(0, 20, 2):</code> and, indented 4 spaces below it, <code>print(i)</code> — guess what it prints first.</span></li>
 </ul>
 
 ### 🐞 <span class="zh">缩进实验：故意弄坏它</span><span class="en">Indentation experiment: break it on purpose</span>
 
-<p><span class="zh">把第 9 行前面的 4 个空格删掉，运行，<b>读一读红框</b>，再修好。这是今天最重要的报错！</span><span class="en">Delete the 4 spaces at the start of line 9, run it, <b>read the red box</b>, then fix it. This is today's most important error!</span></p>
+<p><span class="zh">把第 10 行前面的 4 个空格删掉，运行，<b>读一读红框</b>，再修好。这是今天最重要的报错！</span><span class="en">Delete the 4 spaces at the start of line 10, run it, <b>read the red box</b>, then fix it. This is today's most important error!</span></p>
 
 <div class="playground" data-src="{{ '/lessons/03/code/indent.py' | relative_url }}" data-title="🐞 缩进实验" data-title-en="🐞 Indentation experiment" data-save="indent-test" data-rows="8"></div>
 
-<div class="box box-good"><span class="zh">💡 <b>报错不是失败。</b>电脑在告诉你：「第 9 行，缩进不对」。修好它，你就学会了读报错——这比写对代码还重要。</span><span class="en">💡 <b>An error is not a failure.</b> The computer is telling you: "line 9, indentation wrong". Fix it and you've learned to read errors — even more important than writing correct code.</span></div>
+<div class="box box-good"><span class="zh">💡 <b>报错不是失败。</b>电脑在告诉你：「第 10 行，缩进不对」。修好它，你就学会了读报错——这比写对代码还重要。</span><span class="en">💡 <b>An error is not a failure.</b> The computer is telling you: "line 10, indentation wrong". Fix it and you've learned to read errors — even more important than writing correct code.</span></div>
 
 ---
 
@@ -192,7 +192,7 @@ and give a tiny example. Don't change my code.</pre>
 
 <div class="chat">
   <div class="bubble me"><span class="zh">😕 <b>不好的问法：</b>「帮我写一个螺旋。」（AI 写了，你还是不懂）</span><span class="en">😕 <b>Not so good:</b> "Write me a spiral." (AI writes it, you still don't get it)</span></div>
-  <div class="bubble me"><span class="zh">😃 <b>好的问法：</b>「第 14 行 <code>colors[i % 6]</code> 是什么意思？用小学生能听懂的话解释。」</span><span class="en">😃 <b>Good:</b> "What does <code>colors[i % 6]</code> on line 14 mean? Explain it simply."</span></div>
+  <div class="bubble me"><span class="zh">😃 <b>好的问法：</b>「第 16 行 <code>colors[i % 6]</code> 是什么意思？用小学生能听懂的话解释。」</span><span class="en">😃 <b>Good:</b> "What does <code>colors[i % 6]</code> on line 16 mean? Explain it simply."</span></div>
   <div class="bubble ai"><b>AI:</b> <span class="zh"><code>i % 6</code> 是「i 除以 6 的余数」。i 是 0、1、2、3、4、5 时余数就是自己；i 是 6 时余数又变回 0。所以它会一直在 0～5 之间转圈，刚好用来轮流拿 6 种颜色……</span><span class="en"><code>i % 6</code> is "the remainder of i divided by 6". For i = 0 to 5 it's just i; at i = 6 it goes back to 0. So it cycles 0–5 forever — perfect for taking 6 colours in turn…</span></div>
 </div>
 

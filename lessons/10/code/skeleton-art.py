@@ -26,7 +26,7 @@ def flower(x, y, size):     # 在 (x, y) 画一朵花 / draw a flower at (x, y)
 def on_click(x, y):         # 鼠标点到哪里，就画到哪里 / draw where the mouse clicked
     flower(x, y, random.randint(10, 40))
     # TODO: 必做功能 2：每点一次换一种形状（星星？正方形？）/ a different shape each click
-    # TODO: 必做功能 3：按空格键清空画布（screen.onkey + t.clear）/ space bar clears the canvas
+    #       提示：再写一个画形状的函数，用 random.choice 选画哪个 / hint: write another shape function, pick one with random.choice
 
 def test():                 # 🧪 小测试 / tiny tests
     assert PETALS >= 3, "至少 3 片花瓣"
@@ -35,4 +35,7 @@ def test():                 # 🧪 小测试 / tiny tests
 test()
 flower(0, 0, 30)            # 先画一朵给你看 / one flower to start
 screen.onclick(on_click)
+# TODO: 必做功能 3：按空格键清空画布 / space bar clears the canvas
+#       提示：写一个函数，里面 t.clear()；再在这里写 screen.onkey(函数名, "space")
+#       hint: write a function with t.clear() inside, then screen.onkey(function_name, "space") here
 screen.listen()

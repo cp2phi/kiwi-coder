@@ -20,8 +20,8 @@ entries:
     en: "Hand a result back. Store it, print it or use it in an if"
     example: "def double(n):\n    return n * 2\nx = double(5)   # 10"
   - code: "def greet(name=\"Kiwi\"):"
-    zh: "默认值：不递东西就用它（选学）"
-    en: "Default value: used if nothing is handed in (optional)"
+    zh: "默认值：不递东西就用它（进阶，课上没讲）"
+    en: "Default value: used if nothing is handed in (advanced, not covered in class)"
     example: 'def greet(name="Kiwi"):\n    return f"Kia ora, {name}!"\nprint(greet())'
   - code: "def street(n):\n    for i in range(n):\n        house(i * 120, 0, 80)"
     zh: "招式里可以喊别的招式"

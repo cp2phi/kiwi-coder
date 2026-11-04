@@ -17,7 +17,7 @@ playground: true
 <div class="levels">
   <div class="level"><div class="medal">🥉</div><div>
     <h3><span class="zh">必做：3 个功能都能跑</span><span class="en">Must do: all 3 features run</span></h3>
-    <p><span class="zh">计划里的 <b>功能 1、2、3</b> 都做出来，从头运行<b>没有红字</b>，<code>test()</code> 打印「✅ 测试通过」。不漂亮没关系，<b>能跑</b>就是胜利。</span><span class="en">Build <b>features 1, 2 and 3</b> from your plan, run from scratch with <b>no red text</b>, and <code>test()</code> prints "✅". Pretty doesn't matter; <b>running</b> is the win.</span></p>
+    <p><span class="zh">计划里的 <b>功能 1、2、3</b> 都做出来，从头运行<b>没有红字</b>，<code>test()</code> 全部通过（可以在 <code>test()</code> 最后加一行 <code>print("✅ 测试通过")</code>，一眼就能看到）。不漂亮没关系，<b>能跑</b>就是胜利。</span><span class="en">Build <b>features 1, 2 and 3</b> from your plan, run from scratch with <b>no red text</b>, and <code>test()</code> passes (add <code>print("✅ tests passed")</code> as its last line so you can see it). Pretty doesn't matter; <b>running</b> is the win.</span></p>
   </div></div>
   <div class="level"><div class="medal">🥈</div><div>
     <h3><span class="zh">加分：一个加分功能 + 不怕乱输入</span><span class="en">Bonus: one bonus feature + survives silly input</span></h3>
@@ -31,9 +31,9 @@ playground: true
 
 ## 🧪 <span class="zh">作业画板</span><span class="en">Homework playground</span>
 
-<p class="muted"><span class="zh">写的代码会自动记在这台电脑上。把第 10 课的骨架或 <code>week10-plan</code> 里的代码粘贴进来。</span><span class="en">Your code is saved on this computer automatically. Paste in the skeleton from Lesson 10 or your <code>week10-plan</code> code.</span></p>
+<p class="muted"><span class="zh">这个画板和第 10 课作业画板 2 是<b>同一份草稿</b>：在同一台电脑上，你上周写的骨架已经在下面了——接着写！（没看到？按画板里的提示，从作品墙的 <code>week10-skeleton</code> 复制过来。）新的 <code>assert</code> 加进骨架里<b>已经有的</b> <code>test()</code>，它在主循环前面运行。</span><span class="en">This playground shares <b>one draft</b> with Lesson 10's homework playground 2: on the same computer, last week's skeleton is already below — carry on! (Not there? Follow the note in the playground and copy <code>week10-skeleton</code> from the Gallery.) Add new <code>assert</code>s to the skeleton's <b>existing</b> <code>test()</code>, which runs before the main loop.</span></p>
 
-<div class="playground" data-src="{{ '/lessons/11/code/homework.py' | relative_url }}" data-title="🛠️ 我的项目 v1" data-title-en="🛠️ My project v1" data-save="week11-project" data-draft="l11-homework" data-rows="22" data-images></div>
+<div class="playground" data-src="{{ '/lessons/11/code/homework.py' | relative_url }}" data-title="🛠️ 我的项目 v1" data-title-en="🛠️ My project v1" data-save="week11-project" data-draft="project" data-rows="22" data-images></div>
 
 <details class="hint"><summary><span class="zh">💡 卡住了，不知道先做什么？</span><span class="en">💡 Stuck, don't know what to do first?</span></summary><span class="zh">把功能 1 再拆小：「海龟能左右动」→ 先只做「按 → 往右走」，一行 <code>onkey</code> + 一个函数。跑通了再加 ←。<b>每次只加 3 行就运行一次。</b></span><span class="en">Split feature 1 smaller: "turtle moves left/right" → first just "press → moves right": one <code>onkey</code> + one function. Works? Add ←. <b>Add 3 lines, run, repeat.</b></span></details>
 <details class="hint"><summary><span class="zh">💡 报错了怎么办？</span><span class="en">💡 Got an error?</span></summary><span class="zh">四步法！① 读红框，看第几行、什么种类（<a href="../learn/#toolbox">第 11 课的表</a>）② 翻<a href="{{ '/notebook/' | relative_url }}">笔记本</a> ③ 点红框里的「复制问 AI 要提示的话」④ 下节课问老师，<b>先把报错截图或抄下来</b>。</span><span class="en">The 4 steps! ① Read the red box: which line, which kind (<a href="../learn/#toolbox">Lesson 11's table</a>) ② check your <a href="{{ '/notebook/' | relative_url }}">notebook</a> ③ click "copy a hint-please message for AI" in the red box ④ ask the teacher next lesson — <b>write the error down first</b>.</span></details>

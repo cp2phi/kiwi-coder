@@ -9,6 +9,7 @@ playground: true
 # 📖 <span class="zh">第 10 课：像程序员一样做项目</span><span class="en">Lesson 10: Work on a project like a programmer</span>
 
 ## 🔁 <span class="zh">热身：上次学的还记得吗？</span><span class="en">Warm-up: remember last time?</span>
+{: #warmup}
 
 <p><span class="zh">第 9 课的<b>字典</b> + 第 7 课的<b>函数</b>：一个「查一下」函数。</span><span class="en"><b>Dicts</b> (Lesson 9) + <b>functions</b> (Lesson 7): a "look it up" function.</span></p>
 
@@ -67,7 +68,7 @@ print(lookup("dragon"))
 <p class="zh">做项目时你会看到很多<b>别人写的代码</b>（AI 的、骨架的、游戏里的）。读代码有三步：① 从上到下找<b>函数的名字</b>（def）——它们是「目录」；② 找<b>主循环</b>（while）——程序在这里转；③ 找<b>变量</b>——程序记住了什么。</p>
 <p class="en">In a project you'll read lots of <b>code written by others</b> (AI, skeletons, games). Three steps: ① scan top to bottom for <b>function names</b> (def) — they're the table of contents; ② find the <b>main loop</b> (while) — where the program spins; ③ find the <b>variables</b> — what it remembers.</p>
 
-<p><span class="zh">练习对象：一个 25 行的<b>待办 app</b>。先别改，先读。</span><span class="en">Practice on a 25-line <b>to-do app</b>. Don't change it yet — read it.</span></p>
+<p><span class="zh">练习对象：一个 33 行的<b>待办 app</b>。先别改，先读。</span><span class="en">Practice on a 33-line <b>to-do app</b>. Don't change it yet — read it.</span></p>
 
 <div class="playground" data-src="{{ '/lessons/10/code/todo.py' | relative_url }}" data-title="📝 迷你待办 app" data-title-en="📝 Mini to-do app" data-canvas="no" data-save="todo-app" data-draft="l10-todo" data-rows="18"></div>
 
@@ -109,9 +110,9 @@ print(lookup("dragon"))
 </div>
 
 <div class="quiz" data-answer="2">
-  <p class="q"><span class="zh">下面的代码里有一个 bug 和一个「写错的测试」。运行后，第一个报错会在哪一行附近？</span><span class="en">The code below has one bug and one "wrongly written test". When you run it, where is the first error?</span></p>
+  <p class="q"><span class="zh">下面的代码里藏着一个「写错的测试」。运行后，第一个报错会在哪一行附近？</span><span class="en">The code below hides one "wrongly written test". When you run it, where is the first error?</span></p>
   <div class="opts"><button><span class="zh">第 1 个 assert</span><span class="en">The 1st assert</span></button><button><span class="zh">最后那个 double(5) == 11</span><span class="en">The last one, double(5) == 11</span></button><button><span class="zh">不会报错</span><span class="en">No error</span></button></div>
-  <div class="why"><span class="zh"><code>double</code> 的 <code>n + n</code> 其实是对的（两倍！），所以前面全过。最后那个测试本身写错了：5 的两倍是 10 不是 11。<b>测试也会有 bug</b>——报错时两边都要看。</span><span class="en"><code>n + n</code> in <code>double</code> is actually right (it doubles!), so the earlier tests pass. The last test itself is wrong: double 5 is 10, not 11. <b>Tests can have bugs too</b> — check both sides when one fails.</span></div>
+  <div class="why"><span class="zh">函数都没有 bug：<code>double</code> 的 <code>n + n</code> 就是两倍，所以前面的测试全过。最后那个测试本身写错了：5 的两倍是 10 不是 11。<b>测试也会有 bug</b>——报错时，函数和测试两边都要看。</span><span class="en">The functions have no bug: <code>n + n</code> in <code>double</code> really doubles, so the earlier tests pass. The last test itself is wrong: double 5 is 10, not 11. <b>Tests can have bugs too</b> — when one fails, check both the function and the test.</span></div>
 </div>
 
 <div class="playground" data-src="{{ '/lessons/10/code/tests.py' | relative_url }}" data-title="🧪 我的第一个测试" data-title-en="🧪 My first tests" data-canvas="no" data-save="my-tests" data-draft="l10-tests" data-rows="16"></div>
@@ -144,7 +145,7 @@ print(lookup("dragon"))
 <p class="muted"><span class="zh">像这个：<a href="{{ '/games/catch/' | relative_url }}">🍎 接水果</a>。先点画布再按键盘！</span><span class="en">Like this: <a href="{{ '/games/catch/' | relative_url }}">🍎 Fruit Catcher</a>. Click the canvas, then use the keys!</span></p>
 </div>
 <div>
-<div class="playground" data-src="{{ '/lessons/10/code/skeleton-game.py' | relative_url }}" data-title="🎮 骨架 A：接星星" data-title-en="🎮 Skeleton A: Catch the Stars" data-save="week11-project" data-draft="l10-skel-game" data-rows="10"></div>
+<div class="playground" data-src="{{ '/lessons/10/code/skeleton-game.py' | relative_url }}" data-title="🎮 骨架 A：接星星" data-title-en="🎮 Skeleton A: Catch the Stars" data-save="week10-skeleton" data-draft="l10-skel-game" data-rows="10"></div>
 </div>
 </div>
 
@@ -155,7 +156,7 @@ print(lookup("dragon"))
 <p><span class="zh">问答机 / 翻译机 / 待办 / 算命机 / 计算器……都行。<br><b>必做</b>：① 菜单循环 ② 至少 3 个功能（每个一个函数）③ 输入错的东西不会崩溃<br><b>加分</b>：记分或记录；随机惊喜<br><b>用到</b>：while（6）、函数（7）、字典（9）、input（2）</span><span class="en">Quiz / translator / to-do / fortune teller / calculator… anything.<br><b>Must</b>: ① a menu loop ② at least 3 features (one function each) ③ wrong input doesn't crash it<br><b>Bonus</b>: score or history; a random surprise<br><b>Uses</b>: while (6), functions (7), dicts (9), input (2)</span></p>
 </div>
 <div>
-<div class="playground" data-src="{{ '/lessons/10/code/skeleton-app.py' | relative_url }}" data-title="📱 骨架 B：问答 app" data-title-en="📱 Skeleton B: Quiz app" data-canvas="no" data-save="week11-project" data-draft="l10-skel-app" data-rows="10"></div>
+<div class="playground" data-src="{{ '/lessons/10/code/skeleton-app.py' | relative_url }}" data-title="📱 骨架 B：问答 app" data-title-en="📱 Skeleton B: Quiz app" data-canvas="no" data-save="week10-skeleton" data-draft="l10-skel-app" data-rows="10"></div>
 </div>
 </div>
 
@@ -163,10 +164,10 @@ print(lookup("dragon"))
 
 <div class="two">
 <div>
-<p><span class="zh"><b>必做</b>：① 点哪里画哪里 ② 每次换形状或颜色 ③ 一个键清空画布<br><b>加分</b>：按数字键换花瓣数；按住拖动画线<br><b>用到</b>：函数（7）、for（3）、列表 + random（5）、鼠标事件（11）</span><span class="en"><b>Must</b>: ① draw where you click ② a different shape or colour each time ③ one key clears the canvas<br><b>Bonus</b>: number keys change the petal count; drag to draw lines<br><b>Uses</b>: functions (7), for (3), lists + random (5), mouse events (11)</span></p>
+<p><span class="zh"><b>必做</b>：① 点哪里画哪里 ② 每次换一种形状（颜色骨架已经会换了）③ 一个键清空画布<br><b>加分</b>：按数字键换花瓣数；按住拖动画线<br><b>用到</b>：函数（7）、for（3）、列表 + random（5）、鼠标事件（11）</span><span class="en"><b>Must</b>: ① draw where you click ② a different shape each time (the skeleton already changes colour) ③ one key clears the canvas<br><b>Bonus</b>: number keys change the petal count; drag to draw lines<br><b>Uses</b>: functions (7), for (3), lists + random (5), mouse events (11)</span></p>
 </div>
 <div>
-<div class="playground" data-src="{{ '/lessons/10/code/skeleton-art.py' | relative_url }}" data-title="🎨 骨架 C：点一下就画" data-title-en="🎨 Skeleton C: Click to draw" data-save="week11-project" data-draft="l10-skel-art" data-rows="10"></div>
+<div class="playground" data-src="{{ '/lessons/10/code/skeleton-art.py' | relative_url }}" data-title="🎨 骨架 C：点一下就画" data-title-en="🎨 Skeleton C: Click to draw" data-save="week10-skeleton" data-draft="l10-skel-art" data-rows="10"></div>
 </div>
 </div>
 
@@ -190,7 +191,7 @@ print(lookup("dragon"))
   <label>🎯 <span class="zh">它是做什么的（一句话）</span><span class="en">What it does (one sentence)</span></label>
   <input name="p-what" data-ph-zh="比如：用篮子接住掉下来的星星，接到 10 个就赢" data-ph-en="e.g. catch falling stars with a basket; 10 to win" placeholder="比如：用篮子接住掉下来的星星，接到 10 个就赢">
   <label>🗂️ <span class="zh">类型</span><span class="en">Type</span></label>
-  <input name="p-type" placeholder="🎮 / 📱 / 🎨">
+  <input name="p-type" data-ph-zh="🎮 / 📱 / 🎨（点下面选一个）" data-ph-en="🎮 / 📱 / 🎨 (pick one below)" placeholder="🎮 / 📱 / 🎨（点下面选一个）">
   <div class="chips" data-for="p-type"><button class="chip"><span class="zh">🎮 游戏</span><span class="en">🎮 game</span></button><button class="chip"><span class="zh">📱 app</span><span class="en">📱 app</span></button><button class="chip"><span class="zh">🎨 互动画画</span><span class="en">🎨 interactive art</span></button></div>
   <label>🕹️ <span class="zh">玩家怎么用（2–3 句）</span><span class="en">How the player uses it (2–3 lines)</span></label>
   <textarea name="p-how" rows="3" data-ph-zh="1. 点一下画布  2. 按左右键移动  3. ……" data-ph-en="1. click the canvas  2. use arrow keys  3. …" placeholder="1. 点一下画布  2. 按左右键移动  3. ……"></textarea>
@@ -199,7 +200,7 @@ print(lookup("dragon"))
   <label>⭐ <span class="zh">加分的 2 个功能</span><span class="en">2 nice-to-have features</span></label>
   <textarea name="p-bonus" rows="2" placeholder="1.&#10;2."></textarea>
   <label>🪜 <span class="zh">拆成的小步骤（至少 5 步，每步 10 分钟能做完）</span><span class="en">Small steps (≥5, each doable in 10 minutes)</span></label>
-  <textarea name="p-steps" rows="5" placeholder="1. 先让骨架跑起来&#10;2.&#10;3.&#10;4.&#10;5."></textarea>
+  <textarea name="p-steps" rows="5" data-ph-zh="1. 先让骨架跑起来&#10;2.&#10;3.&#10;4.&#10;5." data-ph-en="1. get the skeleton running&#10;2.&#10;3.&#10;4.&#10;5." placeholder="1. 先让骨架跑起来&#10;2.&#10;3.&#10;4.&#10;5."></textarea>
   <label>📖 <span class="zh">我需要的知识点（课数）</span><span class="en">Knowledge I need (lesson numbers)</span></label>
   <input name="p-know" data-ph-zh="比如：while（6）、函数（7）、字典（9）" data-ph-en="e.g. while (6), functions (7), dicts (9)" placeholder="比如：while（6）、函数（7）、字典（9）">
   <label>🤖 <span class="zh">我会问 AI 什么（只要提示）</span><span class="en">What I'll ask AI (hints only)</span></label>
@@ -218,7 +219,7 @@ print(lookup("dragon"))
   function build() {
     var E = window.KC && KC.lang() === 'en';
     var filled = 0;
-    var L = ['# 🗺️ ' + (E ? 'My project plan' : '我的项目计划书') + (v('p-name') ? '：' + v('p-name') : ''), '#'];
+    var L = ['# 🗺️ ' + (E ? 'My project plan' : '我的项目计划书') + (v('p-name') ? (E ? ': ' : '：') + v('p-name') : ''), '#'];
     var sec = function (title, body) { L.push('# ===== ' + title + ' ====='); if (body) { body.forEach(function (b) { L.push('#   ' + b); }); filled++; } else L.push('#   ...'); L.push('#'); };
     sec(E ? '1. Project name' : '1. 项目名字', v('p-name') ? [v('p-name')] : null);
     sec(E ? '2. What it does' : '2. 它是做什么的', v('p-what') ? [v('p-what')] : null);
@@ -259,7 +260,7 @@ print(lookup("dragon"))
 
 <ul class="quests" data-key="l10-plan">
   <li><span class="zh">计划书拼到 ⭐⭐⭐⭐，复制，贴进画板（把模板里的空替换掉），运行一下确认没有报错。</span><span class="en">Get the plan to ⭐⭐⭐⭐, copy it, paste it into the playground (replacing the template), run it to check for errors.</span></li>
-  <li><span class="zh">把你选的骨架（A / B / C）运行一次，找到里面的 3 个 <code>TODO</code>。</span><span class="en">Run your chosen skeleton (A / B / C) and find its 3 <code>TODO</code>s.</span></li>
+  <li><span class="zh">把你选的骨架（A / B / C）运行一次，找到里面所有的 <code>TODO</code>。</span><span class="en">Run your chosen skeleton (A / B / C) and find all its <code>TODO</code>s.</span></li>
   <li><span class="zh">给老师讲一遍你的计划（讲出来 = 真的想清楚了）。</span><span class="en">Explain your plan to your teacher (saying it out loud = really thought it through).</span></li>
 </ul>
 

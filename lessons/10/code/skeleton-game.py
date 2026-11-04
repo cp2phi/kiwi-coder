@@ -39,7 +39,7 @@ pen.color("white")
 
 def test():                                  # 🧪 小测试：开始前先检查 / tiny tests before we start
     assert SPEED > 0, "速度要大于 0"
-    assert -300 < basket.xcor() < 300, "篮子要在画布里"
+    assert -300 < basket.xcor() < 300, "篮子要在画布里"   # -300 < x < 300：x 在 -300 和 300 之间（先当魔法用）/ x is between -300 and 300 (magic for now)
 
 def go_left():                               # ← 键 / left key
     basket.setx(basket.xcor() - STEP)
@@ -48,7 +48,7 @@ def go_right():                              # → 键 / right key
     basket.setx(basket.xcor() + STEP)
 
 def tick():                                  # 游戏循环：每 30 毫秒跑一次 / game loop every 30 ms
-    global score
+    global score                             # 函数里要改外面的 score（先当魔法用，第 11 课讲 global）/ change the outside score (magic for now — Lesson 11 explains global)
     star.sety(star.ycor() - SPEED)           # 星星往下掉 / star falls
     if star.distance(basket) < 30:           # 接住了！/ caught it!
         score = score + 1
@@ -65,4 +65,6 @@ screen.onkey(go_left, "Left")
 screen.onkey(go_right, "Right")
 screen.listen()
 tick()
-# TODO: 必做功能 2：星星越来越快 / star gets faster   必做功能 3：到 10 分显示「你赢了」/ "You win" at 10
+# TODO: 必做功能 2：星星越来越快——接住时让 SPEED 加一点。tick() 里要先写 global SPEED（和 global score 一样，先当魔法用）
+#       must-have 2: the star gets faster — add a bit to SPEED on a catch. tick() needs global SPEED first (like global score; magic for now)
+# TODO: 必做功能 3：到 10 分显示「你赢了」/ must-have 3: "You win" at 10 points

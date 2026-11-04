@@ -31,7 +31,6 @@ pen.goto(-280, 250)
 
 score = 0
 misses = 0
-game_started = True
 
 def new_fruit():
     fruit.color(random.choice(FRUITS))        # 每次随机一种颜色 / a random colour each time

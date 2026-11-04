@@ -17,7 +17,7 @@ playground: true
 <div class="levels">
   <div class="level"><div class="medal">🥉</div><div>
     <h3><span class="zh">必做：项目页上线 + 给 2 个人看</span><span class="en">Must do: project page live + show 2 people</span></h3>
-    <p><span class="zh">① 展示版存到作品墙，文件名 <code>week12-showcase</code>。② <a href="{{ '/my-project/' | relative_url }}">我的项目页</a>能打开、能玩。③ 把链接发给 2 个人（家人、朋友、老师），让他们真的点开玩一次，问他们一个问题：「哪里最好玩？」</span><span class="en">① Save the showcase version as <code>week12-showcase</code>. ② <a href="{{ '/my-project/' | relative_url }}">My project page</a> opens and plays. ③ Send the link to 2 people (family, friends, teacher), get them to actually play, and ask one question: "What's the most fun part?"</span></p>
+    <p><span class="zh">① 展示版存到作品墙，文件名 <code>week12-showcase</code>。② <a href="{{ '/my-project/' | relative_url }}">我的项目页</a>能打开、能玩，并且把课上没写的文字（①②③⑥⑦⑧：名字、介绍、怎么玩、最骄傲的一行、学到了、最难的 bug）填好。③ 把链接发给 2 个人（家人、朋友、老师），让他们真的点开玩一次，问他们一个问题：「哪里最好玩？」键盘游戏要请他们<b>用电脑打开</b>，手机没有方向键。</span><span class="en">① Save the showcase version as <code>week12-showcase</code>. ② <a href="{{ '/my-project/' | relative_url }}">My project page</a> opens and plays, and the words you didn't write in class are filled in (①②③⑥⑦⑧: name, description, how to play, proudest line, what I learned, hardest bug). ③ Send the link to 2 people (family, friends, teacher), get them to actually play, and ask one question: "What's the most fun part?" For a keyboard game, ask them to <b>open it on a computer</b> — phones have no arrow keys.</span></p>
   </div></div>
   <div class="level"><div class="medal">🥈</div><div>
     <h3><span class="zh">加分：笔记本最后一页</span><span class="en">Bonus: the last notebook page</span></h3>
@@ -41,8 +41,8 @@ playground: true
 
 <ol class="steps">
   <li><span class="zh">点 <b>📤 存到作品墙</b>，文件名 <code>week12-showcase</code>，<b>Commit changes</b>。</span><span class="en">Click <b>📤 Save to Gallery</b>, name it <code>week12-showcase</code>, <b>Commit changes</b>.</span></li>
-  <li><span class="zh">按<a href="../learn/#page">第 12 课的步骤</a>让 <a href="{{ '/my-project/' | relative_url }}">我的项目页</a>指向 <code>week12-showcase.py</code>，commit，等 1 分钟，打开链接确认能玩。</span><span class="en">Follow <a href="../learn/#page">Lesson 12's steps</a> so <a href="{{ '/my-project/' | relative_url }}">My project page</a> points at <code>week12-showcase.py</code>, commit, wait a minute, open the link and check it plays.</span></li>
-  <li><span class="zh">把链接发给 2 个人。</span><span class="en">Send the link to 2 people.</span></li>
+  <li><span class="zh">按<a href="../learn/#page">第 12 课的步骤</a>：在 <a href="{{ '/my-project/' | relative_url }}">我的项目页</a>的 <code>index.md</code> 最上面把 <code>project_file:</code> 改成 <code>week12-showcase.py</code>（课上改过就跳过），再填好 ①②③⑥⑦⑧ 的文字，commit，等 1 分钟，打开链接确认能玩。</span><span class="en">Follow <a href="../learn/#page">Lesson 12's steps</a>: at the top of <a href="{{ '/my-project/' | relative_url }}">My project page</a>'s <code>index.md</code>, set <code>project_file:</code> to <code>week12-showcase.py</code> (skip if you did it in class), fill in the words for ①②③⑥⑦⑧, commit, wait a minute, open the link and check it plays.</span></li>
+  <li><span class="zh">把链接发给 2 个人（键盘游戏：请他们用电脑打开）。</span><span class="en">Send the link to 2 people (keyboard game: ask them to use a computer).</span></li>
 </ol>
 
 <div class="box box-think"><span class="box-title"><span class="zh">🔮 没有「下周预告」了——现在是你自己的预告</span><span class="en">🔮 No "next week" teaser — now it's your own</span></span>

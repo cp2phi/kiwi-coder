@@ -21,7 +21,7 @@ playground: true
   </div></div>
   <div class="level"><div class="medal">🥈</div><div>
     <h3><span class="zh">加分：骨架跑起来 + 加 1 个功能</span><span class="en">Bonus: skeleton runs + 1 feature added</span></h3>
-    <p><span class="zh">把你选的骨架（A 游戏 / B app / C 画画）贴到第二个画板，完成<b>第一个 TODO</b> 或你计划书里的<b>步骤 1</b>。存为 <code>week11-project</code>（下周继续用同一个文件）。</span><span class="en">Paste your chosen skeleton (A game / B app / C art) into the second playground and finish the <b>first TODO</b> or <b>step 1</b> of your plan. Save as <code>week11-project</code> (you'll keep using this file next week).</span></p>
+    <p><span class="zh">把你选的骨架（A 游戏 / B app / C 画画）贴到第二个画板，完成骨架里一个<b>必做功能的 TODO</b>，或者你计划书里的<b>步骤 1</b>。存为 <code>week10-skeleton</code>。下周第 11 课的作业画板会<b>自动接着这里写</b>（同一台电脑）。</span><span class="en">Paste your chosen skeleton (A game / B app / C art) into the second playground and finish one <b>must-have TODO</b> or <b>step 1</b> of your plan. Save as <code>week10-skeleton</code>. Next week the Lesson 11 homework playground <b>picks up right where you left off</b> (on the same computer).</span></p>
   </div></div>
   <div class="level"><div class="medal">🥇</div><div>
     <h3><span class="zh">挑战：给你的项目写 2 个 assert</span><span class="en">Challenge: write 2 asserts for your project</span></h3>
@@ -35,9 +35,11 @@ playground: true
 
 ## 🧪 <span class="zh">作业画板 2：骨架（🥈 🥇）</span><span class="en">Homework playground 2: the skeleton (🥈 🥇)</span>
 
-<p class="muted"><span class="zh">先在<a href="../learn/#plan">学一学</a>里点你选的骨架的 <b>📋 复制</b>，再贴到这里。写的代码会自动记在这台电脑上。</span><span class="en">Click <b>📋 Copy</b> on your chosen skeleton in <a href="../learn/#plan">Learn</a>, then paste it here. Your code is saved on this computer automatically.</span></p>
+<p class="muted"><span class="zh">先在<a href="../learn/#plan">学一学</a>里点你选的骨架的 <b>📋 复制</b>，再贴到这里。写的代码会自动记在这台电脑上，第 11 课的作业画板会接着用它。</span><span class="en">Click <b>📋 Copy</b> on your chosen skeleton in <a href="../learn/#plan">Learn</a>, then paste it here. Your code is saved on this computer automatically, and the Lesson 11 homework playground carries on from it.</span></p>
 
-<div class="playground" data-title="🛠️ 我的项目（骨架）" data-title-en="🛠️ My project (skeleton)" data-save="week11-project" data-draft="l11-project" data-rows="14"><textarea># 🛠️ 我的项目 My project
+<div class="hw-status" data-file="week10-skeleton.py"></div>
+
+<div class="playground" data-title="🛠️ 我的项目（骨架）" data-title-en="🛠️ My project (skeleton)" data-save="week10-skeleton" data-draft="project" data-rows="14"><textarea># 🛠️ 我的项目 My project
 # 把骨架 A / B / C 贴到这里（先删掉这几行）
 # Paste skeleton A / B / C here (delete these lines first)
 </textarea></div>
@@ -50,7 +52,7 @@ playground: true
 
 <ol class="steps">
   <li><span class="zh">画板 1 点 <b>📤 存到作品墙</b>，文件名 <code>week10-plan</code>，GitHub 上点 <b>Commit changes</b>。</span><span class="en">On playground 1 click <b>📤 Save to Gallery</b>, name it <code>week10-plan</code>, click <b>Commit changes</b> on GitHub.</span></li>
-  <li><span class="zh">做了 🥈 的话，画板 2 也存一次，文件名 <code>week11-project</code>。</span><span class="en">If you did 🥈, save playground 2 as <code>week11-project</code>.</span></li>
+  <li><span class="zh">做了 🥈 的话，画板 2 也存一次，文件名 <code>week10-skeleton</code>。</span><span class="en">If you did 🥈, save playground 2 as <code>week10-skeleton</code>.</span></li>
   <li><span class="zh">在 <a href="{{ '/notebook/' | relative_url }}">📓 笔记本</a> 的第 10 课写「我的项目是」和「拆成的小步骤」。</span><span class="en">In your <a href="{{ '/notebook/' | relative_url }}">📓 notebook</a>, Lesson 10, write "my project is" and "small steps".</span></li>
 </ol>
 

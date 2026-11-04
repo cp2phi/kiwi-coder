@@ -19,7 +19,7 @@ tab: teacher
 
 <ul class="quests" data-key="teacher-prep-9">
   <li>自己把 <a href="../learn/">学一学</a> 的 5 个例子跑一遍，特别是例 2（翻译机）和「侦探行动」的 detective.py。</li>
-  <li>准备「三个来源」的道具：一本词典 / 一页打印好的新西兰小知识（首都惠灵顿、国鸟几维鸟、怀唐伊条约 1840 年）。</li>
+  <li>准备「三个来源」的道具：一本词典 / 一页打印好的新西兰小知识（首都惠灵顿、最有名的象征鸟几维鸟——新西兰其实没有官方「国鸟」、怀唐伊条约 1840 年）。</li>
   <li>在你自己的 AI（Codex / ChatGPT）里，用学一学 ④ 的配方问一个「新西兰 5 题问答机」，看看它这次有没有编错——有错更好，留着课上用。</li>
   <li>检查孩子上周作业（week08-homework）是否在作品墙上，准备一句具体的表扬。</li>
   <li>想好孩子最熟的一个领域（宝可梦 / 游戏角色 / 球星），用来做「挑战：我的小词典」。</li>
@@ -77,7 +77,7 @@ tab: teacher
 ## ✅ 参考答案
 
 <details class="hint"><summary>例 4 填空</summary>八边形 = <code>8</code>。加十边形：<code>"十边形": 10</code> + 一次 <code>draw("十边形", 35, "orange")</code>。</details>
-<details class="hint"><summary>detective.py 的错误</summary>「新西兰的首都是？」答案应为<b>惠灵顿</b>（AI 写成了奥克兰）。其余：国鸟几维鸟 ✅、最大城市奥克兰 ✅、三角形 3 条边 ✅、怀唐伊条约 1840 年 ✅。</details>
+<details class="hint"><summary>detective.py 的错误</summary>「新西兰的首都是？」答案应为<b>惠灵顿</b>（AI 写成了奥克兰）。其余：最有名的象征鸟几维鸟 ✅（注意：新西兰没有官方指定的「国鸟」，所以题目问的是「象征鸟」）、最大城市奥克兰 ✅、三角形 3 条边 ✅、怀唐伊条约 1840 年 ✅。</details>
 <details class="hint"><summary>作业 🥈 的参考结构</summary>
 <pre>mode = input("翻译 还是 测验？")
 if mode == "测验":

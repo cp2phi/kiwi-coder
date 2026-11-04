@@ -16,6 +16,6 @@ for tries in range(5):
     elif guess > secret:
         print("📉 太大了 Too big")
     else:
-        print("📈 太___了 Too small")           # 把 ___ 换成一个字 / replace ___ with a word
+        print(___)                              # 填空：猜小了该说什么？（要加引号）/ Fill in: what to say when too small? (use quotes)
 
 print(f"游戏结束！答案是 The answer was {secret}")

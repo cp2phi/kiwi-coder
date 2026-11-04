@@ -2,7 +2,18 @@
 title: 我的项目
 title_en: My Project
 playground: true
+# 👉 ④ 画板读 my-work 文件夹里的哪个文件？只改冒号后面的文件名，不要加引号。
+#    第 11 课是 week11-project.py，第 12 课改成 week12-showcase.py
+# 👉 ④ Which file in my-work should the playground load? Only change the name after the colon, no quotes.
+project_file: week11-project.py
+# 👉 只用 print / input 的文字 app？把下一行开头的 # 和空格删掉（游戏 / 画画不用管）
+# 👉 Text-only app (just print / input)? Delete the # and space at the start of the next line (games / art: leave it)
+# project_canvas: no
 ---
+{% assign pf = page.project_file | default: 'week11-project.py' | strip %}
+{% assign pf_end = pf | slice: -3, 3 %}
+{% if pf_end != '.py' %}{% assign pf = pf | append: '.py' %}{% endif %}
+{% assign pf_url = '/my-work/' | append: pf | relative_url %}
 <!-- 👉 这是你的项目展示页！只改带 👉 的地方。改完点绿色的 Commit changes，等 1 分钟刷新。 -->
 <!-- 👉 This is your project page! Only change the parts marked 👉. Commit, wait a minute, refresh. -->
 
@@ -29,10 +40,11 @@ playground: true
 
 ## ▶️ <span class="zh">来玩吧！</span><span class="en">Play it!</span>
 
-<!-- 👉 ④ 画板读的是 my-work 文件夹里的哪个文件？第 11 课是 week11-project.py，第 12 课改成 week12-showcase.py -->
-<div class="playground" data-src="{{ '/my-work/week11-project.py' | relative_url }}" data-title="▶ 玩我的项目" data-title-en="▶ Play my project" data-save="week12-showcase" data-rows="16" data-images></div>
+<!-- ④ 画板读哪个文件，在这个文件最上面的 project_file: 那一行改，不在这里改 -->
+<!-- ④ Change which file the playground loads in the project_file: line at the very top, not here -->
+<div class="playground" data-src="{{ pf_url | escape }}" data-title="▶ 玩我的项目" data-title-en="▶ Play my project" data-save="week12-showcase" data-rows="16"{% if page.project_canvas == false or page.project_canvas == 'no' %} data-canvas="no"{% else %} data-images{% endif %}></div>
 
-<div class="box box-warn"><span class="zh">⚠️ 如果上面写着「没找到代码文件」：说明 <code>my-work/</code> 里还没有那个文件。去作业画板点 <b>📤 存到作品墙</b>，名字要和上面 <code>data-src</code> 里的<b>一模一样</b>（不带 .py）。存好、等 1 分钟、刷新这一页。</span><span class="en">⚠️ If it says "code file not found": that file isn't in <code>my-work/</code> yet. Click <b>📤 Save to Gallery</b> on the homework playground with <b>exactly</b> the name in <code>data-src</code> above (without .py). Save, wait a minute, refresh this page.</span></div>
+<div class="box box-warn"><span class="zh">⚠️ 如果上面写着「没找到代码文件」：说明 <code>my-work/</code> 里还没有 <code>{{ pf | escape }}</code>。两个办法：① 去作业画板点 <b>📤 存到作品墙</b>，名字用 <code>{{ pf | remove: '.py' | escape }}</code>；② 或者把这个文件最上面的 <code>project_file:</code> 改成作品墙上<b>真的有</b>的文件名。改好、等 1 分钟、刷新这一页。</span><span class="en">⚠️ If it says "code file not found": <code>my-work/</code> doesn't have <code>{{ pf | escape }}</code> yet. Two fixes: ① click <b>📤 Save to Gallery</b> on the homework playground and name it <code>{{ pf | remove: '.py' | escape }}</code>; or ② change <code>project_file:</code> at the very top of this file to a name that <b>really is</b> on your Gallery. Then wait a minute and refresh this page.</span></div>
 
 <!-- 👉 ⑤ 可选：放一张截图。先把 PNG 上传到 my-work 文件夹（GitHub → my-work → Add file → Upload files），然后把下面那一行开头的「注释开始」和结尾的「注释结束」标记删掉，再改文件名 -->
 <!-- <p><img src="{{ '/my-work/screenshot.png' | relative_url }}" alt="我的项目截图" style="max-width:420px;border-radius:14px;border:2px solid var(--line)"></p> -->

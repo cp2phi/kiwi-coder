@@ -8,9 +8,9 @@ maori = ["kia ora", "whānau", "kai", "moana", "rā"]
 english = ["hello", "family", "food", "sea", "sun"]
 
 score = 0
-for round in range(5):
+for q in range(5):
     i = random.randint(0, 4)                 # 随机选一个编号 / pick a random number
-    answer = input(f"「{maori[i]}」是什么意思？What does it mean? ")
+    answer = input(f"「{maori[i]}」是什么意思？（用英文小写回答）What does it mean? (lowercase English) ")
     if answer == english[___]:               # 填空：应该和第几个英文比？/ Fill in: compare with which English word?
         print("✅ Ka pai! 答对了")
         score = score + 1

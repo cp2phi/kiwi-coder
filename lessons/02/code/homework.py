@@ -6,10 +6,10 @@
 # ===== 🥉 第 1 部分：至少 3 个问题 + 回应  Part 1: at least 3 questions + replies =====
 print("你好！我是你的聊天机器人 🤖")
 
-name = input("你叫什么名字？ ")
+name = input("你叫什么名字？What's your name? ")
 print(f"你好，{name}！")
 
-food = input("你最喜欢吃什么？ ")
+food = input("你最喜欢吃什么？Favourite food? ")
 print(f"{food}？我也想吃！")
 
 # TODO: 再加一个问题，并用 f"..." 回应  Add one more question and reply with f"..."
@@ -22,7 +22,7 @@ print(f"{food}？我也想吃！")
 # ===== 🥈 第 3 部分：海龟画一个大小由你决定的图形  Part 3: a turtle shape sized by your input =====
 import turtle
 
-size = int(input("你想要多大的正方形？（输入一个数字） "))
+size = int(input("你想要多大的正方形？How big a square? (a number) "))
 t = turtle.Turtle()
 t.color("purple")
 t.pensize(4)

@@ -101,7 +101,7 @@ playground: true
 <div class="playground" data-src="{{ '/lessons/07/code/return-demo.py' | relative_url }}" data-canvas="no" data-title="🔁 例 4：return" data-title-en="🔁 Example 4: return" data-save="return-demo" data-rows="12"></div>
 
 <ul class="quests" data-key="l7-ex4">
-  <li><span class="zh">运行前先在纸上写下 7 行输出，再运行对答案。全对吗？</span><span class="en">Before running, write the 7 output lines on paper, then run and check. All right?</span></li>
+  <li><span class="zh">运行前先在纸上写下 6 行输出，再运行对答案。全对吗？</span><span class="en">Before running, write the 6 output lines on paper, then run and check. All right?</span></li>
   <li><span class="zh">加一个招式 <code>def triple(n):</code> 交回 3 倍，然后 <code>print(triple(double(2)))</code>。先猜结果！</span><span class="en">Add <code>def triple(n):</code> that returns 3 times n, then <code>print(triple(double(2)))</code>. Guess first!</span></li>
   <li><span class="zh">把 <code>greet</code> 改成用毛利语和中文都打招呼：<code>return f"Kia ora, {name}! 你好！"</code></span><span class="en">Make <code>greet</code> say hello in te reo and Chinese: <code>return f"Kia ora, {name}! 你好！"</code></span></li>
 </ul>

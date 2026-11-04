@@ -7,9 +7,9 @@ def add(a, b):
     return a + b
 
 def double(n):
-    return n + n          # 👈 有个 bug！/ there's a bug here!
+    return n + n          # 两倍 = 自己加自己 / double = add it to itself
 
-# 三个测试 / three tests
+# 一串测试 / a row of tests
 assert add(2, 3) == 5,      "2 + 3 应该是 5"
 assert add(10, -4) == 6,    "10 - 4 应该是 6"
 assert double(4) == 8,      "4 的两倍应该是 8"

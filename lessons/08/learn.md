@@ -8,8 +8,8 @@ playground: true
 
 # ✊ <span class="zh">迷你项目：石头剪刀布，6 步搭起来</span><span class="en">Mini project: Rock Paper Scissors in 6 steps</span>
 
-<p class="zh">今天没有「新魔法」要背——你已经有了全部零件：变量、input、if、random、while、列表、函数。今天学的是<b>怎么把零件拼成一个真正的游戏</b>，还有两个整理文字的小帮手 <code>.strip()</code> 和 <code>.lower()</code>。</p>
-<p class="en">No new magic to memorise today — you already have every part: variables, input, if, random, while, lists, functions. Today you learn <b>how to assemble the parts into a real game</b>, plus two little text helpers, <code>.strip()</code> and <code>.lower()</code>.</p>
+<p class="zh">今天没有大的「新魔法」——你已经有了全部零件：变量、input、if、random、while、列表、函数。今天学的是<b>怎么把零件拼成一个真正的游戏</b>，路上会碰到几个小帮手（看下面的 📌 框）。</p>
+<p class="en">No big new magic today — you already have every part: variables, input, if, random, while, lists, functions. Today you learn <b>how to assemble the parts into a real game</b>, and you'll meet a few little helpers on the way (see the 📌 box below).</p>
 
 <div class="flow">
   <div class="f"><span class="e">🤖</span><b>1 <span class="zh">电脑出拳</span><span class="en">computer plays</span></b></div>
@@ -23,6 +23,19 @@ playground: true
   <div class="f"><span class="e">🐢</span><b>5 <span class="zh">庆祝</span><span class="en">celebrate</span></b></div>
   <div class="arrow">→</div>
   <div class="f"><span class="e">🦎</span><b>6 <span class="zh">加料</span><span class="en">extras</span></b></div>
+</div>
+
+<div class="box box-tip"><span class="box-title">📌 <span class="zh">今天会遇到的新东西</span><span class="en">New things you'll meet today</span></span>
+<span class="zh">不用背，遇到的时候回来看一眼就行：</span><span class="en">No need to memorise — just come back and peek when you meet them:</span>
+<ul>
+  <li><code>.strip()</code> / <code>.lower()</code> — <span class="zh">去掉两头的空格 / 全变小写，整理输入（第 2 步）</span><span class="en">remove spaces at both ends / make it all lowercase, to tidy input (step 2)</span></li>
+  <li><code>continue</code> — <span class="zh">在 while 里：跳过这一轮剩下的代码，直接回到循环开头（第 4 步）</span><span class="en">inside a while: skip the rest of this round and jump back to the top of the loop (step 4)</span></li>
+  <li><code>t.setheading(120)</code> — <span class="zh">让海龟脸朝某个方向（0 = 右，90 = 上）；<code>t.circle(14, 120)</code> 第二个数 = 只画 120 度的一段弧（第 5 步提示）</span><span class="en">point the turtle in a direction (0 = right, 90 = up); in <code>t.circle(14, 120)</code> the second number = draw only a 120° piece of the circle (step 5 hint)</span></li>
+  <li><code>[me, computer] in beats</code> — <span class="zh">列表里可以装小列表；<code>in</code> 问「这一对在不在里面？」（第 6 步）</span><span class="en">a list can hold little lists; <code>in</code> asks "is this pair in there?" (step 6)</span></li>
+  <li><code>" / ".join(choices)</code> — <span class="zh">把列表里的字用 " / " 连成一句话（第 6 步）</span><span class="en">glue the words in a list into one string with " / " between them (step 6)</span></li>
+  <li><code>return a, b</code> — <span class="zh">一次交回两个东西，外面用 <code>x, y = play_game()</code> 接住（作业）</span><span class="en">hand back two things at once; catch them with <code>x, y = play_game()</code> (homework)</span></li>
+  <li><code>random.random()</code> — <span class="zh">0 到 1 之间的随机小数；<code>random.random() &lt; 0.3</code> 就是「30% 的机会」（作业挑战）</span><span class="en">a random decimal between 0 and 1; <code>random.random() &lt; 0.3</code> means "a 30% chance" (homework challenge)</span></li>
+</ul>
 </div>
 
 <div class="box box-rule"><span class="zh">📏 <b>每一步的规矩：</b>先猜会发生什么 → 运行 → 改一改 → 能跑了再去下一步。每一步的画板都从上一步的答案开始，但留了 <code>___</code> 或 TODO 给你。</span><span class="en">📏 <b>The rule for every step:</b> guess what happens → run → change it → only move on when it runs. Each step's playground starts from the previous step's answer, with <code>___</code> or TODOs left for you.</span></div>
@@ -102,9 +115,11 @@ playground: true
 
 <div class="box box-tip"><span class="box-title">🤖 <span class="zh">卡住了？用排错模板问 AI</span><span class="en">Stuck? Ask AI with the debugging template</span></span>
 <span class="zh">红框里有「📋 复制问 AI 要提示的话」按钮——它会把报错和代码一起打包，<b>只要提示，不要答案</b>。没报错但结果不对？这样问：</span><span class="en">The red error box has a "📋 Copy a hint-please message" button that packs the error and code together, asking for <b>a hint, not the answer</b>. No error but wrong result? Ask like this:</span>
-<pre style="margin:.5em 0;white-space:pre-wrap">我在写石头剪刀布的 judge 函数。我输入 布、电脑出 石头，应该是「赢」，但它说「输」。
+<pre class="zh" style="margin:.5em 0;white-space:pre-wrap">我在写石头剪刀布的 judge 函数。我输入 布、电脑出 石头，应该是「赢」，但它说「输」。
 这是我的代码：（贴代码）
-请告诉我该检查哪一行，不要直接给我改好的代码。</pre><button class="pg-btn copy-prev">📋 <span class="zh">复制</span><span class="en">Copy</span></button>
+请告诉我该检查哪一行，不要直接给我改好的代码。</pre><pre class="en" style="margin:.5em 0;white-space:pre-wrap">I'm writing the judge function for Rock Paper Scissors. I play paper and the computer plays rock, so it should say "win", but it says "lose".
+Here is my code: (paste code)
+Please tell me which line to check — don't give me the fixed code.</pre><button class="pg-btn copy-prev">📋 <span class="zh">复制</span><span class="en">Copy</span></button>
 </div>
 
 ---
@@ -134,7 +149,7 @@ playground: true
 
 <div class="playground" data-src="{{ '/lessons/08/code/step5.py' | relative_url }}" data-title="🪜 第 5 步：海龟庆祝" data-title-en="🪜 Step 5: turtle celebration" data-save="rps-step5" data-draft="l8-step5" data-rows="16"></div>
 
-<details class="hint"><summary><span class="zh">💡 sad_face 提示</span><span class="en">💡 sad_face hint</span></summary><span class="zh"><code>def sad_face(x, y):</code> → penup, goto(x, y), pendown → <code>t.circle(25)</code> 脸 → penup 挪到眼睛位置 <code>t.dot(6)</code> 两次 → 嘴巴：<code>t.setheading(60)</code> 然后 <code>t.circle(10, -120)</code>（负数 = 反方向弯）。喊它：<code>sad_face(-200 + computer_score * 100, -100)</code>。</span><span class="en"><code>def sad_face(x, y):</code> → penup, goto(x, y), pendown → <code>t.circle(25)</code> for the face → penup to the eyes, <code>t.dot(6)</code> twice → mouth: <code>t.setheading(60)</code> then <code>t.circle(10, -120)</code> (negative = bends the other way). Call it: <code>sad_face(-200 + computer_score * 100, -100)</code>.</span></details>
+<details class="hint"><summary><span class="zh">💡 sad_face 提示</span><span class="en">💡 sad_face hint</span></summary><span class="zh"><code>def sad_face(x, y):</code> → penup, goto(x, y), pendown → <code>t.circle(25)</code> 脸 → penup 挪到眼睛位置 <code>t.dot(6)</code> 两次 → 嘴巴：penup 挪到 <code>(x + 12, y + 12)</code>，pendown，<code>t.setheading(120)</code> 然后 <code>t.circle(14, 120)</code>——画出一座小山 ∩，就是不开心的嘴（画完 <code>t.setheading(0)</code> 转回来）。喊它：<code>sad_face(-200 + computer_score * 100, -100)</code>。</span><span class="en"><code>def sad_face(x, y):</code> → penup, goto(x, y), pendown → <code>t.circle(25)</code> for the face → penup to the eyes, <code>t.dot(6)</code> twice → mouth: penup to <code>(x + 12, y + 12)</code>, pendown, <code>t.setheading(120)</code> then <code>t.circle(14, 120)</code> — that draws a little hill ∩, an unhappy mouth (then <code>t.setheading(0)</code> to turn back). Call it: <code>sad_face(-200 + computer_score * 100, -100)</code>.</span></details>
 
 ## 🪜 <span class="zh">第 6 步：加料（选做）——蜥蜴和史波克！</span><span class="en">Step 6: extras (optional) — lizard and Spock!</span>
 

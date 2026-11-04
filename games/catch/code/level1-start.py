@@ -1,5 +1,5 @@
 # 🍎 第 1 关：先玩一局 / Level 1: just play
-# 点 ▶ 运行，点一下画布，用 ← → 接水果。接到 5 个算你赢！/ Click ▶ Run, click the canvas, use ← → to catch fruit. 5 catches = you win!
+# 点 ▶ 运行，点一下画布，用 ← → 接水果。目标：接住 5 个（诚实规则，自己数！）/ Click ▶ Run, click the canvas, use ← → to catch fruit. Aim: 5 catches (honour rule, count them yourself!)
 
 
 import turtle
@@ -40,7 +40,6 @@ pen.goto(-280, 250)
 
 score = 0
 misses = 0
-game_started = True
 
 def show_score():
     pen.clear()

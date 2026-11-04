@@ -19,6 +19,10 @@ entries:
     zh: "往前走 100 步（边走边画）"
     en: "Move forward 100 steps (drawing a line)"
     example: "t.forward(150)"
+  - code: "t.backward(50)"
+    zh: "往后退（也会画线）"
+    en: "Move backwards (still draws)"
+    example: "t.backward(50)"
   - code: "t.left(90) / t.right(90)"
     zh: "左转 / 右转 90 度"
     en: "Turn left / right 90 degrees"
@@ -55,6 +59,14 @@ entries:
     zh: "背景颜色"
     en: "Background colour"
     example: 'turtle.bgcolor("navy")'
+  - code: 't.shape("turtle")'
+    zh: "把箭头变成小海龟的样子"
+    en: "Make the arrow look like a turtle"
+    example: 't.shape("turtle")'
+  - code: 't.dot(20, "gold")'
+    zh: "在原地点一个圆点（大小、颜色）"
+    en: "Draw a dot where the turtle is (size, colour)"
+    example: 't.dot(30, "red")'
   - code: "t.hideturtle()"
     zh: "把海龟藏起来（只留画）"
     en: "Hide the turtle (keep the drawing)"

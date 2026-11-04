@@ -22,22 +22,34 @@ entries:
   - code: "my-project/index.md"
     zh: "我的项目页。改带 👉 的地方，commit，等 1 分钟"
     en: "My project page. Change the 👉 parts, commit, wait a minute"
-    example: 'data-src="…/my-work/week12-showcase.py"'
+    example: "project_file: week12-showcase.py"
+  - code: "project_file: 文件名.py"
+    zh: "项目页最上面的一行：画板读 my-work 里的哪个文件。只改名字，不加引号；写错只会显示「没找到代码文件」"
+    en: "The line at the top of the project page: which my-work file the playground loads. Change only the name, no quotes; a typo just shows \"file not found\""
+    example: "project_file: week12-showcase.py\nproject_canvas: no   # 文字 app / text app"
+  - code: "🕰️ History"
+    zh: "文件的历史版本：每次 commit 都是一个存档，改坏了可以找回上一版（版本控制）"
+    en: "A file's version history: every commit is a save point; if it breaks, get the previous version back (version control)"
+    example: "打开文件 → History → 上一版 → 复制回来"
   - code: "README.md"
-    zh: "每个文件夹的「说明书」，打开文件夹第一个看到的就是它"
-    en: "A folder's instruction sheet; the first thing you see in a folder"
+    zh: "（进阶）每个文件夹的「说明书」，打开文件夹第一个看到的就是它"
+    en: "(Advanced) A folder's instruction sheet; the first thing you see in a folder"
     example: "my-project/README.md"
-  - code: 'pen.write("标题", align="center", font=("Arial", 32, "bold"))'
-    zh: "在画布上写字（标题画面）"
-    en: "Write text on the canvas (title screen)"
-    example: 'pen.goto(0, 60)\npen.write("我的游戏", align="center", font=("Arial", 32, "bold"))'
+  - code: 'title_pen.write("标题", align="center", font=("Arial", 32, "bold"))'
+    zh: "用一只新海龟在画布上写字（标题画面）"
+    en: "Write text on the canvas with a new turtle (title screen)"
+    example: 'title_pen.goto(0, 60)\ntitle_pen.write("我的游戏", align="center", font=("Arial", 32, "bold"))'
+  - code: "screen.ontimer(title_pen.clear, 3000)"
+    zh: "3 秒后擦掉标题（ontimer 第 11 课学过）"
+    en: "Wipe the title after 3 seconds (ontimer is from Lesson 11)"
+    example: "screen.ontimer(title_pen.clear, 3000)"
   - code: 'print("=" * 30)'
     zh: "文字乘以数字 = 重复（画横线做横幅）"
     en: "Text × number = repeat (a line for a banner)"
     example: 'print("-" * 20)'
   - code: "✈️ 起飞前检查"
-    zh: "部署前：没红字 · test() ✅ · 第一行有标题作者 · 存到作品墙"
-    en: "Before deploying: no red text · test() ✅ · title + author on line 1 · saved to gallery"
+    zh: "部署前：没红字 · test() ✅ · 第一行有标题作者 · 存到作品墙 · 没有真名、学校、照片（网站是公开的）"
+    en: "Before deploying: no red text · test() ✅ · title + author on line 1 · saved to gallery · no real name, school or photo (the site is public)"
     example: "从「↺ 还原」开始跑一次"
   - code: "🛟 四步法"
     zh: "① 读报错 ② 翻笔记本 ③ 问 AI 要提示 ④ 问人"

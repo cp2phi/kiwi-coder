@@ -4,8 +4,8 @@
 
 import turtle
 
-name = input("你叫什么名字？ ")
-colour = input("你喜欢什么颜色？（英文，比如 red / gold / blue） ")
+name = input("你叫什么名字？What's your name? ")
+colour = input("你喜欢什么颜色？Favourite colour? (red / gold / blue) ")
 
 t = turtle.Turtle()
 t.speed(0)

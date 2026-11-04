@@ -4,10 +4,10 @@
 
 print("你好！我是聊天机器人 2000 🤖")
 
-name = input("你叫什么名字？ ")
+name = input("你叫什么名字？What's your name? ")
 print(f"很高兴认识你，{name}！")
 
-animal = input("你最喜欢什么动物？ ")
+animal = input("你最喜欢什么动物？Favourite animal? ")
 print(f"哇，{animal}！我也喜欢{animal}！")
 
 print(f"再见，{name}！下次再聊～")

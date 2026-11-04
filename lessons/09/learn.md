@@ -9,6 +9,7 @@ playground: true
 # 📖 <span class="zh">第 9 课：字典 + AI 侦探</span><span class="en">Lesson 9: Dictionaries + AI detective</span>
 
 ## 🔁 <span class="zh">热身：上次学的还记得吗？</span><span class="en">Warm-up: remember last time?</span>
+{: #warmup}
 
 <p><span class="zh">第 7 课的<b>函数</b>和第 5 课的<b>列表</b>一起上场：一个画星星的函数，一个颜色列表。</span><span class="en"><b>Functions</b> (Lesson 7) and <b>lists</b> (Lesson 5) together: a star function and a colour list.</span></p>
 
@@ -34,6 +35,7 @@ playground: true
   <div class="cmd"><code>"kai" in d</code><span><span class="zh">有这个标签吗？True / False</span><span class="en">Is this label there? True / False</span></span></div>
   <div class="cmd"><code>d.get("x", "没有")</code><span><span class="zh">安全地拿：没有就给默认值</span><span class="en">Safe get: a default if missing</span></span></div>
   <div class="cmd"><code>for k in d:</code><span><span class="zh">一个标签一个标签地看</span><span class="en">Go through every label</span></span></div>
+  <div class="cmd"><code>d.keys()</code><span><span class="zh">所有的标签</span><span class="en">All the labels</span></span></div>
 </div>
 
 ### 🤔 <span class="zh">先猜，再运行</span><span class="en">Guess first, then run</span>
@@ -58,6 +60,7 @@ playground: true
   <li><span class="zh">去掉 <code>#</code>，运行，读一读红框里的话，再把 <code>#</code> 加回去。</span><span class="en">Remove the <code>#</code>, run it, read the red box, then put the <code>#</code> back.</span></li>
   <li><span class="zh">加一个新词：<code>maori["rā"] = "sun"</code>，再 <code>print(maori["rā"])</code>。</span><span class="en">Add a word: <code>maori["rā"] = "sun"</code>, then <code>print(maori["rā"])</code>.</span></li>
   <li><span class="zh">加一行 <code>print("kai" in maori)</code> 和 <code>print("pizza" in maori)</code>，看看 True / False。</span><span class="en">Add <code>print("kai" in maori)</code> and <code>print("pizza" in maori)</code> and look at the True / False.</span></li>
+  <li><span class="zh">看最后一段：<code>maori.keys()</code> 交出<b>所有的标签</b>。先猜会打印几行，再运行。然后把 <code>.keys()</code> 删掉（变成 <code>for k in maori:</code>）——结果一样吗？</span><span class="en">Look at the last part: <code>maori.keys()</code> hands over <b>all the labels</b>. Guess how many lines it prints, then run. Then delete <code>.keys()</code> (so it's <code>for k in maori:</code>) — same result?</span></li>
 </ul>
 
 ### 🧪 <span class="zh">例 2：翻译机 app（会学新词！）</span><span class="en">Example 2: translator app (it learns new words!)</span>
@@ -86,7 +89,7 @@ playground: true
   <li><span class="zh">最后加一个 <code>if score == len(quiz):</code> 显示「🏆 全对！」。</span><span class="en">Add <code>if score == len(quiz):</code> at the end to show "🏆 All correct!".</span></li>
 </ul>
 
-### 🧪 <span class="zh">例 4：按名字画图形（填空）</span><span class="en">Example 4: shapes by name (fill in)</span>
+### 🧪 <span class="zh">例 4：按名字画图形（填空）</span><span class="en">Example 4: shapes by name (fill in)</span> <span class="pill"><span class="zh">选做</span><span class="en">optional</span></span>
 
 <p><span class="zh">字典不只装文字，也能装数字。<code>shapes["六边形"]</code> 是 6，再用第 3 课的 <code>360 / 边数</code> 就能画出来。</span><span class="en">Dicts can hold numbers too. <code>shapes["六边形"]</code> is 6, and <code>360 / sides</code> from Lesson 3 draws it.</span></p>
 
@@ -94,7 +97,7 @@ playground: true
 
 <details class="hint"><summary><span class="zh">💡 提示</span><span class="en">💡 Hint</span></summary><span class="zh">八边形 = 八条边。填 8 之后，再试试加一个 <code>"十边形": 10</code> 并画出来。</span><span class="en">An octagon has eight sides. After filling in 8, add <code>"十边形": 10</code> and draw it too.</span></details>
 
-### 🧪 <span class="zh">例 5：记分板字典</span><span class="en">Example 5: scoreboard dictionary</span>
+### 🧪 <span class="zh">例 5：记分板字典</span><span class="en">Example 5: scoreboard dictionary</span> <span class="pill"><span class="zh">选做</span><span class="en">optional</span></span>
 
 <p><span class="zh">第 8 课的石头剪刀布，这次用<b>两个字典</b>：一个说「谁赢谁」，一个记分。看看代码短了多少！</span><span class="en">Rock Paper Scissors from Lesson 8, now with <b>two dicts</b>: one says what beats what, one keeps score. Look how much shorter it is!</span></p>
 
@@ -105,7 +108,7 @@ playground: true
   <li><span class="zh">把 3 局改成 5 局，再给平局也记分：<code>score["平局"]</code>。</span><span class="en">Make it 5 rounds and count draws too: <code>score["平局"]</code>.</span></li>
 </ul>
 
-### 🏆 <span class="zh">挑战：我的小词典</span><span class="en">Challenge: my own dictionary</span>
+### 🏆 <span class="zh">挑战：我的小词典</span><span class="en">Challenge: my own dictionary</span> <span class="pill"><span class="zh">选做</span><span class="en">optional</span></span>
 
 <p><span class="zh">做一个<b>你自己的</b>字典 app：宝可梦 → 属性？游戏角色 → 技能？朋友昵称 → 最爱的食物？要能查、能加、最后能全部打印。满意了就 📤 存到作品墙。</span><span class="en">Build <b>your own</b> dictionary app: Pokémon → type? game character → skill? friend's nickname → favourite food? It should look up, add, and print everything at the end. Happy with it? 📤 Save to Gallery.</span></p>
 
@@ -133,7 +136,7 @@ my_dict = {
 
 <div class="quiz" data-answer="2">
   <p class="q"><span class="zh">下面三句都是 AI 说的。哪一句是<b>错</b>的？</span><span class="en">All three were said by an AI. Which one is <b>wrong</b>?</span></p>
-  <div class="opts"><button><span class="zh">新西兰的国鸟是几维鸟（kiwi）</span><span class="en">New Zealand's national bird is the kiwi</span></button><button><span class="zh">新西兰的首都是奥克兰</span><span class="en">New Zealand's capital is Auckland</span></button><button><span class="zh">Python 里 <code>len("kiwi")</code> 是 4</span><span class="en">In Python, <code>len("kiwi")</code> is 4</span></button></div>
+  <div class="opts"><button><span class="zh">新西兰最有名的象征鸟是几维鸟（kiwi）</span><span class="en">New Zealand's best-known symbol bird is the kiwi</span></button><button><span class="zh">新西兰的首都是奥克兰</span><span class="en">New Zealand's capital is Auckland</span></button><button><span class="zh">Python 里 <code>len("kiwi")</code> 是 4</span><span class="en">In Python, <code>len("kiwi")</code> is 4</span></button></div>
   <div class="why"><span class="zh">首都是<b>惠灵顿</b>（Wellington）！奥克兰是最大的城市，所以很多人（和 AI）会搞混。听起来越「理所当然」的话，越要查一下。</span><span class="en">The capital is <b>Wellington</b>! Auckland is the biggest city, so people (and AI) mix them up. The more "obvious" something sounds, the more worth checking.</span></div>
 </div>
 
@@ -194,8 +197,8 @@ my_dict = {
 ### ⑤ <span class="zh">侦探行动：抓住 AI 的错</span><span class="en">⑤ Detective mission: catch the AI's mistake</span>
 {: #mission}
 
-<p class="zh">下面是一段 <b>AI 写的</b>问答机（我们真的问过 AI）。它看起来很棒，但里面<b>至少有一个答案是错的</b>。先运行它，然后用「三个来源」核实每一条答案，找出错误并改正。</p>
-<p class="en">Below is a quiz <b>written by an AI</b> (we really asked one). It looks great, but <b>at least one answer is wrong</b>. Run it, then use the "three sources" to check every answer, find the mistake and fix it.</p>
+<p class="zh">下面是一段<b>像 AI 写的</b>问答机（我们照着 AI 常犯的错准备的）。它看起来很棒，但里面<b>至少有一个答案是错的</b>。先运行它，然后用「三个来源」核实每一条答案，找出错误并改正。</p>
+<p class="en">Below is a quiz <b>like one an AI might write</b> (we prepared it with a typical AI mistake). It looks great, but <b>at least one answer is wrong</b>. Run it, then use the "three sources" to check every answer, find the mistake and fix it.</p>
 
 <div class="chat">
   <div class="bubble me"><span class="zh">请用 Python 字典写一个 5 题的新西兰知识问答机，问题是键，答案是值。</span><span class="en">Write a 5-question New Zealand quiz in Python using a dict: question → answer.</span></div>

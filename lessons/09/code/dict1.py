@@ -22,3 +22,7 @@ print(len(maori))
 
 # 💡 安全的拿法：没有这个标签就给「默认值」 / safe way: a default if the label is missing
 print(maori.get("sun", "不知道 / don't know"))
+
+# 🏷️ 所有的标签 / all the labels: .keys()
+for k in maori.keys():
+    print("🏷️", k)

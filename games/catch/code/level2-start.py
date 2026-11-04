@@ -40,7 +40,6 @@ pen.goto(-280, 250)
 
 score = 0
 misses = 0
-game_started = True
 
 def show_score():
     pen.clear()

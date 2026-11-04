@@ -41,7 +41,7 @@ playground: true
 ### 🤔 <span class="zh">先猜，再运行</span><span class="en">Guess first, then run</span>
 
 <div class="quiz" data-answer="3">
-  <p class="q"><span class="zh">下面的代码，秘密数字是 7。如果你输入 7，屏幕上会出现几行字？</span><span class="en">In the code below the secret is 7. If you type 7, how many lines appear on screen?</span></p>
+  <p class="q"><span class="zh">下面的代码，秘密数字是 7。如果你输入 7，<code>print</code> 会打印出几行字？（不算你输入的那一行）</span><span class="en">In the code below the secret is 7. If you type 7, how many lines does <code>print</code> show? (not counting the line you typed)</span></p>
   <div class="opts"><button><span class="zh">1 行：🎉 猜对了</span><span class="en">1 line: 🎉</span></button><button><span class="zh">3 行：🎉、❌、游戏结束</span><span class="en">3 lines: 🎉, ❌, game over</span></button><button><span class="zh">2 行：🎉 和 游戏结束</span><span class="en">2 lines: 🎉 and game over</span></button></div>
   <div class="why"><span class="zh">2 行！<code>if</code> 和 <code>else</code> 只会跑<b>其中一个</b>；最后那行 <code>print("游戏结束")</code> 没有缩进，不属于 if，所以总是会跑。</span><span class="en">2 lines! Only <b>one</b> of <code>if</code> / <code>else</code> runs; the last <code>print("游戏结束")</code> isn't indented, so it's not part of the if and always runs.</span></div>
 </div>
@@ -69,7 +69,7 @@ playground: true
 <ul class="quests" data-key="l4-dice">
   <li><span class="zh">运行 5 次，每次一样吗？</span><span class="en">Run it 5 times. Same every time?</span></li>
   <li><span class="zh">改成 20 面骰子：<code>randint(1, 20)</code>，「大吉」改成 20。</span><span class="en">Make a 20-sided die: <code>randint(1, 20)</code>, and jackpot on 20.</span></li>
-  <li><span class="zh">再加一个 <code>elif dice == 1:</code> 打印「💀 倒霉」。放在哪里才会被跑到？（提示：从上往下，第一个成立的才跑）</span><span class="en">Add <code>elif dice == 1:</code> printing "💀 unlucky". Where must it go to ever run? (Hint: top to bottom, the first true one wins)</span></li>
+  <li><span class="zh">在 <code>elif dice &gt;= 4:</code> <b>下面</b>再加一个 <code>elif dice &gt;= 5:</code> 打印「🤩 很好」。掷很多次，它出现过吗？为什么？把它挪到 <code>&gt;= 4</code> <b>上面</b>再试。（提示：从上往下，第一个成立的才跑）</span><span class="en">Add <code>elif dice &gt;= 5:</code> printing "🤩 great" <b>below</b> <code>elif dice &gt;= 4:</code>. Roll lots of times — does it ever show? Why? Move it <b>above</b> <code>&gt;= 4</code> and try again. (Hint: top to bottom, the first true one wins)</span></li>
 </ul>
 
 <p><span class="zh">海龟也能掷硬币！<code>randint(1, 2)</code> 不是 1 就是 2：</span><span class="en">The turtle can flip coins too! <code>randint(1, 2)</code> is 1 or 2:</span></p>

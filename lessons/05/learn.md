@@ -33,7 +33,7 @@ playground: true
 <p><span class="zh">想象一排<b>抽屉</b>，每个抽屉有一个<b>编号</b>。列表就是这样：用方括号 <code>[ ]</code> 装东西，用逗号隔开，用编号拿出来。<b>注意：编号从 0 开始！</b></span><span class="en">Imagine a row of <b>drawers</b>, each with a <b>number</b>. A list is exactly that: things inside square brackets <code>[ ]</code>, separated by commas, and you take them out by number. <b>Careful: numbering starts at 0!</b></span></p>
 
 <div class="cmds">
-  <div class="cmd"><code>animals = ["kiwi", "tui", "pukeko"]</code><span><span class="zh">做一个有 3 个抽屉的列表</span><span class="en">Make a list with 3 drawers</span></span></div>
+  <div class="cmd"><code>animals = ["kiwi", "tūī", "pūkeko"]</code><span><span class="zh">做一个有 3 个抽屉的列表</span><span class="en">Make a list with 3 drawers</span></span></div>
   <div class="cmd"><code>animals[0]</code><span><span class="zh">第 0 个抽屉（第一个！）</span><span class="en">Drawer 0 (the first one!)</span></span></div>
   <div class="cmd"><code>len(animals)</code><span><span class="zh">一共几个抽屉</span><span class="en">How many drawers</span></span></div>
   <div class="cmd"><code>animals.append("weka")</code><span><span class="zh">在最后加一个抽屉</span><span class="en">Add a drawer at the end</span></span></div>
@@ -44,9 +44,9 @@ playground: true
 ### 🤔 <span class="zh">先猜，再运行</span><span class="en">Guess first, then run</span>
 
 <div class="quiz" data-answer="2">
-  <p class="q"><span class="zh"><code>animals = ["kiwi", "tui", "pukeko"]</code>，那 <code>print(animals[1])</code> 会打印什么？</span><span class="en"><code>animals = ["kiwi", "tui", "pukeko"]</code> — what does <code>print(animals[1])</code> print?</span></p>
-  <div class="opts"><button>kiwi</button><button>tui</button><button>pukeko</button></div>
-  <div class="why"><span class="zh">编号从 0 开始：kiwi 是 [0]，tui 是 [1]，pukeko 是 [2]。</span><span class="en">Numbering starts at 0: kiwi is [0], tui is [1], pukeko is [2].</span></div>
+  <p class="q"><span class="zh"><code>animals = ["kiwi", "tūī", "pūkeko"]</code>，那 <code>print(animals[1])</code> 会打印什么？</span><span class="en"><code>animals = ["kiwi", "tūī", "pūkeko"]</code> — what does <code>print(animals[1])</code> print?</span></p>
+  <div class="opts"><button>kiwi</button><button>tūī</button><button>pūkeko</button></div>
+  <div class="why"><span class="zh">编号从 0 开始：kiwi 是 [0]，tūī 是 [1]，pūkeko 是 [2]。</span><span class="en">Numbering starts at 0: kiwi is [0], tūī is [1], pūkeko is [2].</span></div>
 </div>
 
 <div class="playground" data-src="{{ '/lessons/05/code/drawers.py' | relative_url }}" data-canvas="no" data-title="📦 三个抽屉" data-title-en="📦 Three drawers" data-save="drawers" data-rows="8"></div>
@@ -55,7 +55,7 @@ playground: true
 
 <div class="quiz" data-answer="3">
   <p class="q"><span class="zh">如果加一行 <code>print(animals[3])</code>，会怎样？</span><span class="en">What happens if you add <code>print(animals[3])</code>?</span></p>
-  <div class="opts"><button><span class="zh">打印 pukeko</span><span class="en">Prints pukeko</span></button><button><span class="zh">打印空的</span><span class="en">Prints nothing</span></button><button><span class="zh">报错</span><span class="en">An error</span></button></div>
+  <div class="opts"><button><span class="zh">打印 pūkeko</span><span class="en">Prints pūkeko</span></button><button><span class="zh">打印空的</span><span class="en">Prints nothing</span></button><button><span class="zh">报错</span><span class="en">An error</span></button></div>
   <div class="why"><span class="zh">只有 0、1、2 三个抽屉，没有第 3 个！电脑会说 <code>IndexError</code>（编号错误）。试试看，看画板怎么解释。</span><span class="en">There are only drawers 0, 1 and 2 — no drawer 3! The computer says <code>IndexError</code>. Try it and see how the playground explains it.</span></div>
 </div>
 

@@ -33,7 +33,7 @@ playground: true
   <div class="cmd"><code>words.get(word, "不知道")</code><span><span class="zh">查词，查不到给默认的话</span><span class="en">look up, with a default</span></span></div>
   <div class="cmd"><code>words[word] = input("意思？")</code><span><span class="zh">教它新词</span><span class="en">teach it a word</span></span></div>
   <div class="cmd"><code>for k in words:</code><span><span class="zh">测验模式：轮流考每个词</span><span class="en">quiz mode: test every word</span></span></div>
-  <div class="cmd"><code>random.choice(list(words))</code><span><span class="zh">随机抽一个词考（要 import random）</span><span class="en">pick a random word (import random)</span></span></div>
+  <div class="cmd"><code>random.choice(list(words))</code><span><span class="zh">随机抽一个词考（要 import random；<code>list(words)</code> = 把所有标签排成一个列表，random.choice 才能挑）</span><span class="en">pick a random word (import random; <code>list(words)</code> = put all the labels into a list so random.choice can pick one)</span></span></div>
 </div>
 
 ## 🧪 <span class="zh">作业画板</span><span class="en">Homework playground</span>

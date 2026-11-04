@@ -22,7 +22,8 @@ while True:
     print("👉", words.get(word, "不知道这个词 / unknown word"))
 
 # ===== 第 3 部分（🥈）：教我新词 + 小测验模式 Part 3 (🥈): teach me a word + quiz mode =====
-# 提示：第 2 部分的 else 里可以 words[word] = input("它的意思是：")
+# 提示：把第 2 部分的 print 换成 if word in words: … else: …，在 else 里 words[word] = input("它的意思是：")
+# Hint: replace the Part 2 print with if word in words: … else: …, and in the else do words[word] = input("it means: ")
 # 提示：测验模式就是第 9 课的「知识问答机」，把 quiz 换成 words
 
 print("👋 再见！")

@@ -28,7 +28,7 @@ tab: home
   <li><div><b>✨ <span class="zh">新魔法：def 招式</span><span class="en">New magic: def</span></b> <span class="pill">12 min</span><br><span class="zh">先猜会画几个正方形，再运行；然后给招式加「参数」。</span><span class="en">Guess how many squares, then run; then add "parameters" to the trick.</span> <a href="learn/#magic"><span class="zh">学一学 →</span><span class="en">Learn →</span></a></div></li>
   <li><div><b>🏘️ <span class="zh">一条街 + return</span><span class="en">A street + return</span></b> <span class="pill">12 min</span><br><span class="zh">把第 1 课的房子打包成 house()，再学会让招式「交回」答案。</span><span class="en">Pack the Lesson 1 house into house(), then make tricks that hand back answers.</span> <a href="learn/#street"><span class="zh">去画街 →</span><span class="en">Draw the street →</span></a></div></li>
   <li><div><b>🏙️ <span class="zh">小镇 + 挑战</span><span class="en">Town + challenge</span></b> <span class="pill">12 min</span><br><span class="zh">填好小镇的空，再做你自己的小镇，存到作品墙。</span><span class="en">Fill in the town, then build your own and save it to the gallery.</span> <a href="learn/#town"><span class="zh">去建镇 →</span><span class="en">Build the town →</span></a></div></li>
-  <li><div><b>🎮 <span class="zh">玩游戏：宝石机器人</span><span class="en">Play: Gem Robot</span></b> <span class="pill">8 min</span><br><span class="zh">后面几关不写函数可过不了！</span><span class="en">You'll need functions to beat the later levels!</span> <a href="{{ '/games/robot/' | relative_url }}"><span class="zh">去玩 →</span><span class="en">Play →</span></a></div></li>
+  <li><div><b>🎮 <span class="zh">玩游戏：宝石机器人</span><span class="en">Play: Gem Robot</span></b> <span class="pill">8 min</span><br><span class="zh">第 5–6 关不写函数可过不了！</span><span class="en">Levels 5–6 can't be beaten without a function!</span> <a href="{{ '/games/robot/' | relative_url }}"><span class="zh">去玩 →</span><span class="en">Play →</span></a></div></li>
   <li><div><b>🏠 <span class="zh">看作业 + 写 3 行笔记</span><span class="en">Homework + 3 lines in the notebook</span></b> <span class="pill">5 min</span><br><span class="zh">看看 <a href="homework/">海龟城市规划师</a>，然后在 <a href="{{ '/notebook/' | relative_url }}">笔记本</a> 写：学会了 / 卡在哪 / 怎么解决。</span><span class="en">Check <a href="homework/">Turtle City Planner</a>, then write in your <a href="{{ '/notebook/' | relative_url }}">notebook</a>: learned / stuck / fixed.</span></div></li>
 </ul>
 
@@ -38,8 +38,8 @@ tab: home
 </div>
 
 <div class="box box-good"><span class="box-title"><span class="zh">💡 为什么要打包？</span><span class="en">💡 Why pack code up?</span></span>
-<span class="zh">上节课画 5 座房子要复制粘贴 5 遍，改一个数字要改 5 处。今天学完，<b>改一处，全部都变</b>。这就是程序员的「懒」——聪明的懒！</span>
-<span class="en">Last time 5 houses meant copy-pasting 5 times, and changing one number meant 5 edits. After today, <b>change it once and everything changes</b>. That's programmer laziness — the clever kind!</span>
+<span class="zh">还记得第 1 课的房子吗？想画 5 座就要复制粘贴 5 遍，改一个数字要改 5 处。今天学完，<b>改一处，全部都变</b>。这就是程序员的「懒」——聪明的懒！</span>
+<span class="en">Remember the Lesson 1 house? Drawing 5 of them meant copy-pasting 5 times, and changing one number meant 5 edits. After today, <b>change it once and everything changes</b>. That's programmer laziness — the clever kind!</span>
 </div>
 
 ---

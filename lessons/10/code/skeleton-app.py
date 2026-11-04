@@ -30,7 +30,8 @@ def play():                                  # 功能 1：玩一轮 / feature 1:
 def show_score():                            # 功能 2：看比分 / feature 2: show the score
     print(f"📊 对 {score['对']} 题，错 {score['错']} 题")
 
-# TODO: 功能 3：加一道题（提示：quiz[input("问题？")] = input("答案？")）/ feature 3: add a question
+# TODO: 功能 3：加一道题。提示：先问题目 q = input("问题？")，再问答案 quiz[q] = input("答案？")
+#       feature 3: add a question. Hint: first the question q = input("Question? "), then quiz[q] = input("Answer? ")
 
 def test():                                  # 🧪 小测试 / tiny tests
     assert len(quiz) >= 3, "至少要有 3 道题"

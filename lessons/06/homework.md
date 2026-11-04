@@ -25,7 +25,7 @@ playground: true
   </div></div>
   <div class="level"><div class="medal">🥇</div><div>
     <h3><span class="zh">挑战：训练一个 AI + 用 while 画画</span><span class="en">Challenge: train an AI + draw with while</span></h3>
-    <p><span class="zh">① 在家用 <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a> 训练一个你自己的模型（认两样东西，比如你的两个玩具），在代码<b>最上面的注释</b>里写：教它认什么、每类几张图、它认错过吗。② 把第 3 部分的 <code>while</code> 画改成你自己的（越来越大的正方形？画到边上的彩色螺旋？）。</span><span class="en">① At home, train your own model on <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a> (two things, like two of your toys). In the <b>comment at the top</b> of the code write: what you taught it, how many photos per class, and whether it ever got it wrong. ② Change the <code>while</code> drawing in Part 3 into your own (growing squares? a colourful spiral to the edge?).</span></p>
+    <p><span class="zh">① 在家用 <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a> 训练一个你自己的模型（认两样东西，比如你的两个玩具；没有摄像头就用 Upload 上传照片；不拍脸），在代码<b>最上面的注释</b>里写：教它认什么、每类几张图、它认错过吗。② 把第 3 部分的 <code>while</code> 画改成你自己的（越来越大的正方形？画到边上的彩色螺旋？）。</span><span class="en">① At home, train your own model on <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Teachable Machine</a> (two things, like two of your toys; no camera? use Upload; no faces). In the <b>comment at the top</b> of the code write: what you taught it, how many photos per class, and whether it ever got it wrong. ② Change the <code>while</code> drawing in Part 3 into your own (growing squares? a colourful spiral to the edge?).</span></p>
   </div></div>
 </div>
 

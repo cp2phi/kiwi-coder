@@ -24,12 +24,12 @@ tab: home
 <p class="muted" style="text-align:right;margin:.2em 0"><span class="progress-label" data-for="l11"></span></p>
 
 <ul class="quests" data-key="l11">
-  <li><b>🔁 <span class="zh">热身：治好 3 个 bug</span><span class="en">Warm-up: cure 3 bugs</span></b> <span class="pill">5 min</span><br><a href="learn/#warmup"><span class="zh">去热身 →</span><span class="en">Warm up →</span></a></li>
-  <li><b>🧰 <span class="zh">学 4 招排错</span><span class="en">Learn 4 debugging tricks</span></b> <span class="pill">10 min</span><br><a href="learn/#toolbox"><span class="zh">print 侦探、读报错、小黄鸭、二分法 →</span><span class="en">print detective, read the error, rubber duck, halving →</span></a></li>
-  <li><b>⌨️ <span class="zh">游戏专用魔法</span><span class="en">Game magic</span></b> <span class="pill">8 min</span><br><a href="learn/#events"><span class="zh">方向键、定时器、点击 →</span><span class="en">arrow keys, timers, clicks →</span></a></li>
-  <li><b>🏗️ <span class="zh">做项目：功能 1 → 测 → 功能 2 → 测</span><span class="en">Build: feature 1 → test → feature 2 → test</span></b> <span class="pill">30 min</span><br><a href="learn/#build"><span class="zh">开工清单 →</span><span class="en">Build checklist →</span></a></li>
-  <li><b>📤 <span class="zh">存档到作品墙</span><span class="en">Save to the gallery</span></b> <span class="pill">2 min</span><br><span class="zh">文件名 <code>week11-project</code>。没做完也要存！</span><span class="en">Name it <code>week11-project</code>. Save even if it's not finished!</span></li>
-  <li><b>📓 <span class="zh">笔记本 3 行 + 看作业</span><span class="en">3 notebook lines + homework</span></b> <span class="pill">5 min</span><br><span class="zh">在 <a href="{{ '/notebook/' | relative_url }}">工程师笔记本</a> 写：做到了 / 最难的 bug / 怎么解决的。看看 <a href="homework/">作业</a>。</span><span class="en">Write in your <a href="{{ '/notebook/' | relative_url }}">notebook</a>: got done / hardest bug / how I fixed it. Check the <a href="homework/">homework</a>.</span></li>
+  <li><div><b>🔁 <span class="zh">热身：治好 3 个 bug</span><span class="en">Warm-up: cure 3 bugs</span></b> <span class="pill">5 min</span><br><a href="learn/#warmup"><span class="zh">去热身 →</span><span class="en">Warm up →</span></a></div></li>
+  <li><div><b>🧰 <span class="zh">学 4 招排错</span><span class="en">Learn 4 debugging tricks</span></b> <span class="pill">10 min</span><br><a href="learn/#toolbox"><span class="zh">print 侦探、读报错、小黄鸭、二分法 →</span><span class="en">print detective, read the error, rubber duck, halving →</span></a></div></li>
+  <li><div><b>⌨️ <span class="zh">游戏专用魔法</span><span class="en">Game magic</span></b> <span class="pill">8 min</span><br><a href="learn/#events"><span class="zh">方向键、定时器、点击 →</span><span class="en">arrow keys, timers, clicks →</span></a></div></li>
+  <li><div><b>🏗️ <span class="zh">做项目：功能 1 → 测 → 功能 2 → 测</span><span class="en">Build: feature 1 → test → feature 2 → test</span></b> <span class="pill">30 min</span><br><a href="learn/#build"><span class="zh">开工清单 →</span><span class="en">Build checklist →</span></a></div></li>
+  <li><div><b>📤 <span class="zh">存档到作品墙</span><span class="en">Save to the gallery</span></b> <span class="pill">2 min</span><br><span class="zh">文件名 <code>week11-project</code>。没做完也要存！</span><span class="en">Name it <code>week11-project</code>. Save even if it's not finished!</span></div></li>
+  <li><div><b>📓 <span class="zh">笔记本 3 行 + 看作业</span><span class="en">3 notebook lines + homework</span></b> <span class="pill">5 min</span><br><span class="zh">在 <a href="{{ '/notebook/' | relative_url }}">工程师笔记本</a> 写：做到了 / 最难的 bug / 怎么解决的。看看 <a href="homework/">作业</a>。</span><span class="en">Write in your <a href="{{ '/notebook/' | relative_url }}">notebook</a>: got done / hardest bug / how I fixed it. Check the <a href="homework/">homework</a>.</span></div></li>
 </ul>
 
 <div class="box box-rule"><span class="box-title"><span class="zh">🤝 今天的约定：顾问模式</span><span class="en">🤝 Today's deal: consultant mode</span></span>
@@ -37,7 +37,7 @@ tab: home
 <span class="en">The teacher <b>doesn't touch the keyboard and gives no code</b>. Stuck? Use the 4 steps: ① read the error → ② check your notebook → ③ ask AI for a <b>hint</b> → ④ ask the teacher. Even then the teacher only asks back: "What does the error say?" "Which line do you think?" "How can you check?"</span>
 </div>
 
-<div class="box box-good"><span class="box-title"><span class="zh">💾 每 15 分钟存一次</span><span class="en">💾 Save every 15 minutes</span></span>
+<div class="box box-good"><span class="box-title"><span class="zh">💾 每 10 分钟存一次</span><span class="en">💾 Save every 10 minutes</span></span>
 <span class="zh">真正的程序员一天存档几十次。点 <b>📤 存到作品墙</b>，名字用 <code>week11-project</code>；提示「已存在」就加 <code>-v2</code>、<code>-v3</code>。坏了也能回去看上一版！</span>
 <span class="en">Real programmers save dozens of times a day. Click <b>📤 Save to Gallery</b>, name it <code>week11-project</code>; if it says "already exists" add <code>-v2</code>, <code>-v3</code>. If something breaks you can go back!</span>
 </div>

@@ -45,13 +45,15 @@
   // ---------- 徽章：过关 / 完成任务时颁发，存在这台电脑上 ----------
   // KC.badge('maze-1') 颁发；KC.badges() 查看；页面上 [data-badge-id="maze-1"] 的元素会自动加 .earned
   var BADGES = readJSON('kc-badges', {});
-  function badge(id) {
+  // label：[中文, English]，提示条里显示它（没有就显示 id）
+  function badge(id, label) {
     if (!id) return;
     var fresh = !BADGES[id];
     if (fresh) {
       BADGES[id] = new Date().toISOString();
       store('kc-badges', JSON.stringify(BADGES));
-      toast('🏅 ' + both('新徽章：<b>' + id + '</b>！去首页看看你的徽章架', 'New badge: <b>' + id + '</b>! Check your badge shelf on the home page'), 4500);
+      var lz = label ? label[0] : id, le = label ? (label[1] || label[0]) : id;
+      toast('🏅 ' + both('新徽章：<b>' + lz + '</b>！去首页看看你的徽章架', 'New badge: <b>' + le + '</b>! Check your badge shelf on the home page'), 4500);
     }
     markBadges();
     document.dispatchEvent(new CustomEvent('kc-badge', { detail: { id: id, fresh: fresh } }));
@@ -91,7 +93,7 @@
       if (label) label.textContent = done + ' / ' + items.length;
       // 课程主清单（data-key="l3" 这种）记到总进度里，首页地图会显示
       if (/^l\d+$/.test(k)) { PROGRESS[k] = [done, items.length]; store('kc-progress', JSON.stringify(PROGRESS)); }
-      if (celebrate && done === items.length) { confetti(140); if (/^l\d+$/.test(k)) badge('lesson-' + k.slice(1)); }
+      if (celebrate && done === items.length) { confetti(140); if (/^l\d+$/.test(k)) badge('lesson-' + k.slice(1), ['第 ' + k.slice(1) + ' 课完成', 'Lesson ' + k.slice(1) + ' done']); }
     }
     items.forEach(function (li, i) {
       var body = document.createElement('div');
@@ -135,7 +137,7 @@
           q.classList.add('answered');
           confetti(30);
           var bid = q.getAttribute('data-badge');
-          if (bid) badge(bid);
+          if (bid) { var qq = q.querySelector('.q'); badge(bid, qq ? [((qq.querySelector('.zh') || qq).textContent || '').slice(0, 24), ((qq.querySelector('.en') || qq).textContent || '').slice(0, 30)] : null); }
           document.dispatchEvent(new CustomEvent('kc-quiz-right', { detail: { quiz: q } }));
         } else {
           b.classList.remove('wrong'); void b.offsetWidth; b.classList.add('wrong');
@@ -257,7 +259,16 @@
   document.querySelectorAll('.copy-text, .copy-prev').forEach(function (b) {
     b.type = 'button';
     b.addEventListener('click', function () {
-      var t = b.classList.contains('copy-prev') ? (b.previousElementSibling ? b.previousElementSibling.textContent : '') : (b.getAttribute('data-text') || '');
+      var t = b.getAttribute('data-text') || '';
+      if (b.classList.contains('copy-prev')) {
+        // 往前找第一个「看得见」的元素（中英两个版本叠在一起时，复制当前语言那一个）
+        // Markdown 会把按钮包进 <p>，这时从 <p> 往前找
+        var from = b;
+        if (!b.previousElementSibling && b.parentElement && b.parentElement.tagName === 'P') from = b.parentElement;
+        var prev = from.previousElementSibling;
+        while (prev && getComputedStyle(prev).display === 'none') prev = prev.previousElementSibling;
+        t = prev ? prev.textContent : '';
+      }
       if (navigator.clipboard) navigator.clipboard.writeText(t).catch(function () {});
       toast('📋 ' + both('复制好了！', 'Copied!'), 1500);
     });

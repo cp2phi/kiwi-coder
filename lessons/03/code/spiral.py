@@ -14,7 +14,7 @@ colors = ["red", "orange", "gold", "limegreen", "deepskyblue", "purple"]
 
 for i in range(100):
     t.color(colors[i % 6])
-    t.forward(i * 2)        # 第 0 次走 0 步，第 1 次走 2 步，第 50 次走 100 步 / step 0 = 0, step 1 = 2, step 50 = 100
+    t.forward(i * 2)        # i = 0 时走 0 步，i = 1 时走 2 步，i = 50 时走 100 步 / i=0 → 0, i=1 → 2, i=50 → 100
     t.left(59)              # 试试 90、91、120、121 / try 90, 91, 120, 121
 
 t.hideturtle()
