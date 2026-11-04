@@ -82,3 +82,16 @@ AI 画画来不及，就老师演示一遍。宁可做少，也别赶。
   <li>准备第 2 课：复制 <code>lessons/01/</code> 改成 <code>lessons/02/</code>，在 <code>_data/lessons.yml</code> 把第 2 课设成 <code>ready: true</code>，在 <code>_config.yml</code> 改 <code>current_lesson: 2</code></li>
   <li>把他的兴趣用到第 2 课（聊天程序）的包装里：比如「Minecraft 村民聊天机器人」</li>
 </ul>
+
+---
+
+## ✅ 参考答案
+
+<details class="hint"><summary>参考答案（上课前自己先做一遍）</summary>
+
+- **三角形**：三个 `t.left(___)` 都填 **120**（360 ÷ 3）。
+- **五角星**：走 5 次、转 5 次，每次 `t.left(144)`（星星要转 2 圈：720 ÷ 5 = 144）。孩子在 130～150 之间试，能「合上」的就是 144。
+- **作业屋顶**：画完正方形后海龟在左下角、脸朝右。`t.left(90)` → `t.forward(150)` 到左上角 → `t.right(90)` 转回朝右 → `t.left(60)`，`t.forward(150)`，`t.right(120)`，`t.forward(150)` 画出等边三角形屋顶。
+- **太阳**：`t.penup()` `t.goto(150, 200)` `t.pendown()` `t.fillcolor("yellow")` `t.begin_fill()` `t.circle(30)` `t.end_fill()`。
+
+</details>

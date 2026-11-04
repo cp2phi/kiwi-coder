@@ -68,7 +68,7 @@ playground: true      # 页面里有画板就要写（会加载 Skulpt）
 关卡 / 自动判定（游戏和练习用）：
 
 - `data-prelude="…py"`：隐藏在孩子代码**前面**跑（画迷宫、定义 `move()` 之类的指令）
-- `data-check="…py"`：隐藏在孩子代码**后面**跑。检查代码里 `print("__KC_WIN__")` = 过关；`print("__KC_HINT__ 中文提示|English hint")` = 显示提示（这两种行不会出现在输出里）
+- `data-check="…py"`：隐藏在孩子代码**后面**跑。检查代码里 `print("__KC_WIN__")` = 过关；`print("__KC_HINT__ 中文提示|English hint")` = 显示提示（这两种行不会出现在输出里；引擎每次运行会把 `__KC_` 换成随机口令，孩子自己 print 这个词不算过关）
 - 也可以把隐藏代码写在 div 里：`<script type="text/x-python" data-role="prelude">…</script>`、`data-role="check"`、`data-role="target"`
 - `data-expect="第一行\n第二行"`：输出和它一样就过关（会显示左右对比）
 - `data-target="…py"`：旁边画出目标图案，运行后显示相似度，≥ `data-threshold`（默认 85）过关

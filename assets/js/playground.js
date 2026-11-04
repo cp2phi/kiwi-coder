@@ -473,9 +473,13 @@
 
   // 把隐藏的代码和孩子的代码拼起来；offset = 孩子代码前面有几行
   Playground.prototype.assemble = function (code) {
-    var head = (this.hasCanvas ? SHIM : '') + (this.prelude ? this.prelude.replace(/\s+$/, '') + '\n' : '');
-    var tail = this.check ? '\n' + this.check : '';
-    return { full: head + code + tail, offset: countLines(head) - (head ? 1 : 0), codeLines: countLines(code) };
+    // 每次运行换一个随机口令，孩子自己 print("__KC_WIN__") 是不算过关的
+    this.nonce = '__KC_' + Math.random().toString(36).slice(2, 10) + '_';
+    var tok = this.nonce;
+    var pre = this.prelude ? this.prelude.replace(/\s+$/, '').split('__KC_').join(tok) + '\n' : '';
+    var chk = this.check ? '\n' + this.check.split('__KC_').join(tok) : '';
+    var head = (this.hasCanvas ? SHIM : '') + pre;
+    return { full: head + code + chk, offset: countLines(head) - (head ? 1 : 0), codeLines: countLines(code) };
   };
 
   Playground.prototype.run = function () {
@@ -543,9 +547,10 @@
       partial += t;
       var lines = partial.split('\n');
       partial = lines.pop();
+      var tok = self.nonce;
       lines.forEach(function (ln) {
-        if (ln.indexOf('__KC_WIN__') === 0) { self.won = true; return; }
-        if (ln.indexOf('__KC_HINT__') === 0) { self.hints.push(ln.slice(11).trim()); return; }
+        if (ln.indexOf(tok + 'WIN__') === 0) { self.won = true; return; }
+        if (ln.indexOf(tok + 'HINT__') === 0) { self.hints.push(ln.slice(tok.length + 6).trim()); return; }
         self.out.textContent += ln + '\n';
       });
       if (partial && partial.indexOf('__KC_') !== 0) { self.out.textContent += partial; partial = ''; }
