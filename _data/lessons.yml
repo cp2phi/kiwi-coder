@@ -1,125 +1,224 @@
-# 12 关冒险地图（老师维护）
-# ready: true 表示教材已经放好，可以点进去预习
-# stage: 1 = 点燃兴趣  2 = 组合与合作  3 = 独立与创造
-# 带 _en 的是英文版
+# 🗺️ 12 关冒险地图（老师维护）
+#   ready: true  = 教材已经放好，地图上可以点进去
+#   stage: 1 = 我做你看（老师演示）  2 = 一起做（搭档）  3 = 你做我看（顾问）
+#   syntax: 这一课的核心 Python 知识点   review: 要复习的旧知识点
+#   tabs: 这一课有哪些页面（见 _data/tabs.yml）
+#   homework: 作业文件名（孩子存到 my-work/ 里的名字，不带 .py）
+#   game: 和这一课最配的游戏（见 _data/games.yml）
+#   带 _en 的是英文版
 
 - n: 1
   icon: "🐢"
   stage: 1
   ready: true
-  title: "AI 初体验：GitHub + Codex + 海龟画画"
-  title_en: "First taste of AI: GitHub + Codex + Turtle"
+  title: "AI 初体验 + 海龟画画"
+  title_en: "First taste of AI + turtle drawing"
+  syntax: "print()、import turtle、一行一行按顺序执行"
+  syntax_en: "print(), import turtle, code runs line by line"
+  review: "—"
+  review_en: "—"
   learn: "GitHub 存档、Codex 写代码、print、turtle"
   learn_en: "Saving on GitHub, coding with Codex, print, turtle"
-  make: "一个会打招呼的程序 + 一个几何图形"
-  make_en: "A program that says hello + a shape"
+  make: "一个会打招呼的程序 + 一座海龟画的房子"
+  make_en: "A program that says hello + a turtle house"
+  tabs: [home, github, codex, python, homework, teacher]
+  homework: week01-homework
+  game: maze
 
 - n: 2
   icon: "💬"
   stage: 1
+  ready: true
   title: "会聊天的程序"
   title_en: "A program that chats"
-  learn: "变量、input()、字符串拼接"
-  learn_en: "Variables, input(), joining text"
-  make: "会问名字、会回应的小聊天程序"
-  make_en: "A chat program that asks your name"
+  syntax: "变量、input()、f-string 拼字、int()"
+  syntax_en: "Variables, input(), f-strings, int()"
+  review: "print、turtle"
+  review_en: "print, turtle"
+  learn: "程序怎么「记住」东西，怎么「听」你说话"
+  learn_en: "How a program remembers things and listens to you"
+  make: "会问名字、会回应的聊天机器人 + 用变量控制大小的海龟画"
+  make_en: "A chatbot that asks your name + a turtle drawing controlled by variables"
+  tabs: [home, learn, homework, teacher]
+  homework: week02-homework
+  game: secret
 
 - n: 3
   icon: "🌀"
   stage: 1
+  ready: true
   title: "重复的魔法"
   title_en: "The magic of repeating"
-  learn: "for 循环；用 AI 解释代码"
-  learn_en: "for loops; asking AI to explain code"
-  make: "螺旋图案 / 万花筒"
-  make_en: "Spirals / kaleidoscope"
+  syntax: "for 循环、range()、缩进"
+  syntax_en: "for loops, range(), indentation"
+  review: "变量、turtle"
+  review_en: "Variables, turtle"
+  learn: "让电脑替你重复；第一次请 AI 解释代码"
+  learn_en: "Make the computer repeat for you; ask AI to explain code for the first time"
+  make: "彩虹螺旋 + 万花筒"
+  make_en: "A rainbow spiral + a kaleidoscope"
+  tabs: [home, learn, homework, teacher]
+  homework: week03-homework
+  game: robot
 
 - n: 4
   icon: "🎲"
   stage: 1
+  ready: true
   title: "猜数字游戏"
   title_en: "Guess the number"
-  learn: "if / else、random、卡住了怎么办四步法"
-  learn_en: "if / else, random, the 4 steps when you're stuck"
-  make: "猜数字游戏"
-  make_en: "A number guessing game"
+  syntax: "if / elif / else、比较运算、random.randint()、break"
+  syntax_en: "if / elif / else, comparisons, random.randint(), break"
+  review: "input、int、for、变量"
+  review_en: "input, int, for, variables"
+  learn: "让程序自己做决定；「卡住了怎么办」四步法；找 bug 游戏"
+  learn_en: "Programs that decide; the 4 steps when you're stuck; bug hunt"
+  make: "猜数字游戏（电脑出题，你来猜）"
+  make_en: "A guess-the-number game"
+  tabs: [home, learn, homework, teacher]
+  homework: week04-homework
+  game: bugs
 
 - n: 5
   icon: "🎰"
   stage: 2
+  ready: true
   title: "随机生成器"
   title_en: "Random generators"
-  learn: "列表、random.choice"
-  learn_en: "Lists, random.choice"
-  make: "搞笑故事生成器 / 毛利语单词测验"
-  make_en: "Silly story maker / te reo Māori word quiz"
+  syntax: "列表 [ ]、下标、append()、len()、random.choice()、for x in 列表"
+  syntax_en: "Lists [ ], indexes, append(), len(), random.choice(), for x in list"
+  review: "if、for、random、f-string"
+  review_en: "if, for, random, f-strings"
+  learn: "管理一组东西；用新西兰本地文化做小测验"
+  learn_en: "Managing a bunch of things; a quiz with Aotearoa flavour"
+  make: "搞笑故事生成器 + 毛利语单词小测验"
+  make_en: "A silly story maker + a te reo Māori word quiz"
+  tabs: [home, learn, homework, teacher]
+  homework: week05-homework
+  game: copy
 
 - n: 6
   icon: "🧠"
   stage: 2
-  title: "AI 是怎么学习的？"
-  title_en: "How does AI learn?"
-  learn: "写规则 vs 从数据学；Teachable Machine；数据偏见"
-  learn_en: "Rules vs learning from data; Teachable Machine; data bias"
-  make: "一个更好的 AI 模型"
-  make_en: "A better AI model"
+  ready: true
+  title: "会思考的机器：AI 是怎么学习的？"
+  title_en: "Thinking machines: how does AI learn?"
+  syntax: "while 循环、True / False、and / or / not、计数器"
+  syntax_en: "while loops, True / False, and / or / not, counters"
+  review: "if / elif、列表、input"
+  review_en: "if / elif, lists, input"
+  learn: "自己写规则给动物分类，再和 Teachable Machine 比：写规则 vs 从数据学"
+  learn_en: "Write rules to sort animals, then compare with Teachable Machine: rules vs learning from data"
+  make: "动物猜猜猜（规则版 AI）+ 一个更好的 Teachable Machine 模型"
+  make_en: "An animal guesser (rule-based AI) + a better Teachable Machine model"
+  tabs: [home, learn, homework, teacher]
+  homework: week06-homework
+  game: reader
 
 - n: 7
   icon: "📦"
   stage: 2
+  ready: true
   title: "把代码打包"
   title_en: "Packing code into functions"
-  learn: "函数 def、参数"
-  learn_en: "Functions (def), parameters"
-  make: "用函数画一条街 / 一个小镇"
-  make_en: "Draw a street / a town with functions"
+  syntax: "def 函数、参数、return"
+  syntax_en: "def functions, parameters, return"
+  review: "for、列表、变量"
+  review_en: "for, lists, variables"
+  learn: "把大问题拆成小块，写一次用很多次"
+  learn_en: "Break big problems into pieces; write once, use many times"
+  make: "用函数画出一整条街 / 一个小镇"
+  make_en: "A whole street / town drawn with functions"
+  tabs: [home, learn, homework, teacher]
+  homework: week07-homework
+  game: robot
 
 - n: 8
   icon: "✊"
   stage: 2
+  ready: true
   title: "迷你项目：石头剪刀布"
   title_en: "Mini project: Rock Paper Scissors"
-  learn: "综合运用；AI 当排错伙伴"
-  learn_en: "Putting it together; AI as a debugging buddy"
-  make: "能和电脑对战的石头剪刀布"
-  make_en: "Rock Paper Scissors against the computer"
+  syntax: "综合运用 + 字符串方法 lower() / strip()"
+  syntax_en: "Putting it all together + string methods lower() / strip()"
+  review: "变量、if、random、while、列表、函数"
+  review_en: "Variables, if, random, while, lists, functions"
+  learn: "第一次大部分自己写，老师只给提示；用 AI 做排错伙伴"
+  learn_en: "Write most of it yourself; teacher gives hints; AI as a debugging buddy"
+  make: "能和电脑对战、会记分的石头剪刀布"
+  make_en: "Rock Paper Scissors vs the computer, with scores"
+  tabs: [home, learn, homework, teacher]
+  homework: week08-homework
+  game: bugs
 
 - n: 9
   icon: "🕵️"
   stage: 3
+  ready: true
   title: "做一个聪明的 AI 用户"
   title_en: "Being a smart AI user"
-  learn: "AI 会编造、怎么核实、隐私、好问题"
-  learn_en: "AI can make things up, checking facts, privacy, good questions"
-  make: "AI 侦探：找出 AI 的错误"
-  make_en: "AI detective: find the AI's mistakes"
+  syntax: "字典 { 键: 值 }、in、.get()、.keys()"
+  syntax_en: "Dictionaries { key: value }, in, .get(), .keys()"
+  review: "列表、for、函数、input"
+  review_en: "Lists, for, functions, input"
+  learn: "AI 会编造；怎么核实；什么不能告诉 AI；怎么提好问题"
+  learn_en: "AI makes things up; how to check; what not to tell AI; asking good questions"
+  make: "AI 侦探（找出 AI 的错误）+ 用字典做的知识问答机"
+  make_en: "AI detective (spot the AI's mistakes) + a quiz app built with a dictionary"
+  tabs: [home, learn, homework, teacher]
+  homework: week09-homework
+  game: secret
 
 - n: 10
   icon: "🗺️"
   stage: 3
-  title: "项目策划"
-  title_en: "Planning a project"
-  learn: "自己选项目、拆成小步骤"
-  learn_en: "Choosing a project, breaking it into small steps"
-  make: "一页项目计划书"
-  make_en: "A one-page project plan"
+  ready: true
+  title: "项目策划 + 开发流程"
+  title_en: "Planning a project + the dev workflow"
+  syntax: "读懂别人的代码（注释、拆分）、assert 小测试"
+  syntax_en: "Reading other people's code (comments, structure), assert tests"
+  review: "函数、字典、列表、while"
+  review_en: "Functions, dictionaries, lists, while"
+  learn: "计划 → 写 → 测 → 修 → 发布：真正的程序员怎么做项目；自己选项目并拆成小步骤"
+  learn_en: "Plan → code → test → fix → ship: how real programmers work; pick a project and split it up"
+  make: "一页项目计划书 + 项目骨架 + 第一个测试"
+  make_en: "A one-page project plan + project skeleton + first test"
+  tabs: [home, learn, homework, teacher]
+  homework: week10-plan
+  game: catch
 
 - n: 11
   icon: "🛠️"
   stage: 3
+  ready: true
   title: "项目制作"
   title_en: "Building the project"
-  learn: "独立写代码、四步法排错"
-  learn_en: "Coding on your own, fixing bugs with the 4 steps"
-  make: "项目的可运行版本"
-  make_en: "A working version of your project"
+  syntax: "调试：print 侦探法、读 traceback；键盘事件 onkey / ontimer"
+  syntax_en: "Debugging: print detective, reading tracebacks; keyboard events onkey / ontimer"
+  review: "全部"
+  review_en: "Everything"
+  learn: "自己写、自己测、自己排错；老师只回答问题，不给代码"
+  learn_en: "Write it, test it, fix it yourself; the teacher answers questions but gives no code"
+  make: "项目的可运行版本（游戏 / app）"
+  make_en: "A working version of the project (game / app)"
+  tabs: [home, learn, homework, teacher]
+  homework: week11-project
+  game: catch
 
 - n: 12
   icon: "🏆"
   stage: 3
-  title: "展示日 + 回顾"
-  title_en: "Show day + looking back"
-  learn: "展示、回顾笔记本、规划下一步"
-  learn_en: "Presenting, reviewing your notebook, planning what's next"
-  make: "展示 + 我的下一个项目清单"
-  make_en: "A presentation + my next-project list"
+  ready: true
+  title: "展示日 + 部署上线"
+  title_en: "Show day + going live"
+  syntax: "部署：把项目做成网页发布到 GitHub Pages；回顾 12 周"
+  syntax_en: "Deploy: publish the project as a web page on GitHub Pages; look back on 12 weeks"
+  review: "全部"
+  review_en: "Everything"
+  learn: "给家人展示；翻 12 周的笔记本；规划下一步自学"
+  learn_en: "Present to family; re-read 12 weeks of notes; plan what to learn next"
+  make: "上线的项目页面 + 毕业证书 + 我的下一个项目清单"
+  make_en: "A live project page + a certificate + my next-project list"
+  tabs: [home, learn, homework, teacher]
+  homework: week12-showcase
+  game: reader

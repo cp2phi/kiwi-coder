@@ -7,6 +7,8 @@ tab: codex
 
 # 🤖 <span class="zh">Codex：会写代码的 AI 搭档</span><span class="en">Codex: your AI coding buddy</span>
 
+<div class="box box-rule"><span class="zh">👨‍👩‍👧 <b>还不到 13 岁？</b>Codex 和 GitHub 都要求满 13 岁才能自己开账号。用<b>家长的账号</b>，请家长坐在旁边一起用。</span><span class="en">👨‍👩‍👧 <b>Under 13?</b> Codex and GitHub need you to be 13 to have your own account. Use a <b>parent's account</b>, with a parent sitting next to you.</span></div>
+
 ## <span class="zh">是什么？为什么用？</span><span class="en">What is it? Why use it?</span>
 
 <p class="zh"><b>Codex</b> 是一个 AI 编程助手。你用<b>说话的方式</b>（中文也行）告诉它想做什么，它帮你<b>写代码、解释代码、找 bug</b>。</p>

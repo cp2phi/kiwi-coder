@@ -1,0 +1,53 @@
+# 📖 小词典：第 9 课学到的指令
+icon: "🕵️"
+title: "字典 + AI 侦探"
+title_en: "Dictionaries + AI detective"
+entries:
+  - code: 'd = {"kai": "food", "moana": "sea"}'
+    zh: "做一个字典：标签（键）: 东西（值），外面用 { }"
+    en: "Make a dictionary: label (key): thing (value), inside { }"
+    example: 'maori = {"kai": "food"}'
+  - code: 'd["kai"]'
+    zh: "用标签拿东西（没有这个标签会报 KeyError）"
+    en: "Get the thing by its label (KeyError if the label is missing)"
+    example: 'print(maori["kai"])'
+  - code: 'd["rā"] = "sun"'
+    zh: "放进一个新抽屉；标签已存在就换掉里面的东西"
+    en: "Add a new drawer; if the label exists, replace what's inside"
+    example: 'maori["rā"] = "sun"'
+  - code: '"kai" in d'
+    zh: "有这个标签吗？True / False"
+    en: "Is this label there? True / False"
+    example: 'if word in maori:\n    print(maori[word])'
+  - code: 'd.get("x", "没有")'
+    zh: "安全地拿：没有这个标签就给默认值，不报错"
+    en: "Safe get: a default value if the label is missing, no error"
+    example: 'print(maori.get("sun", "不知道"))'
+  - code: "for k in d:"
+    zh: "一个标签一个标签地看；东西是 d[k]"
+    en: "Go through every label; the thing is d[k]"
+    example: "for k in maori:\n    print(k, maori[k])"
+  - code: "len(d)"
+    zh: "字典里有几个抽屉"
+    en: "How many drawers in the dict"
+    example: "print(len(maori))"
+  - code: "d.keys()"
+    zh: "所有的标签（和 for k in d 一样，一个一个看）"
+    en: "All the labels (same as for k in d, one at a time)"
+    example: "for k in maori.keys():\n    print(k)"
+  - code: "d.values()"
+    zh: "所有的东西（进阶，课上没讲）"
+    en: "All the things (advanced, not covered in class)"
+    example: "for v in maori.values():\n    print(v)"
+  - code: "d.items()"
+    zh: "标签和东西一起拿（进阶，课上没讲）"
+    en: "Labels and things together (advanced, not covered in class)"
+    example: "for k, v in maori.items():\n    print(k, v)"
+  - code: 'del d["kai"]'
+    zh: "把一个抽屉整个拿掉（进阶，课上没讲）"
+    en: "Remove a drawer completely (advanced, not covered in class)"
+    example: 'del maori["kai"]'
+  - code: "🕵️ 核实三件套"
+    zh: "AI 的话要检验：▶ 运行代码 / 📚 问老师查书 / 🔄 换个问法再问"
+    en: "Check what AI says: ▶ run the code / 📚 ask a teacher or book / 🔄 ask again differently"
+    example: "请检查你刚才的回答，哪里可能错了？"

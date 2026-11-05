@@ -1,0 +1,49 @@
+# 📖 小词典：第 8 课学到的指令
+icon: "✊"
+title: "迷你项目：把零件拼成游戏"
+title_en: "Mini project: assembling the parts"
+entries:
+  - code: 'text.strip()'
+    zh: "去掉文字两头的空格"
+    en: "Remove spaces from both ends of the text"
+    example: '"  石头 ".strip()   # "石头"'
+  - code: 'text.lower() / text.upper()'
+    zh: "全部变小写 / 大写（这样 Rock 和 ROCK 都能认）"
+    en: "All lowercase / UPPERCASE (so Rock and ROCK both work)"
+    example: 'me = input("? ").strip().lower()'
+  - code: "x in 列表 / x not in 列表"
+    zh: "问：x 在不在列表里？得到 True / False"
+    en: "Ask: is x in the list? Gives True / False"
+    example: 'if me not in choices:\n    print("只能出 石头 / 剪刀 / 布")'
+  - code: "a == b and c == d"
+    zh: "两个条件都要对才算（第 6 课）。配 if / elif 判断输赢"
+    en: "Both conditions must be true (Lesson 6). Use with if / elif to judge"
+    example: 'elif me == "石头" and computer == "剪刀":\n    return "赢"'
+  - code: "while a < 3 and b < 3:"
+    zh: "游戏循环：谁先到 3 分就停。记得加「安全带」防止永远不停"
+    en: "Game loop: stops when someone reaches 3. Add a seatbelt so it can't run forever"
+    example: "while my_score < 3 and computer_score < 3 and rounds < 15:"
+  - code: "score = score + 1"
+    zh: "计数器加 1（记分、数轮数）"
+    en: "Add 1 to a counter (scores, rounds)"
+    example: 'if result == "赢":\n    my_score = my_score + 1'
+  - code: "continue"
+    zh: "跳过这一轮，直接回到 while 开头"
+    en: "Skip this round and jump back to the top of the while"
+    example: 'if me not in choices:\n    print("只能出…")\n    continue'
+  - code: "return a, b"
+    zh: "一次交回两个数，外面用两个变量接"
+    en: "Return two numbers at once; catch them with two variables"
+    example: "mine, theirs = play_game()"
+  - code: "[me, computer] in beats"
+    zh: "用「谁赢谁」的列表代替一大堆 elif"
+    en: "A list of [winner, loser] pairs instead of a pile of elifs"
+    example: 'beats = [["石头", "剪刀"], ["剪刀", "布"], ["布", "石头"]]\nif [me, computer] in beats:'
+  - code: "random.choice(列表)"
+    zh: "随机挑一个（第 5 课）——电脑出拳"
+    en: "Pick one at random (Lesson 5) — the computer's play"
+    example: "computer = random.choice(choices)"
+  - code: "# 测试：先用固定输入试试"
+    zh: "写完一个招式，先用固定的输入 print 看结果对不对，再接上 input"
+    en: "After writing a trick, print its result with fixed inputs before wiring up input()"
+    example: 'print(judge("石头", "剪刀"), "← 应该是 赢")'

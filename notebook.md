@@ -11,13 +11,13 @@ title_en: Engineer's Notebook
 </div>
 
 <div class="box box-good">
-<span class="zh">🛟 <b>卡住了？</b>① 读报错 → ② 翻笔记本 → ③ 问 AI 要提示 → ④ 问老师</span>
-<span class="en">🛟 <b>Stuck?</b> ① Read the error → ② Check this notebook → ③ Ask AI for a hint → ④ Ask your teacher</span>
+<span class="zh">🛟 <b>卡住了？</b>① 读报错 → ② 翻笔记本 → ③ 问 AI 要提示 → ④ 问老师 &nbsp;|&nbsp; <a href="{{ '/ai-rules/' | relative_url }}">🤖 AI 守则</a> · <a href="{{ '/cheatsheet/' | relative_url }}">📖 小词典</a> · <a href="{{ '/feedback/' | relative_url }}">💌 老师的话</a></span>
+<span class="en">🛟 <b>Stuck?</b> ① Read the error → ② Check this notebook → ③ Ask AI for a hint → ④ Ask your teacher &nbsp;|&nbsp; <a href="{{ '/ai-rules/' | relative_url }}">🤖 AI rules</a> · <a href="{{ '/cheatsheet/' | relative_url }}">📖 Cheat sheet</a> · <a href="{{ '/feedback/' | relative_url }}">💌 Teacher's notes</a></span>
 </div>
 
 ---
 
-## 第 1 课 Lesson 1
+## 第 1 课 Lesson 1 · 🐢 AI 初体验 + 海龟画画
 
 - 🌟 **我今天学会了 / I learned:**
 - 🧱 **我卡在哪里 / I got stuck on:**
@@ -26,24 +26,101 @@ title_en: Engineer's Notebook
 
 ---
 
-## 第 2 课 Lesson 2
+## 第 2 课 Lesson 2 · 💬 会聊天的程序
 
 - 🌟 **我今天学会了 / I learned:**
 - 🧱 **我卡在哪里 / I got stuck on:**
 - 🔧 **我怎么解决的 / I fixed it by:**
-
 
 ---
 
-## 第 3 课 Lesson 3
+## 第 3 课 Lesson 3 · 🌀 重复的魔法
 
 - 🌟 **我今天学会了 / I learned:**
 - 🧱 **我卡在哪里 / I got stuck on:**
 - 🔧 **我怎么解决的 / I fixed it by:**
+
+---
+
+## 第 4 课 Lesson 4 · 🎲 猜数字游戏
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+- 🐞 **今天找到的 bug / Bugs I found today:**
+
+---
+
+## 第 5 课 Lesson 5 · 🎰 随机生成器
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+
+---
+
+## 第 6 课 Lesson 6 · 🧠 会思考的机器
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+- 🤖 **「写规则」和「从数据学」有什么不同 / Rules vs learning from data:**
+
+---
+
+## 第 7 课 Lesson 7 · 📦 把代码打包
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+
+---
+
+## 第 8 课 Lesson 8 · ✊ 石头剪刀布
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+- 🤖 **AI 帮我排错的一次 / A time AI helped me debug:**
+
+---
+
+## 第 9 课 Lesson 9 · 🕵️ 聪明的 AI 用户
+
+- 🌟 **我今天学会了 / I learned:**
+- 🧱 **我卡在哪里 / I got stuck on:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+- 🔍 **我抓到 AI 的一个错误 / An AI mistake I caught:**
+
+---
+
+## 第 10 课 Lesson 10 · 🗺️ 项目策划
+
+- 🌟 **我今天学会了 / I learned:**
+- 🎯 **我的项目是 / My project is:**
+- 🪜 **拆成的小步骤 / Small steps:**
+
+---
+
+## 第 11 课 Lesson 11 · 🛠️ 项目制作
+
+- 🌟 **我今天做到了 / I got done:**
+- 🧱 **最难的 bug / Hardest bug:**
+- 🔧 **我怎么解决的 / I fixed it by:**
+
+---
+
+## 第 12 课 Lesson 12 · 🏆 展示日
+
+- 🌟 **我最骄傲的 / I'm proudest of:**
+- 🤖 **现在我觉得 AI 是…… / Now I think AI is…:**
+- 🔮 **我的下一个项目 / My next project:**
 
 ---
 
 ## 📚 我的指令小词典 / My command dictionary
+
+<p class="muted"><span class="zh">全部指令在 <a href="{{ '/cheatsheet/' | relative_url }}">📖 小词典</a> 里。这里记<b>我自己</b>最常忘的几个：</span><span class="en">All commands are in the <a href="{{ '/cheatsheet/' | relative_url }}">📖 cheat sheet</a>. Here I write the ones <b>I</b> keep forgetting:</span></p>
 
 | 指令 Command | 它是干嘛的 What it does | 例子 Example |
 |------|-----------|------|
@@ -55,4 +132,5 @@ title_en: Engineer's Notebook
 
 | 报错 Error | 原因 Why | 怎么修 How I fixed it |
 |------|------|--------|
+| `NameError: name 'x' is not defined` | 还没创建就用了 / used before making it | 先写 `x = ...` |
 |  |  |  |

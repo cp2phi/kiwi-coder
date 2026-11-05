@@ -1,5 +1,6 @@
+{% comment %} 12 关冒险地图。每一关显示：图标、标题、核心知识点、带回家的作品；本周的关卡高亮；进度条由 fun.js 从这台电脑的记录里填 {% endcomment %}
 {% assign cur = site.current_lesson %}
-{% assign stages = "1|🔥 第一阶段：点燃兴趣，打好基础|🔥 Stage 1: Spark and basics,2|🤝 第二阶段：组合与合作|🤝 Stage 2: Combine and build,3|🚀 第三阶段：独立与创造|🚀 Stage 3: Create on your own" | split: "," %}
+{% assign stages = "1|🔥 第一阶段（第 1–4 课）：老师做，我看|🔥 Stage 1 (Lessons 1–4): teacher shows, I follow,2|🤝 第二阶段（第 5–8 课）：我们一起做|🤝 Stage 2 (Lessons 5–8): we build together,3|🚀 第三阶段（第 9–12 课）：我做，老师看|🚀 Stage 3 (Lessons 9–12): I build, teacher watches" | split: "," %}
 {% for s in stages %}
   {% assign parts = s | split: "|" %}
   {% assign sn = parts[0] | plus: 0 %}
@@ -7,16 +8,18 @@
   <div class="map">
   {% for l in site.data.lessons %}{% if l.stage == sn %}
     {% capture slug %}{% if l.n < 10 %}0{% endif %}{{ l.n }}{% endcapture %}
-    {% capture cls %}stop{% if l.n == cur %} now{% endif %}{% unless l.ready %} locked{% endunless %}{% endcapture %}
+    {% capture cls %}stop{% if l.n == cur %} now{% endif %}{% if l.n < cur %} past{% endif %}{% unless l.ready %} locked{% endunless %}{% endcapture %}
     {% if l.ready %}
-    <a class="{{ cls }}" href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}">
+    <a class="{{ cls }}" href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}" data-lesson="{{ l.n }}">
     {% else %}
-    <div class="{{ cls }}">
+    <div class="{{ cls }}" data-lesson="{{ l.n }}">
     {% endif %}
       <span class="ico">{% if l.ready %}{{ l.icon }}{% else %}🔒{% endif %}</span>
-      <span class="num"><span class="zh">第 {{ l.n }} 关</span><span class="en">Level {{ l.n }}</span></span>
+      <span class="num"><span class="zh">第 {{ l.n }} 课</span><span class="en">Lesson {{ l.n }}</span></span>
       <span class="t"><span class="zh">{{ l.title }}</span><span class="en">{{ l.title_en }}</span></span>
+      <span class="syn">🐍 <span class="zh">{{ l.syntax }}</span><span class="en">{{ l.syntax_en }}</span></span>
       <span class="make">🎁 <span class="zh">{{ l.make }}</span><span class="en">{{ l.make_en }}</span></span>
+      <span class="lp" data-lesson-progress="{{ l.n }}"><i></i></span>
     {% if l.ready %}</a>{% else %}</div>{% endif %}
   {% endif %}{% endfor %}
   </div>

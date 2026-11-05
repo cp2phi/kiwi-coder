@@ -1,0 +1,80 @@
+# 🎮 游戏板块（每个游戏一个文件夹 games/<id>/，里面 index.md 是游戏页面）
+#   levels: 一共几关（每关一个徽章，徽章 id 是 "<id>-<关数>"）
+#   lesson: 学完第几课就能玩
+#   skill: 练的是什么
+- id: maze
+  icon: "🐢"
+  title: "海龟迷宫"
+  title_en: "Turtle Maze"
+  blurb: "用 forward / left / right 指挥海龟走出迷宫，别撞墙！"
+  blurb_en: "Guide the turtle through the maze with forward / left / right. Don't hit the walls!"
+  skill: "顺序指令、角度"
+  skill_en: "Sequences, angles"
+  levels: 6
+  lesson: 1
+
+- id: secret
+  icon: "🔐"
+  title: "密码破译"
+  title_en: "Secret Code"
+  blurb: "用 print、变量和字符串解开一层层密码。"
+  blurb_en: "Crack code after code with print, variables and strings."
+  skill: "print、变量、字符串、列表"
+  skill_en: "print, variables, strings, lists"
+  levels: 6
+  lesson: 2
+
+- id: robot
+  icon: "💎"
+  title: "宝石机器人"
+  title_en: "Gem Robot"
+  blurb: "指挥机器人收集所有宝石。关卡越来越大——不用循环和函数可不行！"
+  blurb_en: "Program the robot to collect every gem. Levels get bigger — you'll need loops and functions!"
+  skill: "for 循环、函数"
+  skill_en: "for loops, functions"
+  levels: 6
+  lesson: 3
+
+- id: bugs
+  icon: "🐞"
+  title: "虫虫医院"
+  title_en: "Bug Hospital"
+  blurb: "每段代码都生病了。读报错、找 bug、治好它！"
+  blurb_en: "Every program here is sick. Read the error, find the bug, fix it!"
+  skill: "读报错、排错"
+  skill_en: "Reading errors, debugging"
+  levels: 6
+  lesson: 4
+
+- id: copy
+  icon: "🎨"
+  title: "图案复刻"
+  title_en: "Copy the Pattern"
+  blurb: "左边是目标图案，你来写代码画一个一样的。相似度超过 85% 就过关！"
+  blurb_en: "Match the target drawing with your own code. Over 85% similar wins!"
+  skill: "turtle、循环、列表"
+  skill_en: "turtle, loops, lists"
+  levels: 6
+  lesson: 5
+
+- id: reader
+  icon: "🔮"
+  title: "读心术"
+  title_en: "Mind Reader"
+  blurb: "先猜这段代码会打印什么，再运行验证。看懂代码的最佳训练！"
+  blurb_en: "Predict what the code prints, then run it to check. The best way to learn to read code!"
+  skill: "读懂代码"
+  skill_en: "Reading code"
+  levels: 6
+  lesson: 6
+
+- id: catch
+  icon: "🍎"
+  title: "接水果"
+  title_en: "Fruit Catcher"
+  blurb: "一个真正能玩的键盘游戏！先玩，再改数字，最后加自己的点子。"
+  blurb_en: "A real keyboard game! Play it, tweak the numbers, then add your own ideas."
+  skill: "键盘事件、游戏循环、综合"
+  skill_en: "Keyboard events, game loop, everything"
+  levels: 6
+  lesson: 10

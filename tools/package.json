@@ -1,0 +1,13 @@
+{
+  "name": "kiwi-coder-tools",
+  "private": true,
+  "description": "测试工具：用浏览器里的 Python 跑教材代码、检查链接",
+  "scripts": {
+    "check": "node check-code.js",
+    "links": "node check-links.js",
+    "serve": "node serve.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.50.0"
+  }
+}

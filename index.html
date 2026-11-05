@@ -16,41 +16,73 @@ title_en: Home
     <div class="tags">
       {% for l in me.likes %}<span class="tag">❤️ {{ l }}</span>{% endfor %}
     </div>
-    <p class="muted" style="margin:.6em 0 0;font-size:.95rem">🤖 {{ me.ai_is }}</p>
+    <p class="muted" style="margin:.6em 0 0;font-size:.95rem">🤖 {{ me.ai_is }} <a href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/_data/me.yml" target="_blank" rel="noopener" style="font-size:.85rem">✏️ <span class="zh">改名片</span><span class="en">edit</span></a></p>
   </div>
 </section>
-
-<p style="text-align:right;margin:.4em 0 0;font-size:.9rem">
-  <a href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/_data/me.yml" target="_blank" rel="noopener">✏️ <span class="zh">改我的名片</span><span class="en">Edit my name card</span>（_data/me.yml）</a>
-</p>
 
 <h2>⭐ <span class="zh">本周任务：第 {{ cur }} 课</span><span class="en">This week: Lesson {{ cur }}</span></h2>
 <a class="card" href="{{ '/lessons/' | append: slug | append: '/' | relative_url }}" style="border-color:var(--brand)">
   <div class="big-emoji">{{ now.icon }}</div>
   <h3><span class="zh">{{ now.title }}</span><span class="en">{{ now.title_en }}</span></h3>
-  <p class="muted" style="margin:.2em 0"><span class="zh">学：{{ now.learn }}</span><span class="en">Learn: {{ now.learn_en }}</span></p>
+  <p style="margin:.2em 0">🐍 <span class="zh">新魔法：{{ now.syntax }}</span><span class="en">New magic: {{ now.syntax_en }}</span></p>
   <p style="margin:.2em 0">🎁 <span class="zh">带回家的作品：{{ now.make }}</span><span class="en">Take home: {{ now.make_en }}</span></p>
   <span class="pill pill-brand"><span class="zh">点我开始 →</span><span class="en">Start here →</span></span>
 </a>
 
-<div class="grid">
-  <a class="card" href="{{ '/gallery/' | relative_url }}">
-    <div class="big-emoji">🎨</div><h3><span class="zh">作品墙</span><span class="en">Gallery</span></h3>
-    <p class="muted"><span class="zh">我做出来的所有东西，点一下就能运行</span><span class="en">Everything I've made — click to run it</span></p>
+<div class="bigbtns">
+  <a class="bigbtn c1" href="{{ '/lessons/' | relative_url }}"><span class="e">🗺️</span><span class="zh">课程</span><span class="en">Lessons</span><small><span class="zh">12 关冒险</span><span class="en">12 levels</span></small></a>
+  <a class="bigbtn c2" href="{{ '/games/' | relative_url }}"><span class="e">🎮</span><span class="zh">游戏</span><span class="en">Games</span><small><span class="zh">边玩边练</span><span class="en">Play to practise</span></small></a>
+  <a class="bigbtn c3" href="{{ '/gallery/' | relative_url }}"><span class="e">🎨</span><span class="zh">作品墙</span><span class="en">Gallery</span><small><span class="zh">我做的东西</span><span class="en">What I made</span></small></a>
+  <a class="bigbtn c4" href="{{ '/playground/' | relative_url }}"><span class="e">🧪</span><span class="zh">画板</span><span class="en">Playground</span><small><span class="zh">随便试</span><span class="en">Try anything</span></small></a>
+</div>
+
+<h2>🏅 <span class="zh">我的徽章架</span><span class="en">My badge shelf</span></h2>
+<p class="muted" style="margin:.2em 0 .6em;font-size:.9rem"><span class="zh">过关、完成一课的任务清单，都会得到徽章（记在这台电脑上）。已经有 <b data-badge-count="">0</b> 个！</span><span class="en">Finish a game level or a lesson checklist to earn badges (saved on this computer). You have <b data-badge-count="">0</b> so far!</span></p>
+<div class="badge-shelf">
+  {% for l in site.data.lessons %}
+  {% capture ls %}{% if l.n < 10 %}0{% endif %}{{ l.n }}{% endcapture %}
+  <a class="badge" data-badge-id="lesson-{{ l.n }}" href="{{ '/lessons/' | append: ls | append: '/' | relative_url }}" title="{{ l.title }}"><span class="ico">{{ l.icon }}</span><span class="zh">第 {{ l.n }} 课</span><span class="en">Lesson {{ l.n }}</span></a>
+  {% endfor %}
+</div>
+<div class="badge-shelf">
+  {% for g in site.data.games %}
+  <a class="badge" href="{{ '/games/' | append: g.id | append: '/' | relative_url }}" title="{{ g.title }}"><span class="ico">{{ g.icon }}</span><span class="zh">{{ g.title }}</span><span class="en">{{ g.title_en }}</span><span class="when"><b data-badge-count="{{ g.id }}">0</b>/{{ g.levels }}</span></a>
+  {% endfor %}
+</div>
+<script>
+  // 游戏徽章：过了几关就点亮
+  document.addEventListener('DOMContentLoaded', function () {
+    var B = (window.KC && KC.badges) ? KC.badges() : {};
+    document.querySelectorAll('.badge-shelf .badge[href*="/games/"]').forEach(function (a) {
+      var id = a.getAttribute('href').replace(/\/$/, '').split('/').pop();
+      var n = Object.keys(B).filter(function (k) { return k.indexOf(id + '-') === 0; }).length;
+      if (n > 0) a.classList.add('earned');
+    });
+  });
+</script>
+
+<h2>🗺️ <span class="zh">我的 12 关冒险地图</span><span class="en">My 12-level adventure map</span></h2>
+{% include lesson-map.html %}
+
+<div class="grid" style="margin-top:2em">
+  <a class="card" href="{{ '/my-project/' | relative_url }}" style="border-color:#f59e0b">
+    <div class="big-emoji">🚀</div><h3><span class="zh">我的项目页</span><span class="en">My Project Page</span></h3>
+    <p class="muted"><span class="zh">第 10–12 课做的大项目，上线在这里</span><span class="en">The big project from Lessons 10–12 goes live here</span></p>
   </a>
   <a class="card" href="{{ '/notebook/' | relative_url }}">
     <div class="big-emoji">📓</div><h3><span class="zh">工程师笔记本</span><span class="en">Engineer's Notebook</span></h3>
     <p class="muted"><span class="zh">每节课 3 行：学会了 / 卡在哪 / 怎么解决</span><span class="en">3 lines each lesson: learned / stuck / fixed</span></p>
   </a>
+  <a class="card" href="{{ '/cheatsheet/' | relative_url }}">
+    <div class="big-emoji">📖</div><h3><span class="zh">Python 小词典</span><span class="en">Python cheat sheet</span></h3>
+    <p class="muted"><span class="zh">学过的每个指令都在这里，忘了就来查</span><span class="en">Every command we've learned, look it up any time</span></p>
+  </a>
   <a class="card" href="{{ '/feedback/' | relative_url }}">
     <div class="big-emoji">💌</div><h3><span class="zh">老师的话</span><span class="en">Teacher's Notes</span></h3>
     <p class="muted"><span class="zh">每周作业的反馈和小星星</span><span class="en">Weekly feedback and stars</span></p>
   </a>
-  <a class="card" href="{{ '/playground/' | relative_url }}">
-    <div class="big-emoji">🧪</div><h3><span class="zh">自由画板</span><span class="en">Playground</span></h3>
-    <p class="muted"><span class="zh">随时写代码、画画、试想法</span><span class="en">Code, draw and try ideas any time</span></p>
+  <a class="card" href="{{ '/ai-rules/' | relative_url }}">
+    <div class="big-emoji">🤖</div><h3><span class="zh">AI 伙伴守则</span><span class="en">AI Buddy Rules</span></h3>
+    <p class="muted"><span class="zh">要提示不要答案；AI 的话要检验；卡住了四步法</span><span class="en">Hints not answers; check what AI says; the 4 steps when stuck</span></p>
   </a>
 </div>
-
-<h2>🗺️ <span class="zh">我的 12 关冒险地图</span><span class="en">My 12-level adventure map</span></h2>
-{% include lesson-map.html %}

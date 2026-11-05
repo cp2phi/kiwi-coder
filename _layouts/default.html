@@ -19,6 +19,8 @@
   </script>
 </head>
 <body>
+  {% assign cur = site.current_lesson %}
+  {% capture cur_slug %}{% if cur < 10 %}0{% endif %}{{ cur }}{% endcapture %}
   <header class="topbar">
     <a class="brand" href="{{ '/' | relative_url }}">
       <span class="brand-avatar">{{ site.data.me.avatar | default: '🐢' }}</span>
@@ -29,40 +31,58 @@
     <nav class="nav">
       <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>🏠 <span class="zh">首页</span><span class="en">Home</span></a>
       <a href="{{ '/lessons/' | relative_url }}" {% if page.url contains '/lessons/' %}class="active"{% endif %}>🗺️ <span class="zh">课程</span><span class="en">Lessons</span></a>
+      <a href="{{ '/games/' | relative_url }}" {% if page.url contains '/games/' %}class="active"{% endif %}>🎮 <span class="zh">游戏</span><span class="en">Games</span></a>
       <a href="{{ '/gallery/' | relative_url }}" {% if page.url contains '/gallery/' %}class="active"{% endif %}>🎨 <span class="zh">作品墙</span><span class="en">Gallery</span></a>
-      <a href="{{ '/notebook/' | relative_url }}" {% if page.url contains '/notebook/' %}class="active"{% endif %}>📓 <span class="zh">笔记本</span><span class="en">Notebook</span></a>
       <a href="{{ '/playground/' | relative_url }}" {% if page.url contains '/playground/' %}class="active"{% endif %}>🧪 <span class="zh">画板</span><span class="en">Playground</span></a>
-      <a href="{{ '/ai-rules/' | relative_url }}" {% if page.url contains '/ai-rules/' %}class="active"{% endif %}>🤖 <span class="zh">AI 守则</span><span class="en">AI Rules</span></a>
+      <a href="{{ '/cheatsheet/' | relative_url }}" {% if page.url contains '/cheatsheet/' %}class="active"{% endif %}>📖 <span class="zh">小词典</span><span class="en">Cheat sheet</span></a>
+      <a href="{{ '/notebook/' | relative_url }}" {% if page.url contains '/notebook/' or page.url contains '/feedback/' or page.url contains '/ai-rules/' %}class="active"{% endif %}>📓 <span class="zh">笔记本</span><span class="en">Notebook</span></a>
       <button class="theme-btn" aria-label="Dark / light" onclick="kcToggleTheme()">🌙</button>
     </nav>
   </header>
 
   <main class="page {{ page.page_class }}">
     {% if page.lesson %}
-    <div class="lesson-tabs">
+      {% assign ln = page.lesson | plus: 0 %}
+      {% assign L = site.data.lessons | where: "n", ln | first %}
       {% assign base = '/lessons/' | append: page.lesson | append: '/' %}
-      <a href="{{ base | relative_url }}" {% if page.tab == 'home' %}class="active"{% endif %}>🎯 <span class="zh">今日任务</span><span class="en">Today</span></a>
-      <a href="{{ base | append: 'github/' | relative_url }}" {% if page.tab == 'github' %}class="active"{% endif %}>🐙 GitHub</a>
-      <a href="{{ base | append: 'codex/' | relative_url }}" {% if page.tab == 'codex' %}class="active"{% endif %}>🤖 Codex</a>
-      <a href="{{ base | append: 'python/' | relative_url }}" {% if page.tab == 'python' %}class="active"{% endif %}>🐍 Python</a>
-      <a href="{{ base | append: 'homework/' | relative_url }}" {% if page.tab == 'homework' %}class="active"{% endif %}>🏠 <span class="zh">作业</span><span class="en">Homework</span></a>
-    </div>
+      <div class="crumbs">
+        <a href="{{ '/lessons/' | relative_url }}">🗺️ <span class="zh">课程地图</span><span class="en">Lesson map</span></a>
+        <span class="sep">›</span>
+        <a href="{{ base | relative_url }}">{{ L.icon }} <span class="zh">第 {{ ln }} 课</span><span class="en">Lesson {{ ln }}</span></a>
+        {% if page.tab and page.tab != 'home' %}<span class="sep">›</span><span>{{ site.data.tabs[page.tab].icon }} <span class="zh">{{ site.data.tabs[page.tab].zh }}</span><span class="en">{{ site.data.tabs[page.tab].en }}</span></span>{% endif %}
+      </div>
+      <div class="lesson-tabs">
+        {% for tid in L.tabs %}
+          {% assign tb = site.data.tabs[tid] %}
+          {% if tid == 'home' %}{% assign href = base %}{% else %}{% assign href = base | append: tb.file | append: '/' %}{% endif %}
+          <a href="{{ href | relative_url }}" {% if page.tab == tid %}class="active"{% endif %}>{{ tb.icon }} <span class="zh">{{ tb.zh }}</span><span class="en">{{ tb.en }}</span></a>
+        {% endfor %}
+      </div>
     {% endif %}
 
     {{ content }}
 
+    {% if page.lesson %}{% include lesson-nav.html %}{% endif %}
+
     <footer class="page-foot">
       <a class="edit-link" href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/{{ page.path }}" target="_blank" rel="noopener">✏️ <span class="zh">在 GitHub 上改这一页</span><span class="en">Edit this page on GitHub</span></a>
+      <span class="foot-links">
+        <a href="{{ '/ai-rules/' | relative_url }}">🤖 <span class="zh">AI 守则</span><span class="en">AI rules</span></a> ·
+        <a href="{{ '/feedback/' | relative_url }}">💌 <span class="zh">老师的话</span><span class="en">Teacher's notes</span></a> ·
+        <a href="{{ '/lessons/' | relative_url }}#overview">📋 <span class="zh">课程总览</span><span class="en">Overview</span></a>
+      </span>
       <span class="muted">Kiwi Coder · <span class="zh">一起学 AI 和 Python</span><span class="en">Learning AI and Python</span></span>
     </footer>
   </main>
 
   <div id="confetti-layer" aria-hidden="true"></div>
+  <div id="kc-toast" aria-live="polite"></div>
   <script>
     window.KC = {
       repo: "{{ site.github_repo }}",
       branch: "{{ site.github_branch }}",
       base: "{{ site.baseurl }}",
+      currentLesson: {{ site.current_lesson }},
       titles: { zh: {{ page.title | default: '' | append: ' · ' | append: site.title | jsonify }}, en: {{ page.title_en | default: page.title | default: '' | append: ' · ' | append: site.title | jsonify }} },
       lang: function () { return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh'; },
       // 按当前语言选文字：KC.t('中文', 'English')
@@ -93,6 +113,9 @@
     document.addEventListener('DOMContentLoaded', function () { kcApplyLang(KC.lang()); });
   </script>
   <script src="{{ '/assets/js/fun.js' | relative_url }}"></script>
+  {% if page.playground or page.github_live %}
+  <script src="{{ '/assets/js/github.js' | relative_url }}"></script>
+  {% endif %}
   {% if page.playground %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>

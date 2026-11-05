@@ -1,0 +1,9 @@
+# 课程页面的小标签（每课在 _data/lessons.yml 的 tabs 里选用哪些）
+# id → 文件名（lessons/NN/<file>.md），图标，中英文名字
+home:     { file: "index",    icon: "🎯", zh: "今日任务", en: "Today" }
+github:   { file: "github",   icon: "🐙", zh: "GitHub",   en: "GitHub" }
+codex:    { file: "codex",    icon: "🤖", zh: "Codex",    en: "Codex" }
+python:   { file: "python",   icon: "🐍", zh: "学一学",   en: "Learn" }
+learn:    { file: "learn",    icon: "📖", zh: "学一学",   en: "Learn" }
+homework: { file: "homework", icon: "🏠", zh: "作业",     en: "Homework" }
+teacher:  { file: "teacher",  icon: "👩‍🏫", zh: "教案",   en: "Teacher" }
