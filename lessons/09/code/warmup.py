@@ -1,28 +1,17 @@
-# 🔁 热身：函数 + 列表  Warm-up: a function + a list
-# 还记得第 7 课的函数和第 5 课的列表吗？ Remember functions (L7) and lists (L5)?
-import turtle
+# 🔁 热身：函数 + 列表 + .strip().lower()  Warm-up: a function + a list + .strip().lower()
+# 这是上节课石头剪刀布里，一个玩家出过的拳（打字很乱！）
+# These are the moves one player typed in last lesson's game (messy typing!)
 
-t = turtle.Turtle()
-t.speed(0)
-t.hideturtle()
+moves = ["Rock", " paper", "ROCK", "scissors ", "rock", "Paper", "rock"]
 
-# 一个画星星的函数 / a function that draws a star
-def star(x, y, size, colour):
-    t.penup()
-    t.goto(x, y)
-    t.pendown()
-    t.color(colour)
-    t.begin_fill()
-    for i in range(5):
-        t.forward(size)
-        t.right(144)
-    t.end_fill()
+# 交回 target 在 moves 里出现了几次 / return how many times target appears in moves
+def count_move(moves, target):
+    count = 0
+    for m in moves:
+        if ___ == target:      # 👈 先把 m 整理干净再比 / tidy m up before comparing
+            count += 1
+    return count
 
-# 一个颜色列表 / a list of colours
-colours = ["gold", "orange", "hotpink", "deepskyblue"]
-
-# 用列表里的每个颜色画一颗星 / one star for each colour in the list
-x = -150
-for c in colours:
-    star(x, 0, 60, c)
-    x = x + 100
+print("rock:", count_move(moves, "rock"))           # 应该是 4 / should be 4
+print("paper:", count_move(moves, "paper"))         # 应该是 2 / should be 2
+print("scissors:", count_move(moves, "scissors"))   # 应该是 1 / should be 1

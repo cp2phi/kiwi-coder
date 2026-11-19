@@ -24,10 +24,10 @@ tab: home
 <p class="muted" style="text-align:right;margin:.2em 0"><span class="progress-label" data-for="l6"></span></p>
 
 <ul class="quests" data-key="l6">
-  <li><b>🔁 <span class="zh">热身：列表 + random.choice</span><span class="en">Warm-up: lists + random.choice</span></b> <span class="pill">5 min</span><br><span class="zh">上节课的东西，加一个新列表。</span><span class="en">Last lesson's stuff, plus one new list.</span> <a href="learn/#warmup"><span class="zh">去热身 →</span><span class="en">Warm up →</span></a></li>
-  <li><b>🚀 <span class="zh">新魔法：while</span><span class="en">New magic: while</span></b> <span class="pill">12 min</span><br><span class="zh">倒计时、停不下来的程序、猜数字 2.0。</span><span class="en">Countdown, a program that can't stop, guess-the-number 2.0.</span> <a href="learn/#magic"><span class="zh">学一学 →</span><span class="en">Learn →</span></a></li>
-  <li><b>🔐 <span class="zh">and / or / not：秘密基地的门</span><span class="en">and / or / not: the secret base door</span></b> <span class="pill">8 min</span><br><a href="learn/#bool"><span class="zh">去开门 →</span><span class="en">Open the door →</span></a></li>
-  <li><b>🕵️ <span class="zh">写一个规则版 AI：动物猜猜猜</span><span class="en">Write a rule-based AI: animal guesser</span></b> <span class="pill">12 min</span><br><span class="zh">先不插电，再写代码。</span><span class="en">Unplugged first, then code.</span> <a href="learn/#rules"><span class="zh">去写规则 →</span><span class="en">Write the rules →</span></a></li>
+  <li><b>🔁 <span class="zh">热身：行星之旅</span><span class="en">Warm-up: planet tour</span></b> <span class="pill">5 min</span><br><span class="zh">上节课的列表 + in + append。for 循环能保证去遍 8 颗行星吗？</span><span class="en">Last lesson's lists + in + append. Can a for loop guarantee visiting all 8 planets?</span> <a href="learn/#warmup"><span class="zh">去热身 →</span><span class="en">Warm up →</span></a></li>
+  <li><b>🚀 <span class="zh">新魔法：while</span><span class="en">New magic: while</span></b> <span class="pill">12 min</span><br><span class="zh">倒计时（先在纸上跟着 n 走）、停不下来的程序、太空日志（while True + break）。</span><span class="en">Countdown (trace n on paper first), a program that can't stop, a space log (while True + break).</span> <a href="learn/#magic"><span class="zh">学一学 →</span><span class="en">Learn →</span></a></li>
+  <li><b>🔐 <span class="zh">and / or / not：秘密基地 + 猜数字 2.0</span><span class="en">and / or / not: secret base + guess 2.0</span></b> <span class="pill">13 min</span><br><span class="zh">用两个条件管一个 while，结束后自己写「谁赢了」；再用旗子变量等一个 🚩 发射窗口。</span><span class="en">Two conditions running one while, then write "who won" yourself; then wait for a 🚩 launch window with a flag variable.</span> <a href="learn/#bool"><span class="zh">去开门 →</span><span class="en">Open the door →</span></a></li>
+  <li><b>🕵️ <span class="zh">写一个规则版 AI：动物猜猜猜</span><span class="en">Write a rule-based AI: animal guesser</span></b> <span class="pill">12 min</span><br><span class="zh">先不插电，再写代码——蝙蝠的规则你来写。</span><span class="en">Unplugged first, then code — you write the bat rule.</span> <a href="learn/#rules"><span class="zh">去写规则 →</span><span class="en">Write the rules →</span></a></li>
   <li><b>📸 <span class="zh">训练一个会学习的 AI</span><span class="en">Train an AI that learns</span></b> <span class="pill">10 min</span><br><span class="zh">Teachable Machine：先用好例子，再用坏例子，看它怎么学坏。</span><span class="en">Teachable Machine: good examples first, then bad ones — watch it learn badly.</span> <a href="learn/#tm"><span class="zh">去训练 →</span><span class="en">Train it →</span></a></li>
   <li><b>🔮 <span class="zh">玩游戏：读心术</span><span class="en">Play: Mind Reader</span></b> <span class="pill">🏠 <span class="zh">回家玩</span><span class="en">at home</span></span><br><span class="zh">猜猜代码会打印什么，过 1 关。</span><span class="en">Predict what the code prints. Beat 1 level.</span> <a href="{{ '/games/reader/' | relative_url }}"><span class="zh">去游戏 →</span><span class="en">Play →</span></a></li>
   <li><b>🏠 <span class="zh">看作业 + 写 3 行笔记</span><span class="en">Homework + 3 lines of notes</span></b> <span class="pill">5 min</span><br><span class="zh">作业是「动物侦探」。笔记本里多写一行：「写规则」和「从数据学」有什么不同。</span><span class="en">Homework is "Animal Detective". Add one extra line to your notebook: rules vs learning from data.</span> <a href="homework/"><span class="zh">看作业 →</span><span class="en">Homework →</span></a></li>
@@ -41,6 +41,11 @@ tab: home
 <div class="box box-rule"><span class="box-title"><span class="zh">🤝 今天的大问题</span><span class="en">🤝 Today's big question</span></span>
 <span class="zh">我们写的动物猜猜猜，<b>只知道我们告诉它的规则</b>。真正的 AI 是<b>从很多例子里自己找规律</b>。例子不好，它就学不好——这是 AI 最重要的秘密。</span>
 <span class="en">Our animal guesser <b>only knows the rules we gave it</b>. Real AI <b>finds patterns in lots of examples by itself</b>. Bad examples, bad learning — that's AI's most important secret.</span>
+</div>
+
+<div class="box box-think"><span class="box-title"><span class="zh">🚀 做得快？挑战在等你</span><span class="en">🚀 Finished early? A challenge awaits</span></span>
+<span class="zh"><a href="learn/#challenge">🏆 太空知识闯关</a>：3 条命，while + and + 两个计数器——题目准备好了，游戏你来设计。</span>
+<span class="en"><a href="learn/#challenge">🏆 Space quiz</a>: 3 lives, while + and + two counters — the questions are ready; you design the game.</span>
 </div>
 
 ---

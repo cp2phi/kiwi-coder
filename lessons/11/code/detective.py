@@ -1,13 +1,13 @@
 # 🔍 print 侦探：没有报错，但答案不对！ Print detective: no error, but the answer is wrong!
-# 买了 3 样东西：3 元、5 元、2 元，一共应该是 10 元。
-# Three things cost 3, 5 and 2 dollars. The total should be 10.
-# 任务：在循环里面加一行 print("现在 total 是", total)，看看每一圈发生了什么
-# Task: add print("now total is", total) inside the loop and watch each round
+# 助推器有 100 份燃料，点了 3 次火，分别用掉 30、25、20。最后应该剩 25。
+# The booster has 100 fuel and burns 3 times: 30, 25 and 20. It should have 25 left.
+# 任务：在循环里面加一行 print("现在 fuel 是", fuel)，看看每一圈发生了什么
+# Task: add print("now fuel is", fuel) inside the loop and watch each round
 
-prices = [3, 5, 2]
-total = 0
+burns = [30, 25, 20]
+fuel = 100
 
-for price in prices:
-    total = price
+for burn in burns:
+    fuel = 100 - burn
 
-print(f"一共 {total} 元")
+print(f"剩余燃料 {fuel}")

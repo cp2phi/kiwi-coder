@@ -1,9 +1,9 @@
-# test-input: 去南极看企鹅 | 学会滑板 | 养一只狗
-# 🌠 愿望清单：用 append() 往列表里加东西 / Wish list: add things with append()
+# test-input: 去火星 | 学会滑板 | 去火星 | 养一只狗
+# 🌠 愿望清单：在循环里一个一个加进列表 / Wish list: build a list one item at a time in a loop
 
 wishes = []                                  # 一开始是空的 / starts empty
 
-for i in range(3):
+for i in range(4):
     w = input("说一个愿望 / Tell me a wish: ")
     wishes.append(w)                         # 放进列表的最后 / add to the end
 

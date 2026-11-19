@@ -14,8 +14,7 @@ while again == "yes":
         print("🦈 是鲨鱼 shark？")
     elif fur == "yes" and fly == "no":
         print("🐱 是猫 cat？")
-    elif fur == "yes" and fly == ___:          # 填空：蝙蝠 bat 会飞吗？/ Fill in: can a bat fly? ("yes" or "no")
-        print("🦇 是蝙蝠 bat？")
+    # ✍️ 在这里写蝙蝠的规则（2 行）：有毛，而且会飞 → 🦇 / write the bat rule here (2 lines): fur AND can fly → 🦇
     elif fur == "no" and fly == "yes":
         print("🐦 是 tūī？")
     elif fur == "no" and fly == "no":

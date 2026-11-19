@@ -1,12 +1,13 @@
-# test-input: no | no | no | yes | yes | no | no | no
+# test-input: no | no | no | yes | no
 # 🏠 第 6 课作业：动物侦探  Lesson 6 homework: Animal Detective
 # 作者 By：（写你的昵称 your nickname）
-# 🥇 我在 Teachable Machine 训练了：（写下你教它认什么、用了几张图 / what you trained it to recognise and how many pictures）
+# 🥈 我的 Teachable Machine：教它认 ______ 和 ______，每类 ___ 张图，测试 10 次对了 ___ 次
+# 🥈 My Teachable Machine: taught it ______ vs ______, ___ photos each, right ___ out of 10 tests
 # AI 帮忙的地方 How AI helped：
-import turtle
 
-# ===== 🥉 第 1 部分：动物侦探，至少 5 种动物 Part 1: animal detective, at least 5 animals =====
-questions_asked = 0          # 🥈 第 2 部分用：数一数问了几个问题 / Part 2: count the questions
+# ===== 🥉 第 1 部分：动物侦探，至少 6 种动物 Part 1: animal detective, at least 6 animals =====
+rounds = 0                   # 🥈 玩了几局 / games played
+right = 0                    # 🥈 猜对几局 / games guessed right
 again = "yes"
 
 while again == "yes":
@@ -14,7 +15,6 @@ while again == "yes":
     fur = input("它有毛吗？Does it have fur? (yes/no) ")
     fly = input("它会飞吗？Can it fly? (yes/no) ")
     water = input("它住在水里吗？Does it live in water? (yes/no) ")
-    questions_asked += 3     # 每轮问了 3 个问题 / 3 questions each round
 
     if water == "yes":
         print("🦈 是鲨鱼 shark？")
@@ -26,20 +26,19 @@ while again == "yes":
         print("🥝 是奇异鸟 kiwi？")
     else:
         print("🤷 我不知道 / I don't know")
-    # 👉 在上面加更多 elif，让它认识至少 5 种动物（蝙蝠？企鹅？狗？）
-    # 👉 Add more elif lines above so it knows at least 5 animals (bat? penguin? dog?)
+    # 👉 TODO 1：让它认识至少 6 种动物，一定要有 🐶 狗、🦇 蝙蝠、🐧 企鹅。需要新问题就加 input。
+    # 👉 TODO 1: make it know at least 6 animals, including 🐶 dog, 🦇 bat and 🐧 penguin. Add an input if you need a new question.
+
+    # 👉 TODO 2（🥈）：问「我猜对了吗？(yes/no)」，用 rounds 和 right 记下来
+    # 👉 TODO 2 (🥈): ask "Did I guess right? (yes/no)" and count with rounds and right
 
     again = input("再玩一次？Play again? (yes/no) ")
 
-print(f"🧮 我一共问了 {questions_asked} 个问题 / I asked {questions_asked} questions")
+# 👉 TODO 3（🥈）：打印「规则 AI 猜对了 right / rounds 局」；全对就再说「🏆 完美侦探」
+# 👉 TODO 3 (🥈): print "the rule AI got right / rounds"; if all right, also say "🏆 perfect detective"
 
-# ===== 🥇 第 3 部分：用 while 画一幅画 Part 3: draw something with while =====
-# 下面是一个例子：越来越大的圆圈，画到半径 120 为止。改成你自己的！
-# Example: bigger and bigger circles until the radius reaches 120. Make it yours!
-t = turtle.Turtle()
-t.speed(0)
-t.color("purple")
-r = 10
-while r < 120:
-    t.circle(r)
-    r = r + 15
+# ===== 🥇 第 3 部分：聪明侦探——只问需要的问题 Part 3: smart detective — only ask what's needed =====
+# 上面的侦探每局都问一样多的问题。聪明的侦探会根据回答决定「下一个问题问什么」（if 里面再 input）。
+# 写一个新版本：用 asked 计数，每问一个问题就 asked += 1。最后打印「这次只问了 ? 个问题」。
+# The detective above asks the same number of questions every time. A smart one picks the NEXT question
+# based on the last answer (an input inside an if). Write a new version that counts asked += 1 per question.

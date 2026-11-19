@@ -11,7 +11,7 @@ tab: home
 
 <div class="grid">
   <div class="card"><div class="big-emoji">📖</div><b><span class="zh">一本会说话的词典</span><span class="en">A talking dictionary</span></b><br><span class="muted"><span class="zh">毛利语翻译机</span><span class="en">Te reo translator</span></span></div>
-  <div class="card"><div class="big-emoji">🧠</div><b><span class="zh">知识问答机</span><span class="en">A quiz machine</span></b><br><span class="muted"><span class="zh">用字典出题、记分</span><span class="en">questions + scores in a dict</span></span></div>
+  <div class="card"><div class="big-emoji">🪐</div><b><span class="zh">行星资料库 + 数数</span><span class="en">Planet database + counting</span></b><br><span class="muted"><span class="zh">.items()、数数公式</span><span class="en">.items(), the counting line</span></span></div>
   <div class="card"><div class="big-emoji">🕵️</div><b><span class="zh">AI 侦探证书</span><span class="en">AI detective badge</span></b><br><span class="muted"><span class="zh">抓到 AI 的一个错误</span><span class="en">catch an AI mistake</span></span></div>
   <div class="card"><div class="big-emoji">🔒</div><b><span class="zh">隐私红线</span><span class="en">Privacy red lines</span></b><br><span class="muted"><span class="zh">什么不能告诉 AI</span><span class="en">what never to tell AI</span></span></div>
 </div>
@@ -24,12 +24,13 @@ tab: home
 <p class="muted" style="text-align:right;margin:.2em 0"><span class="progress-label" data-for="l9"></span></p>
 
 <ul class="quests" data-key="l9">
-  <li><div><b>🔁 <span class="zh">热身：函数 + 列表</span><span class="en">Warm-up: function + list</span></b> <span class="pill">5 min</span><br><a href="learn/#warmup"><span class="zh">画一排彩色星星 →</span><span class="en">Draw a row of colourful stars →</span></a></div></li>
-  <li><div><b>📖 <span class="zh">新魔法：字典</span><span class="en">New magic: dictionaries</span></b> <span class="pill">20 min</span><br><a href="learn/#dict"><span class="zh">翻译机、问答机、按名字画图形 →</span><span class="en">Translator, quiz machine, shapes by name →</span></a></div></li>
-  <li><div><b>🕵️ <span class="zh">AI 侦探训练</span><span class="en">AI detective training</span></b> <span class="pill">15 min</span><br><a href="learn/#detective"><span class="zh">AI 会编造、怎么核实、隐私红线、提好问题 →</span><span class="en">AI makes things up, how to check, privacy, good questions →</span></a></div></li>
-  <li><div><b>🔍 <span class="zh">侦探行动：找出 AI 的错</span><span class="en">Detective mission: catch the AI's mistake</span></b> <span class="pill">10 min</span><br><a href="learn/#mission"><span class="zh">让 AI 写一个问答机，运行，找错 →</span><span class="en">Ask AI for a quiz, run it, find the error →</span></a></div></li>
-  <li><div><b>🎮 <span class="zh">玩一关密码破译</span><span class="en">Play a level of Secret Code</span></b> <span class="pill">5 min</span><br><a href="{{ '/games/secret/' | relative_url }}"><span class="zh">去游戏板块 →</span><span class="en">Go to the games →</span></a></div></li>
+  <li><div><b>🔁 <span class="zh">热身：函数 + 整理输入</span><span class="en">Warm-up: function + tidy input</span></b> <span class="pill">5 min</span><br><a href="learn/#warmup"><span class="zh">数一数乱七八糟的出拳记录 →</span><span class="en">Count a messy list of moves →</span></a></div></li>
+  <li><div><b>📖 <span class="zh">新魔法：字典</span><span class="en">New magic: dictionaries</span></b> <span class="pill">15 min</span><br><a href="learn/#dict"><span class="zh">第一个字典、追踪题、会学新词的翻译机 →</span><span class="en">First dict, a trace puzzle, a translator that learns →</span></a></div></li>
+  <li><div><b>🪐 <span class="zh">进阶：行星资料库 + 用字典数数</span><span class="en">Stretch: planet database + counting with a dict</span></b> <span class="pill">10 min</span><br><a href="learn/#planets"><span class="zh">抽屉里放列表、.items()、数数公式 →</span><span class="en">Lists in drawers, .items(), the counting line →</span></a></div></li>
+  <li><div><b>🕵️ <span class="zh">AI 侦探训练</span><span class="en">AI detective training</span></b> <span class="pill">13 min</span><br><a href="learn/#detective"><span class="zh">AI 会编造（太空题 + 代码题）、怎么核实、隐私红线、提好问题 →</span><span class="en">AI makes things up (space + code rounds), how to check, privacy, good questions →</span></a></div></li>
+  <li><div><b>🔍 <span class="zh">侦探行动：找出 AI 的 2 个错</span><span class="en">Detective mission: catch the AI's 2 mistakes</span></b> <span class="pill">10 min</span><br><a href="learn/#mission"><span class="zh">运行、逐条核实、写上来源 →</span><span class="en">Run it, check every answer, note your sources →</span></a></div></li>
   <li><div><b>📓 <span class="zh">作业预览 + 写笔记本</span><span class="en">Homework preview + notebook</span></b> <span class="pill">5 min</span><br><span class="zh">看看<a href="homework/">作业</a>，然后在 <a href="{{ '/notebook/' | relative_url }}">工程师笔记本</a> 写 3 行，再写一行「我抓到 AI 的一个错误」。</span><span class="en">Look at the <a href="homework/">homework</a>, then write 3 lines in your <a href="{{ '/notebook/' | relative_url }}">Engineer's Notebook</a>, plus one line: "an AI mistake I caught".</span></div></li>
+  <li><div><b>🎮 <span class="zh">回家玩：密码破译</span><span class="en">At home: Secret Code</span></b> <span class="pill"><span class="zh">选做</span><span class="en">optional</span></span><br><a href="{{ '/games/secret/' | relative_url }}"><span class="zh">去游戏板块 →</span><span class="en">Go to the games →</span></a></div></li>
 </ul>
 
 <div class="box box-rule"><span class="box-title"><span class="zh">🤝 这一课的约定：我是队长，AI 是队员</span><span class="en">🤝 This lesson's deal: I'm the captain, AI is on my team</span></span>

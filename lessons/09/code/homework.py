@@ -1,10 +1,13 @@
-# test-input: kai | 再见
 # 🏠 第 9 课作业：我的翻译 app  Lesson 9 homework: my translator app
 # 作者 By：（写你的昵称 your nickname）
-# 🕵️ AI 侦探报告 AI detective report：（🥇 挑战：AI 给的 10 个词，我查了哪 3 个？哪个对哪个错？）
+# test-input: kai | 全部 | 再见
+import random
 
-# ===== 第 1 部分：我的词典（至少 8 个词） Part 1: my dictionary (at least 8 words) =====
-# 可以是毛利语、英语、或任何你喜欢的语言 / te reo Māori, English, or any language you like
+# ===== 🥉 必做 Part 1 / Must do =====
+# 1) 字典里至少 8 个词（毛利语、英语、火星语……都行）  at least 8 words (te reo, English, Martian…)
+# 2) 查不到的词：问意思，然后「记住」它（words[word] = …）  unknown word: ask its meaning, then remember it
+# 3) 输入「全部」：用 .items() 打印所有的词                 type "全部": print every word with .items()
+# 4) 结束时打印：这次一共教会了它几个新词                   at the end: print how many new words you taught it this time
 words = {
     "kia ora": "你好",
     "kai": "食物",
@@ -12,18 +15,30 @@ words = {
     # 👇 在这里加更多 / add more here
 }
 
-# ===== 第 2 部分：翻译循环 Part 2: the translate loop =====
-print("📖 翻译 app！输入一个词，输入 再见 就结束。")
+print("📖 翻译 app！输入一个词；输入 全部 看所有的词；输入 再见 结束。")
+print("📖 Translator! Type a word; 全部 to list all; 再见 to stop.")
 while True:
     word = input("词 / word: ").strip().lower()
     if word == "再见":
         break
-    # 用 .get 查词，查不到给一句默认的话 / look it up with .get, with a default message
+    # ✍️ TODO：「全部」、查到了、查不到（教它）三种情况 / three cases: 全部, found, not found (teach it)
     print("👉", words.get(word, "不知道这个词 / unknown word"))
 
-# ===== 第 3 部分（🥈）：教我新词 + 小测验模式 Part 3 (🥈): teach me a word + quiz mode =====
-# 提示：把第 2 部分的 print 换成 if word in words: … else: …，在 else 里 words[word] = input("它的意思是：")
-# Hint: replace the Part 2 print with if word in words: … else: …, and in the else do words[word] = input("it means: ")
-# 提示：测验模式就是第 9 课的「知识问答机」，把 quiz 换成 words
-
 print("👋 再见！")
+
+
+# ===== 🥈 加分 Part 2：测验模式 + 错题本 / Bonus: quiz mode + a mistakes book =====
+# 1) 开头先问「翻译 还是 测验？」/ first ask "translate or quiz?"
+# 2) 测验：随机考 5 个词（random.choice(list(words))），答对记分
+#    quiz: test 5 random words (random.choice(list(words))) and keep score
+# 3) 错题本：mistakes = {}，答错就 mistakes[w] = mistakes.get(w, 0) + 1；最后打印「你最容易错的词是 ___」
+#    mistakes book: mistakes = {}; on a wrong answer mistakes[w] = mistakes.get(w, 0) + 1; at the end print your hardest word
+
+
+# ===== 🥇 挑战 Part 3：AI 侦探报告（用程序写！）/ Challenge: an AI detective report (as a program!) =====
+# 1) 请 AI 给你 10 个毛利语（或别的语言）单词和意思，放进字典 ai_words
+#    ask an AI for 10 te reo Māori (or other) words with meanings; put them in a dict ai_words
+# 2) 至少挑 3 个，用词典 / 老师核实，结果放进第二个字典 checked = {"kai": True, ...}（对 True，错 False）
+#    check at least 3 with a dictionary or your teacher; record the results in checked = {"kai": True, ...}
+# 3) 程序打印一份报告：每个查过的词 ✅ / ❌，没查过的标 ❓，最后算出「AI 在查过的词里对了 ___%」
+#    print a report: ✅ / ❌ for each checked word, ❓ for unchecked ones, and "AI was right ___% of the checked words"

@@ -1,14 +1,18 @@
-# 🔁 热身：函数 + 列表 + random 还记得吗？ Warm-up: functions + lists + random?
+# 🔁 热身：函数 + 列表 + random  Warm-up: functions + lists + random
 # test-input: 3
-# 填好 ___，让招式「交回」一个随机的水果，然后打印 3 次
-# Fill in ___ so the trick returns a random fruit, then print it 3 times
+# pick_many(n) 要「交回」一个装着 n 个随机水果的列表（第 7 课的「交回列表」！）
+# pick_many(n) should return a list of n random fruits (Lesson 7's "return a list"!)
 import random
 
 fruits = ["kiwi", "feijoa", "apple", "mango"]
 
-def pick():
-    return ___.choice(fruits)      # 哪个工具箱有 choice？ which toolbox has choice?
+def pick_many(n):
+    basket = []
+    for i in range(n):
+        ___                  # 👈 一行：往篮子里放一个随机水果 / one line: put a random fruit in the basket
+    return basket
 
 times = int(input("要几个？ how many? "))
-for i in range(___):               # 用上面的变量 / use the variable above
-    print(pick())
+my_basket = pick_many(times)
+print(my_basket)
+print("一共 / in total:", len(my_basket))

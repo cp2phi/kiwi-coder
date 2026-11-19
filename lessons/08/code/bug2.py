@@ -1,24 +1,15 @@
-# 🐞 病号 2：这个程序会报错。读报错，找到那一行，治好它！
-# Patient 2: this program crashes. Read the error, find the line, cure it!
-# test-expect-error: SyntaxError
-import random
+# 🐞 病号 2：不报错，但「整理输入」好像没起作用。治好它！
+# Patient 2: no crash, but the tidying doesn't seem to work. Cure it!
+# 期望输出 Wanted output:
+# [rock]
+# [paper]
+# [scissors]
 
-choices = ["石头", "剪刀", "布"]
+def tidy(text):
+    text.strip()
+    text.lower()
+    return text
 
-def judge(me, computer):
-    if me == computer:
-        return "平"
-    elif me == "石头" and computer == "剪刀":
-        return "赢"
-    elif me == "剪刀" and computer == "布":
-        return "赢"
-    elif me == "布" and computer == "石头":
-        return "赢"
-    else:
-        return "输"
-
-my_score = 0
-result = judge("石头", "剪刀")
-if result = "赢":
-    my_score = my_score + 1
-print("比分", my_score)
+print("[" + tidy("  ROCK ") + "]")
+print("[" + tidy("Paper") + "]")
+print("[" + tidy(" scissors") + "]")
