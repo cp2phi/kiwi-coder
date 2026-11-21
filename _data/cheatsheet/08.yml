@@ -4,46 +4,58 @@ title: "迷你项目：把零件拼成游戏"
 title_en: "Mini project: assembling the parts"
 entries:
   - code: 'text.strip()'
-    zh: "去掉文字两头的空格"
-    en: "Remove spaces from both ends of the text"
+    zh: "去掉文字两头的空格（中间的空格不动）"
+    en: "Remove spaces from both ends of the text (spaces in the middle stay)"
     example: '"  石头 ".strip()   # "石头"'
   - code: 'text.lower() / text.upper()'
     zh: "全部变小写 / 大写（这样 Rock 和 ROCK 都能认）"
     en: "All lowercase / UPPERCASE (so Rock and ROCK both work)"
     example: 'me = input("? ").strip().lower()'
+  - code: 'answer = answer.lower()'
+    zh: "字符串方法不会改原来的字，而是做出一个新的——要存回去才算！"
+    en: "String methods don't change the original; they make a new one — store it back!"
+    example: 'answer.lower()            # ❌ 被扔掉了 / thrown away\nanswer = answer.lower()   # ✅'
   - code: "x in 列表 / x not in 列表"
     zh: "问：x 在不在列表里？得到 True / False"
     en: "Ask: is x in the list? Gives True / False"
     example: 'if me not in choices:\n    print("只能出 石头 / 剪刀 / 布")'
-  - code: "a == b and c == d"
-    zh: "两个条件都要对才算（第 6 课）。配 if / elif 判断输赢"
-    en: "Both conditions must be true (Lesson 6). Use with if / elif to judge"
-    example: 'elif me == "石头" and computer == "剪刀":\n    return "赢"'
-  - code: "while a < 3 and b < 3:"
-    zh: "游戏循环：谁先到 3 分就停。记得加「安全带」防止永远不停"
-    en: "Game loop: stops when someone reaches 3. Add a seatbelt so it can't run forever"
-    example: "while my_score < 3 and computer_score < 3 and rounds < 15:"
-  - code: "score = score + 1"
-    zh: "计数器加 1（记分、数轮数）"
-    en: "Add 1 to a counter (scores, rounds)"
-    example: 'if result == "赢":\n    my_score = my_score + 1'
-  - code: "continue"
-    zh: "跳过这一轮，直接回到 while 开头"
-    en: "Skip this round and jump back to the top of the while"
-    example: 'if me not in choices:\n    print("只能出…")\n    continue'
+  - code: "while True: … return"
+    zh: "问到合格为止：合格就 return，同时跳出循环和招式"
+    en: "Ask until valid: return when it's OK, leaving the loop and the trick together"
+    example: 'def ask_player():\n    while True:\n        me = input("? ").strip()\n        if me in choices:\n            return me'
+  - code: 'print(judge("布", "石头") == "赢")'
+    zh: "测试：固定的输入 → 期望的输出。打印 True 才对。先写测试，再写代码"
+    en: "A test: fixed input → expected output. True means right. Tests first, then code"
+    example: 'print(judge("石头", "布") == "输")'
+  - code: "beats_what(me) == computer"
+    zh: "把「谁赢谁」装进一个招式，judge 就不用一堆 elif"
+    en: "Put \"who beats whom\" into one trick, so judge needs no pile of elifs"
+    example: 'if beats_what(me) == computer:\n    return "赢"'
+  - code: "target = int(best_of / 2) + 1"
+    zh: "N 局几胜：五局三胜 = 先到 3 分"
+    en: "Best of N: best of 5 = first to 3"
+    example: "while my_score < target and computer_score < target and rounds < 20:"
+  - code: "int(wins / rounds * 100)"
+    zh: "算百分比（胜率），int() 去掉小数"
+    en: "Work out a percentage (win rate); int() drops the decimals"
+    example: 'print("胜率", int(2 / 5 * 100), "%")   # 40'
+  - code: "counts = [0, 0, 0]\ncounts[i] += 1"
+    zh: "用列表数数：和 choices 一一对应，出一次就加 1"
+    en: "Count with a list: matches choices one to one, add 1 each time"
+    example: 'for i in range(len(choices)):\n    if choices[i] == me:\n        counts[i] += 1'
+  - code: "# 找最大的那个"
+    zh: "best 从 0 开始，遇到更大的就换。一样大不算更大"
+    en: "Start best at 0 and switch when you find a bigger one. Equal isn't bigger"
+    example: "best = 0\nfor i in range(len(counts)):\n    if counts[i] > counts[best]:\n        best = i"
   - code: "return a, b"
-    zh: "一次交回两个数，外面用两个变量接"
-    en: "Return two numbers at once; catch them with two variables"
-    example: "mine, theirs = play_game()"
-  - code: "[me, computer] in beats"
-    zh: "用「谁赢谁」的列表代替一大堆 elif"
-    en: "A list of [winner, loser] pairs instead of a pile of elifs"
-    example: 'beats = [["石头", "剪刀"], ["剪刀", "布"], ["布", "石头"]]\nif [me, computer] in beats:'
+    zh: "一次交回两个（或更多）东西，外面用同样多的变量接（先当魔法用）"
+    en: "Return two (or more) things at once; catch them with the same number of variables (treat as magic)"
+    example: "mine, theirs, ties = play_game()"
+  - code: "continue"
+    zh: "跳过这一轮剩下的代码，直接回到 while 开头（第 6 步加料里用到）"
+    en: "Skip the rest of this round and jump back to the top of the while (used in the step 6 extras)"
+    example: 'if me not in choices:\n    print("只能出…")\n    continue'
   - code: "random.choice(列表)"
     zh: "随机挑一个（第 5 课）——电脑出拳"
     en: "Pick one at random (Lesson 5) — the computer's play"
     example: "computer = random.choice(choices)"
-  - code: "# 测试：先用固定输入试试"
-    zh: "写完一个招式，先用固定的输入 print 看结果对不对，再接上 input"
-    en: "After writing a trick, print its result with fixed inputs before wiring up input()"
-    example: 'print(judge("石头", "剪刀"), "← 应该是 赢")'

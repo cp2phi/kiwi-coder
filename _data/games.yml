@@ -10,7 +10,7 @@
   blurb_en: "Guide the turtle through the maze with forward / left / right. Don't hit the walls!"
   skill: "顺序指令、角度"
   skill_en: "Sequences, angles"
-  levels: 6
+  levels: 9
   lesson: 1
 
 - id: secret
@@ -21,7 +21,7 @@
   blurb_en: "Crack code after code with print, variables and strings."
   skill: "print、变量、字符串、列表"
   skill_en: "print, variables, strings, lists"
-  levels: 6
+  levels: 9
   lesson: 2
 
 - id: robot
@@ -32,7 +32,7 @@
   blurb_en: "Program the robot to collect every gem. Levels get bigger — you'll need loops and functions!"
   skill: "for 循环、函数"
   skill_en: "for loops, functions"
-  levels: 6
+  levels: 9
   lesson: 3
 
 - id: bugs
@@ -43,6 +43,39 @@
   blurb_en: "Every program here is sick. Read the error, find the bug, fix it!"
   skill: "读报错、排错"
   skill_en: "Reading errors, debugging"
+  levels: 9
+  lesson: 4
+
+- id: launch
+  icon: "🚀"
+  title: "发射控制"
+  title_en: "Launch Control"
+  blurb: "倒计时、看天气、点名问「Go 还是 No Go」——写出对所有情况都管用的发射程序，还要过隐藏测试！"
+  blurb_en: "Countdowns, weather checks and the Go / No-Go poll — write launch code that works in every case and passes hidden tests!"
+  skill: "条件、循环、模拟、函数测试、字符串、字典"
+  skill_en: "Conditions, loops, simulation, testing functions, strings, dictionaries"
+  levels: 6
+  lesson: 4
+
+- id: rover
+  icon: "🛰️"
+  title: "火星车"
+  title_en: "Mars Rover"
+  blurb: "每次地图都会变！用传感器写规则，让火星车自己钻岩石、走迷宫、扫样本、原路回家。"
+  blurb_en: "A new map every run! Use sensors to write rules so the rover drills rocks, solves mazes, sweeps for samples and finds its way home."
+  skill: "while、if、算法（扶墙走迷宫、地毯式搜索）、函数"
+  skill_en: "while, if, algorithms (wall-following, sweeps), functions"
+  levels: 6
+  lesson: 4
+
+- id: lander
+  icon: "🛬"
+  title: "火箭着陆"
+  title_en: "Rocket Lander"
+  blurb: "像猎鹰 9 号一样把助推器落回无人船：写物理模拟和自动驾驶规则，再分析试飞数据。"
+  blurb_en: "Land boosters on the drone ship like Falcon 9: write the physics, an autopilot rule, then analyse the test flights."
+  skill: "模拟、控制规则、列表统计、函数、字典"
+  skill_en: "Simulation, control rules, list stats, functions, dictionaries"
   levels: 6
   lesson: 4
 
@@ -54,7 +87,7 @@
   blurb_en: "Match the target drawing with your own code. Over 85% similar wins!"
   skill: "turtle、循环、列表"
   skill_en: "turtle, loops, lists"
-  levels: 6
+  levels: 9
   lesson: 5
 
 - id: reader
@@ -65,7 +98,7 @@
   blurb_en: "Predict what the code prints, then run it to check. The best way to learn to read code!"
   skill: "读懂代码"
   skill_en: "Reading code"
-  levels: 6
+  levels: 9
   lesson: 6
 
 - id: catch
@@ -76,5 +109,5 @@
   blurb_en: "A real keyboard game! Play it, tweak the numbers, then add your own ideas."
   skill: "键盘事件、游戏循环、综合"
   skill_en: "Keyboard events, game loop, everything"
-  levels: 6
+  levels: 9
   lesson: 10

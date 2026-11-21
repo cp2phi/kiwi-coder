@@ -1,11 +1,10 @@
-# 🔁 热身：上周的 for 循环 Warm-up: last week's for loop
-# 任务：① 把倒计时改成从 5 开始 ② 把螺旋的 91 改成 120 看看
-# Tasks: ① make the countdown start at 5 ② change the spiral's 91 to 120
+# 🔁 热身：上周的 for 循环 + f-string Warm-up: last week's for loop + f-strings
+# 先猜：range(10, 0, -3) 会数出哪几个数？再运行！ / Guess first: which numbers does range(10, 0, -3) count? Then run!
 import turtle
 
-for i in range(3, 0, -1):
-    print(i)
-print("出发！Go!")
+for i in range(10, 0, -3):
+    print(f"T-{i}")
+print("🚀 发射！Lift-off!")
 
 t = turtle.Turtle()
 t.speed(0)

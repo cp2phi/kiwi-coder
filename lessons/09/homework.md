@@ -8,7 +8,7 @@ playground: true
 
 # 🏠 <span class="zh">第 9 课作业：我的翻译 app</span><span class="en">Lesson 9 homework: My Translator app</span>
 
-<p><span class="zh">做一个<b>属于你的</b>翻译 app：你教它什么语言都行——毛利语、英语、火星语！</span><span class="en">Build a translator app that's <b>yours</b>: teach it any language — te reo Māori, English, Martian!</span> <span class="pill">⏱ <span class="zh">大约 30 分钟</span><span class="en">about 30 minutes</span></span> <span class="pill pill-brand">📅 <span class="zh">下节课前交</span><span class="en">due before next lesson</span></span></p>
+<p><span class="zh">做一个<b>属于你的</b>翻译 app：你教它什么语言都行——毛利语、英语、火星语！</span><span class="en">Build a translator app that's <b>yours</b>: teach it any language — te reo Māori, English, Martian!</span> <span class="pill">⏱ <span class="zh">🥉 约 25 分钟，🥈🥇 再加 20–40 分钟</span><span class="en">🥉 about 25 min, 🥈🥇 another 20–40 min</span></span> <span class="pill pill-brand">📅 <span class="zh">下节课前交</span><span class="en">due before next lesson</span></span></p>
 
 <div class="hw-status" data-file="week09-homework.py"></div>
 
@@ -16,35 +16,37 @@ playground: true
 
 <div class="levels">
   <div class="level"><div class="medal">🥉</div><div>
-    <h3><span class="zh">必做：8 个词的翻译机</span><span class="en">Must do: an 8-word translator</span></h3>
-    <p><span class="zh">字典里放<b>至少 8 个词</b>，循环问词、用 <code>.get</code> 查，查不到说一句友好的话。（只用今天 + 以前学的东西，起始代码已经帮你搭好了。）</span><span class="en">Put <b>at least 8 words</b> in the dict, loop asking for words, look them up with <code>.get</code>, and say something friendly if it's not there. (Only today's + earlier magic; the starter code is set up for you.)</span></p>
+    <h3><span class="zh">必做：会学新词的翻译机</span><span class="en">Must do: a translator that learns</span></h3>
+    <p><span class="zh">① 字典里<b>至少 8 个词</b>；② 查不到的词，问意思并<b>记住</b>（<code>words[word] = …</code>）；③ 输入 <code>全部</code> 用 <code>.items()</code> 打印所有的词；④ 结束时打印「这次教会了它 N 个新词」。循环里要分<b>三种情况</b>：全部 / 查到了 / 查不到。</span><span class="en">① At least <b>8 words</b> in the dict; ② for unknown words, ask the meaning and <b>remember it</b> (<code>words[word] = …</code>); ③ typing <code>全部</code> prints every word with <code>.items()</code>; ④ at the end print "you taught it N new words this time". The loop needs <b>three cases</b>: 全部 / found / not found.</span></p>
   </div></div>
   <div class="level"><div class="medal">🥈</div><div>
-    <h3><span class="zh">加分：教我新词 + 小测验模式</span><span class="en">Bonus: teach me + quiz mode</span></h3>
-    <p><span class="zh">查不到的词，让它问你意思并<b>记住</b>（<code>words[word] = …</code>）。再加一个<b>测验模式</b>：把字典里的词轮流考你，记分。</span><span class="en">If a word is unknown, ask for its meaning and <b>remember it</b> (<code>words[word] = …</code>). Then add a <b>quiz mode</b> that tests you on the words and keeps score.</span></p>
+    <h3><span class="zh">加分：测验模式 + 错题本</span><span class="en">Bonus: quiz mode + a mistakes book</span></h3>
+    <p><span class="zh">开头问「翻译 还是 测验？」。测验：<b>随机</b>考 5 个词、记分。再做一个<b>错题本字典</b> <code>mistakes</code>：答错就用数数公式加 1，最后打印「你最容易错的词是 ___」。</span><span class="en">Start by asking "translate or quiz?". Quiz: test 5 <b>random</b> words and keep score. Add a <b>mistakes dict</b> <code>mistakes</code>: on a wrong answer add 1 with the counting line, then print "your hardest word is ___".</span></p>
   </div></div>
   <div class="level"><div class="medal">🥇</div><div>
-    <h3><span class="zh">挑战：AI 侦探报告</span><span class="en">Challenge: AI detective report</span></h3>
-    <p><span class="zh">请 AI 给你 10 个毛利语（或别的语言）单词和意思。<b>挑 3 个</b>用词典或问老师核实。在代码最上面的「AI 侦探报告」注释里写：哪几个对、哪几个错、你是怎么查的。</span><span class="en">Ask an AI for 10 te reo Māori (or other) words with meanings. <b>Pick 3</b> and verify them with a dictionary or your teacher. In the "AI detective report" comment at the top write: which were right, which wrong, and how you checked.</span></p>
+    <h3><span class="zh">挑战：AI 侦探报告（用程序写！）</span><span class="en">Challenge: an AI detective report (as a program!)</span></h3>
+    <p><span class="zh">请 AI 给你 10 个毛利语（或别的语言）单词和意思，放进字典 <code>ai_words</code>。<b>至少挑 3 个</b>用词典或问老师核实，结果放进第二个字典 <code>checked</code>（对 True、错 False）。让程序打印一份报告：查过的词 ✅ / ❌，没查过的 ❓，最后算出「AI 在查过的词里对了 ___%」。想一想：只查 3 个，能说 AI「70% 对」吗？</span><span class="en">Ask an AI for 10 te reo Māori (or other) words with meanings and put them in a dict <code>ai_words</code>. Check <b>at least 3</b> with a dictionary or your teacher, and record the results in a second dict <code>checked</code> (True right, False wrong). Make the program print a report: ✅ / ❌ for checked words, ❓ for unchecked ones, and "AI was right on ___% of the words I checked". Think: after checking just 3, can you say AI is "70% right"?</span></p>
   </div></div>
 </div>
 
 <div class="cmds small">
   <div class="cmd"><code>words.get(word, "不知道")</code><span><span class="zh">查词，查不到给默认的话</span><span class="en">look up, with a default</span></span></div>
   <div class="cmd"><code>words[word] = input("意思？")</code><span><span class="zh">教它新词</span><span class="en">teach it a word</span></span></div>
-  <div class="cmd"><code>for k in words:</code><span><span class="zh">测验模式：轮流考每个词</span><span class="en">quiz mode: test every word</span></span></div>
-  <div class="cmd"><code>random.choice(list(words))</code><span><span class="zh">随机抽一个词考（要 import random；<code>list(words)</code> = 把所有标签排成一个列表，random.choice 才能挑）</span><span class="en">pick a random word (import random; <code>list(words)</code> = put all the labels into a list so random.choice can pick one)</span></span></div>
+  <div class="cmd"><code>for w, meaning in words.items():</code><span><span class="zh">「全部」：标签和意思一起拿</span><span class="en">全部: label and meaning together</span></span></div>
+  <div class="cmd"><code>mistakes[w] = mistakes.get(w, 0) + 1</code><span><span class="zh">错题本：数数公式</span><span class="en">mistakes book: the counting line</span></span></div>
+  <div class="cmd"><code>random.choice(list(words))</code><span><span class="zh">随机抽一个词考（<code>list(words)</code> = 把所有标签排成一个列表，random.choice 才能挑；先当魔法用）</span><span class="en">pick a random word (<code>list(words)</code> = put all the labels into a list so random.choice can pick one; treat as magic)</span></span></div>
 </div>
 
 ## 🧪 <span class="zh">作业画板</span><span class="en">Homework playground</span>
 
 <p class="muted"><span class="zh">写的代码会自动记在这台电脑上，关掉网页也不会丢。</span><span class="en">Your code is saved on this computer automatically, even if you close the page.</span></p>
 
-<div class="playground" data-src="{{ '/lessons/09/code/homework.py' | relative_url }}" data-title="🏠 我的翻译 app" data-title-en="🏠 My Translator app" data-canvas="no" data-save="week09-homework" data-draft="l9-homework" data-rows="16"></div>
+<div class="playground" data-src="{{ '/lessons/09/code/homework.py' | relative_url }}" data-title="🏠 我的翻译 app" data-title-en="🏠 My Translator app" data-canvas="no" data-save="week09-homework" data-draft="l9-homework" data-rows="18"></div>
 
-<details class="hint"><summary><span class="zh">💡 提示 1：查不到的词怎么教它？</span><span class="en">💡 Hint 1: teaching unknown words</span></summary><span class="zh">把 <code>print("👉", words.get(...))</code> 换成 <code>if word in words:</code> … <code>else:</code> … 两种情况。else 里面用 <code>input()</code> 问意思，再 <code>words[word] = 意思</code>。第 9 课的例 2 就是这样写的。</span><span class="en">Replace <code>print("👉", words.get(...))</code> with two cases: <code>if word in words:</code> … <code>else:</code> …. In the else, <code>input()</code> the meaning, then <code>words[word] = meaning</code>. Example 2 in the lesson does exactly this.</span></details>
-<details class="hint"><summary><span class="zh">💡 提示 2：测验模式</span><span class="en">💡 Hint 2: quiz mode</span></summary><span class="zh">先问一句 <code>mode = input("翻译 还是 测验？")</code>。如果是测验，就用例 3 的问答机代码，把 <code>quiz</code> 换成 <code>words</code>。</span><span class="en">First ask <code>mode = input("translate or quiz?")</code>. For quiz, use the quiz-machine code from Example 3 with <code>quiz</code> replaced by <code>words</code>.</span></details>
-<details class="hint"><summary><span class="zh">💡 提示 3：卡住了？</span><span class="en">💡 Hint 3: stuck?</span></summary><span class="zh">四步法：读报错（KeyError = 标签不存在）→ 翻 <a href="{{ '/notebook/' | relative_url }}">笔记本</a> → 用「问 AI 要提示」按钮 → 问老师。</span><span class="en">The 4 steps: read the error (KeyError = label missing) → check your <a href="{{ '/notebook/' | relative_url }}">notebook</a> → use the "hint please" button → ask your teacher.</span></details>
+<details class="hint"><summary><span class="zh">💡 提示 1：三种情况怎么排？</span><span class="en">💡 Hint 1: ordering the three cases</span></summary><span class="zh">把 <code>print("👉", words.get(...))</code> 换成：<code>if word == "全部":</code>（for + .items()）<code>elif word in words:</code>（打印意思）<code>else:</code>（<code>input()</code> 问意思，<code>words[word] = 意思</code>，计数器 +1）。学一学例 2 的翻译机几乎一样。</span><span class="en">Replace <code>print("👉", words.get(...))</code> with: <code>if word == "全部":</code> (for + .items()) <code>elif word in words:</code> (print the meaning) <code>else:</code> (<code>input()</code> the meaning, <code>words[word] = meaning</code>, counter +1). Learn Example 2's translator is almost the same.</span></details>
+<details class="hint"><summary><span class="zh">💡 提示 2：「最容易错的词」</span><span class="en">💡 Hint 2: "hardest word"</span></summary><span class="zh">和例 4 找「最爱出的拳」一模一样：<code>hardest = ""</code> → <code>for w, n in mistakes.items():</code> → 更大就换。别忘了：一个都没错的时候 mistakes 是空的！</span><span class="en">Exactly like finding the favourite move in Example 4: <code>hardest = ""</code> → <code>for w, n in mistakes.items():</code> → switch when bigger. Don't forget: if you got nothing wrong, mistakes is empty!</span></details>
+<details class="hint"><summary><span class="zh">💡 提示 3：🥇 的百分比</span><span class="en">💡 Hint 3: 🥇 percentage</span></summary><span class="zh">只算查过的：对的个数 ÷ <code>len(checked)</code> × 100，用 <code>int()</code>。<code>if w in checked:</code> 分出 ✅❌ 和 ❓。</span><span class="en">Only count checked words: right ÷ <code>len(checked)</code> × 100, with <code>int()</code>. Use <code>if w in checked:</code> to split ✅❌ from ❓.</span></details>
+<details class="hint"><summary><span class="zh">💡 提示 4：卡住了？</span><span class="en">💡 Hint 4: stuck?</span></summary><span class="zh">四步法：读报错（KeyError = 标签不存在）→ 翻 <a href="{{ '/notebook/' | relative_url }}">笔记本</a> → 用「问 AI 要提示」按钮 → 问老师。</span><span class="en">The 4 steps: read the error (KeyError = label missing) → check your <a href="{{ '/notebook/' | relative_url }}">notebook</a> → use the "hint please" button → ask your teacher.</span></details>
 
 ## 📤 <span class="zh">怎么交</span><span class="en">How to hand it in</span>
 

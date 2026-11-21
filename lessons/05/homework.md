@@ -8,7 +8,7 @@ playground: true
 
 # 🏠 <span class="zh">第 5 课作业：故事机 3000</span><span class="en">Lesson 5 homework: Story Machine 3000</span>
 
-<p><span class="zh">做一台会讲故事、会出题、还会画画的机器——全靠<b>列表</b>！</span><span class="en">Build a machine that tells stories, asks quiz questions and draws — all powered by <b>lists</b>!</span> <span class="pill">⏱ <span class="zh">大约 30 分钟</span><span class="en">about 30 minutes</span></span> <span class="pill pill-brand">📅 <span class="zh">下节课前交</span><span class="en">due before next lesson</span></span></p>
+<p><span class="zh">做一台会讲故事、会出题、会记错题的机器——全靠<b>列表</b>！这次每一部分都要<b>你自己写几行</b>。</span><span class="en">Build a machine that tells stories, asks quiz questions and remembers mistakes — all powered by <b>lists</b>! Every part needs <b>a few lines written by you</b>.</span> <span class="pill">⏱ <span class="zh">大约 30 分钟（🥇 另算）</span><span class="en">about 30 minutes (🥇 extra)</span></span> <span class="pill pill-brand">📅 <span class="zh">下节课前交</span><span class="en">due before next lesson</span></span></p>
 
 <div class="hw-status" data-file="week05-homework.py"></div>
 
@@ -16,35 +16,36 @@ playground: true
 
 <div class="levels">
   <div class="level"><div class="medal">🥉</div><div>
-    <h3><span class="zh">必做：故事生成器</span><span class="en">Must do: story maker</span></h3>
-    <p><span class="zh">画板里的 3 个列表，每个至少要有 <b>4 样东西</b>（加你自己的！），运行时打印 <b>3 个故事</b>。只要改列表就行。</span><span class="en">Each of the 3 lists in the playground needs at least <b>4 items</b> (add your own!), and it prints <b>3 stories</b>. Just change the lists.</span></p>
+    <h3><span class="zh">必做：4 个列表的故事生成器</span><span class="en">Must do: a 4-list story maker</span></h3>
+    <p><span class="zh"><b>TODO 1</b>：每个列表加 2 样你自己的，再做第 4 个列表 <code>when</code>。<b>TODO 2</b>：<b>自己写</b> for 循环，打印 3 个<b>带编号</b>的故事，每个都用到 4 个列表。</span><span class="en"><b>TODO 1</b>: add 2 of your own items to each list, then make a 4th list <code>when</code>. <b>TODO 2</b>: <b>write</b> a for loop that prints 3 <b>numbered</b> stories, each using all 4 lists.</span></p>
   </div></div>
   <div class="level"><div class="medal">🥈</div><div>
-    <h3><span class="zh">加分：会记分、会记错题的测验</span><span class="en">Bonus: a quiz that keeps score and remembers mistakes</span></h3>
-    <p><span class="zh">第 2 部分已经会记分了。把题目换成<b>你想考的</b>（毛利语、动物、你家人的生日……），答错的词会进 <code>wrong</code> 列表，最后打印出来。至少 5 题。</span><span class="en">Part 2 already keeps score. Change the questions to <b>anything you like</b> (te reo, animals, your family's birthdays…). Wrong answers go into the <code>wrong</code> list and get printed at the end. At least 5 questions.</span></p>
+    <h3><span class="zh">加分：会记错题的测验</span><span class="en">Bonus: a quiz that remembers mistakes</span></h3>
+    <p><span class="zh"><b>TODO 3</b>：自己写判断——答对加分；答错说出正确答案，并把毛利语和英文分别存进 <code>wrong</code> 和 <code>wrong_en</code>。<b>TODO 4</b>：最后把错题一行一行打印成「📌 kai = food」，全对就说「💯 满分」。想换成你自己想考的题（动物、太空、家人生日……）也可以，至少 5 题。</span><span class="en"><b>TODO 3</b>: write the check yourself — right adds a point; wrong shows the answer and stores the Māori and English words in <code>wrong</code> and <code>wrong_en</code>. <b>TODO 4</b>: at the end print each mistake on its own line like "📌 kai = food", or "💯 full marks" if none. You may swap in your own questions (animals, space, family birthdays…) — at least 5.</span></p>
   </div></div>
   <div class="level"><div class="medal">🥇</div><div>
-    <h3><span class="zh">挑战：随机图形</span><span class="en">Challenge: random shapes</span></h3>
-    <p><span class="zh">第 3 部分会从列表里随机选图形、颜色、大小。给 <code>shapes</code> 加一个新图形（五角星？六边形？），再加对应的 <code>elif</code>；然后用 <code>for</code> 循环一次画 5 个，放在不同位置（<code>penup</code> + <code>goto</code>）。</span><span class="en">Part 3 picks a random shape, colour and size from lists. Add a new shape to <code>shapes</code> (a star? a hexagon?) with its own <code>elif</code>; then use a <code>for</code> loop to draw 5 of them in different places (<code>penup</code> + <code>goto</code>).</span></p>
+    <h3><span class="zh">挑战（选做）：测验 2.0</span><span class="en">Challenge (optional): Quiz 2.0</span></h3>
+    <p><span class="zh">再出一轮：<b>顺序随机、同一个词不问两次</b>；这一轮结束后，只把这一轮答错的词<b>再考一次</b>。没有起始代码——先在纸上写：需要几个列表？每问一题，哪个列表变短、哪个变长？</span><span class="en">Run another round: <b>random order, no word asked twice</b>; afterwards, give a <b>second chance</b> on just the words missed in that round. No starter code — plan on paper: how many lists do you need? With each question, which list gets shorter and which gets longer?</span></p>
   </div></div>
 </div>
 
 <div class="cmds small">
   <div class="cmd"><code>random.choice(列表)</code><span><span class="zh">随机抽一个</span><span class="en">Pick one</span></span></div>
   <div class="cmd"><code>列表.append(x)</code><span><span class="zh">加到最后</span><span class="en">Add to the end</span></span></div>
-  <div class="cmd"><code>random.randint(50, 150)</code><span><span class="zh">随机大小</span><span class="en">Random size</span></span></div>
-  <div class="cmd"><code>t.penup() / t.goto(x, y) / t.pendown()</code><span><span class="zh">换个地方画</span><span class="en">Draw somewhere else</span></span></div>
+  <div class="cmd"><code>for k in range(len(wrong)):</code><span><span class="zh">用编号走一遍，两个配对列表一起用</span><span class="en">Go by number to use two paired lists together</span></span></div>
+  <div class="cmd"><code>word = maori.pop(i)</code><span><span class="zh">拿走第 i 个，还交给你</span><span class="en">Take out item i and hand it to you</span></span></div>
 </div>
 
 ## 🧪 <span class="zh">作业画板</span><span class="en">Homework playground</span>
 
-<p class="muted"><span class="zh">写的代码会自动记在这台电脑上。三个部分在同一个文件里，从上往下跑：先打印故事，再出题，最后画画。</span><span class="en">Your code is saved on this computer automatically. All three parts are in one file and run top to bottom: stories, then quiz, then drawing.</span></p>
+<p class="muted"><span class="zh">写的代码会自动记在这台电脑上。三个部分在同一个文件里，从上往下跑：先打印故事，再出题。</span><span class="en">Your code is saved on this computer automatically. All parts are in one file and run top to bottom: stories first, then the quiz.</span></p>
 
-<div class="playground" data-src="{{ '/lessons/05/code/homework.py' | relative_url }}" data-title="🎰 故事机 3000" data-title-en="🎰 Story Machine 3000" data-save="week05-homework" data-draft="l5-homework" data-rows="16"></div>
+<div class="playground" data-src="{{ '/lessons/05/code/homework.py' | relative_url }}" data-canvas="no" data-title="🎰 故事机 3000" data-title-en="🎰 Story Machine 3000" data-save="week05-homework" data-draft="l5-homework" data-rows="18"></div>
 
 <details class="hint"><summary><span class="zh">💡 提示 1：列表里的逗号</span><span class="en">💡 Hint 1: commas in lists</span></summary><span class="zh">每样东西之间要有逗号，最后一个后面不用。忘了逗号，电脑会说「看不懂这一行」——而且常常指向<b>下一行</b>。</span><span class="en">Every item needs a comma between it and the next; none after the last one. Miss a comma and the computer says it can't read the line — often pointing at the <b>next</b> line.</span></details>
-<details class="hint"><summary><span class="zh">💡 提示 2：画 5 个图形</span><span class="en">💡 Hint 2: drawing 5 shapes</span></summary><span class="zh">把「从 <code>shape = random.choice(shapes)</code> 到最后」整段放进 <code>for k in range(5):</code> 里（缩进！）。每次开始前 <code>t.penup()</code>、<code>t.goto(random.randint(-200, 200), random.randint(-200, 200))</code>、<code>t.pendown()</code>。</span><span class="en">Put everything from <code>shape = random.choice(shapes)</code> to the end inside <code>for k in range(5):</code> (indent!). Before each one: <code>t.penup()</code>, <code>t.goto(random.randint(-200, 200), random.randint(-200, 200))</code>, <code>t.pendown()</code>.</span></details>
-<details class="hint"><summary><span class="zh">💡 提示 3：五角星</span><span class="en">💡 Hint 3: a star</span></summary><span class="zh">5 条边，每次 <code>t.left(144)</code>。</span><span class="en">5 sides, <code>t.left(144)</code> each time.</span></details>
+<details class="hint"><summary><span class="zh">💡 提示 2：带编号的故事</span><span class="en">💡 Hint 2: numbered stories</span></summary><span class="zh"><code>for i in range(3):</code>，下面一行：<code>print(f"{i + 1}. {random.choice(when)}{random.choice(who)}……")</code>。</span><span class="en"><code>for i in range(3):</code>, then on the next line: <code>print(f"{i + 1}. {random.choice(when)}{random.choice(who)}…")</code>.</span></details>
+<details class="hint"><summary><span class="zh">💡 提示 3：打印错题</span><span class="en">💡 Hint 3: printing the mistakes</span></summary><span class="zh"><code>wrong[k]</code> 和 <code>wrong_en[k]</code> 是配对的。<code>if len(wrong) == 0:</code> 满分；<code>else:</code> 里面放 <code>for k in range(len(wrong)):</code>。</span><span class="en"><code>wrong[k]</code> and <code>wrong_en[k]</code> are a pair. <code>if len(wrong) == 0:</code> full marks; inside <code>else:</code> put <code>for k in range(len(wrong)):</code>.</span></details>
+<details class="hint"><summary><span class="zh">💡 🥇 提示：不重复的秘诀</span><span class="en">💡 🥇 hint: the no-repeat trick</span></summary><span class="zh">每一题：随机选编号 <code>i = random.randint(0, len(maori) - 1)</code>，然后<b>同时</b> <code>m = maori.pop(i)</code> 和 <code>e = english.pop(i)</code>——两个列表一起变短，配对就不会乱。答错的放进两个新列表，第二轮用它们。</span><span class="en">Each question: pick <code>i = random.randint(0, len(maori) - 1)</code>, then <b>both</b> <code>m = maori.pop(i)</code> and <code>e = english.pop(i)</code> — both lists shrink together so the pairs stay matched. Put misses into two new lists for the second round.</span></details>
 
 ## 📤 <span class="zh">怎么交</span><span class="en">How to hand it in</span>
 

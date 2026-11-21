@@ -1,32 +1,34 @@
-# ⌨️ 用方向键控制海龟 / Move the turtle with the arrow keys
+# ⌨️ 用方向键开飞船 / Fly a spaceship with the arrow keys
 # 先点 ▶ 运行，再点一下画布，然后按 ← → ↑ ↓
 # Click ▶ Run, then click the canvas, then press ← → ↑ ↓
 import turtle
 
 screen = turtle.Screen()
-t = turtle.Turtle()
-t.shape("turtle")
-t.color("green")
-t.pensize(3)
-t.speed(0)
+screen.bgcolor("black")
 
-STEP = 20        # 每次走几步 / how far each press
+ship = turtle.Turtle()
+ship.shape("triangle")
+ship.color("deepskyblue")
+ship.pencolor("white")
+ship.speed(0)
+
+STEP = 20        # 每按一次飞多远 / how far each press
 
 def go_left():
-    t.setheading(180)
-    t.forward(STEP)
+    ship.setheading(180)
+    ship.forward(STEP)
 
 def go_right():
-    t.setheading(0)
-    t.forward(STEP)
+    ship.setheading(0)
+    ship.forward(STEP)
 
 def go_up():
-    t.setheading(90)
-    t.forward(STEP)
+    ship.setheading(90)
+    ship.forward(STEP)
 
 def go_down():
-    t.setheading(270)
-    t.forward(STEP)
+    ship.setheading(270)
+    ship.forward(STEP)
 
 # 把按键和函数「绑」在一起 / tie each key to a function
 screen.onkey(go_left, "Left")

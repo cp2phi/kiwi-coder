@@ -5,8 +5,8 @@
 # 👀 Seeing this means this computer doesn't have your Lesson 10 skeleton yet (maybe you used another computer).
 #   办法 1：去作品墙打开 week10-skeleton → 📋 复制 → 回来把这些行全部换掉
 #   Way 1: open week10-skeleton on the Gallery → 📋 Copy → come back and replace all these lines
-#   办法 2：去第 10 课「学一学」，在你选的骨架 A / B / C 上点 📋 复制 → 回来粘贴
-#   Way 2: in Lesson 10 Learn, click 📋 Copy on your skeleton A / B / C → come back and paste
+#   办法 2：去第 10 课「学一学」，在你选的骨架（🚀 A / ☄️ B / 🛰️ C）上点 📋 复制 → 回来粘贴
+#   Way 2: in Lesson 10 Learn, click 📋 Copy on your skeleton (🚀 A / ☄️ B / 🛰️ C) → come back and paste
 #
 # 🧪 骨架里已经有一个 def test()，而且在主程序之前就会运行。
 #    新的 assert 加进那个 test() 里——不要再写第二个 def test()。

@@ -12,12 +12,12 @@ entries:
     en: "Get the thing by its label (KeyError if the label is missing)"
     example: 'print(maori["kai"])'
   - code: 'd["rā"] = "sun"'
-    zh: "放进一个新抽屉；标签已存在就换掉里面的东西"
-    en: "Add a new drawer; if the label exists, replace what's inside"
+    zh: "放进一个新抽屉；标签已存在就换掉里面的东西（更新）"
+    en: "Add a new drawer; if the label exists, replace what's inside (update)"
     example: 'maori["rā"] = "sun"'
   - code: '"kai" in d'
-    zh: "有这个标签吗？True / False"
-    en: "Is this label there? True / False"
+    zh: "有这个标签吗？True / False（只看标签，不看东西）"
+    en: "Is this label there? True / False (checks labels only, not things)"
     example: 'if word in maori:\n    print(maori[word])'
   - code: 'd.get("x", "没有")'
     zh: "安全地拿：没有这个标签就给默认值，不报错"
@@ -39,10 +39,26 @@ entries:
     zh: "所有的东西（进阶，课上没讲）"
     en: "All the things (advanced, not covered in class)"
     example: "for v in maori.values():\n    print(v)"
-  - code: "d.items()"
-    zh: "标签和东西一起拿（进阶，课上没讲）"
-    en: "Labels and things together (advanced, not covered in class)"
+  - code: "for k, v in d.items():"
+    zh: "标签和东西一起拿，不用再写 d[k]"
+    en: "Label and thing together, no need for d[k]"
     example: "for k, v in maori.items():\n    print(k, v)"
+  - code: "counts[m] = counts.get(m, 0) + 1"
+    zh: "用字典数数的魔法公式：没见过就从 0 开始，不会 KeyError"
+    en: "The magic counting line: starts from 0 if unseen, so no KeyError"
+    example: 'counts = {}\nfor m in ["布", "石头", "布"]:\n    counts[m] = counts.get(m, 0) + 1\n# {"布": 2, "石头": 1}'
+  - code: 'd = {"火星": ["火卫一", "火卫二"]}'
+    zh: "抽屉里可以放一整个列表"
+    en: "A drawer can hold a whole list"
+    example: 'print(len(moons["火星"]))   # 2\nprint(moons["火星"][0])    # 火卫一'
+  - code: "# 找最大的那个"
+    zh: "用 .items() 一个一个比，更大就换"
+    en: "Compare one by one with .items(); switch when bigger"
+    example: 'best = ""\nfor k, n in counts.items():\n    if best == "" or n > counts[best]:\n        best = k'
+  - code: "random.choice(list(d))"
+    zh: "随机挑一个标签（list(d) 把所有标签排成列表，先当魔法用）"
+    en: "Pick a random label (list(d) lines up all the labels; treat as magic)"
+    example: "w = random.choice(list(words))"
   - code: 'del d["kai"]'
     zh: "把一个抽屉整个拿掉（进阶，课上没讲）"
     en: "Remove a drawer completely (advanced, not covered in class)"

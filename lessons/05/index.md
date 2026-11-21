@@ -24,10 +24,11 @@ tab: home
 <p class="muted" style="text-align:right;margin:.2em 0"><span class="progress-label" data-for="l5"></span></p>
 
 <ul class="quests" data-key="l5">
-  <li><b>🔁 <span class="zh">热身：掷骰子</span><span class="en">Warm-up: roll the dice</span></b> <span class="pill">5 min</span><br><span class="zh">用上节课的 if / elif 和 random，再加一个 for 循环。</span><span class="en">Last lesson's if / elif and random, plus a for loop.</span> <a href="learn/#warmup"><span class="zh">去热身 →</span><span class="en">Warm up →</span></a></li>
+  <li><b>🔁 <span class="zh">热身：掷骰子数 6</span><span class="en">Warm-up: count the sixes</span></b> <span class="pill">5 min</span><br><span class="zh">上节课的 if / elif + random，自己补一个计数器。</span><span class="en">Last lesson's if / elif + random — finish a counter yourself.</span> <a href="learn/#warmup"><span class="zh">去热身 →</span><span class="en">Warm up →</span></a></li>
   <li><b>📦 <span class="zh">新魔法：列表</span><span class="en">New magic: lists</span></b> <span class="pill">10 min</span><br><span class="zh">抽屉编号从 0 开始！先猜再运行。</span><span class="en">Drawer numbers start at 0! Guess first, then run.</span> <a href="learn/#magic"><span class="zh">学一学 →</span><span class="en">Learn →</span></a></li>
-  <li><b>🎲 <span class="zh">做一台搞笑故事生成器</span><span class="en">Build a silly story maker</span></b> <span class="pill">10 min</span><br><span class="zh">加上你自己的角色和地点。</span><span class="en">Add your own characters and places.</span> <a href="learn/#story"><span class="zh">去做 →</span><span class="en">Make it →</span></a></li>
-  <li><b>🇳🇿 <span class="zh">毛利语单词小测验</span><span class="en">Te reo Māori word quiz</span></b> <span class="pill">10 min</span><br><span class="zh">填空让它记分，再问 AI 要 5 个新单词（要检验！）。</span><span class="en">Fill in the blank so it keeps score, then ask AI for 5 new words (and check them!).</span> <a href="learn/#quiz"><span class="zh">去测验 →</span><span class="en">Quiz →</span></a></li>
+  <li><b>🎲 <span class="zh">做一台搞笑故事生成器</span><span class="en">Build a silly story maker</span></b> <span class="pill">10 min</span><br><span class="zh">自己加第 4 个列表，用 for 一次讲 5 个带编号的故事。</span><span class="en">Add a 4th list yourself and tell 5 numbered stories with a for loop.</span> <a href="learn/#story"><span class="zh">去做 →</span><span class="en">Make it →</span></a></li>
+  <li><b>🇳🇿 <span class="zh">毛利语单词小测验</span><span class="en">Te reo Māori word quiz</span></b> <span class="pill">10 min</span><br><span class="zh">填空 + 自己写「记错题」，再问 AI 要 5 个新单词（要检验！）。</span><span class="en">Fill the blank + write the "remember mistakes" part, then ask AI for 5 new words (and check them!).</span> <a href="learn/#quiz"><span class="zh">去测验 →</span><span class="en">Quiz →</span></a></li>
+  <li><b>🚀 <span class="zh">加餐：火箭货舱（in、remove、pop）</span><span class="en">Extra: rocket cargo bay (in, remove, pop)</span></b> <span class="pill">8 min</span><br><span class="zh">列表不只会加，还会查、会拿走。先跟着列表一步步变，再运行。</span><span class="en">Lists can check and take out, not just add. Trace the list step by step, then run.</span> <a href="learn/#more"><span class="zh">去货舱 →</span><span class="en">To the cargo bay →</span></a></li>
   <li><b>🎨 <span class="zh">玩游戏：图案复刻</span><span class="en">Play: Copy the Pattern</span></b> <span class="pill">🏠 <span class="zh">回家玩</span><span class="en">at home</span></span><br><span class="zh">复刻目标图案，至少过 2 关；第 5 关要用到今天的颜色列表！</span><span class="en">Copy the target drawings — beat at least 2 levels. Level 5 uses today's colour lists!</span> <a href="{{ '/games/copy/' | relative_url }}"><span class="zh">去游戏 →</span><span class="en">Play →</span></a></li>
   <li><b>🏠 <span class="zh">看作业 + 写 3 行笔记</span><span class="en">Homework + 3 lines of notes</span></b> <span class="pill">5 min</span><br><span class="zh">作业是「故事机 3000」。然后在 <a href="{{ '/notebook/' | relative_url }}">工程师笔记本</a> 写 3 行。</span><span class="en">Homework is "Story Machine 3000". Then write 3 lines in your <a href="{{ '/notebook/' | relative_url }}">Engineer's Notebook</a>.</span> <a href="homework/"><span class="zh">看作业 →</span><span class="en">Homework →</span></a></li>
 </ul>
@@ -40,6 +41,11 @@ tab: home
 <div class="box box-good"><span class="box-title"><span class="zh">💡 从 0 开始数</span><span class="en">💡 Counting from 0</span></span>
 <span class="zh">程序员数抽屉是从 <b>0</b> 开始的：第一个是 <code>[0]</code>，第二个是 <code>[1]</code>。今天大概会搞错一次——没关系，报错会告诉你。</span>
 <span class="en">Programmers count drawers from <b>0</b>: the first is <code>[0]</code>, the second is <code>[1]</code>. You'll probably get it wrong once today — that's fine, the error will tell you.</span>
+</div>
+
+<div class="box box-think"><span class="box-title"><span class="zh">🚀 做得快？挑战在等你</span><span class="en">🚀 Finished early? A challenge awaits</span></span>
+<span class="zh"><a href="learn/#challenge">🏆 太空任务生成器</a>：随机组一支 3 人小队，不能重复——只有设计说明，代码你来写。</span>
+<span class="en"><a href="learn/#challenge">🏆 Space mission generator</a>: a random crew of 3 with no repeats — just a design brief; you write the code.</span>
 </div>
 
 ---

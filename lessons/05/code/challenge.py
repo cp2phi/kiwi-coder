@@ -1,13 +1,15 @@
-# 🏆 挑战：晚饭决定器 / Challenge: dinner decider
-# 改成你自己的：队名生成器？超能力抽奖？周末活动抽签？
-# Make it yours: team name maker? superpower lottery? weekend activity picker?
+# 🏆 挑战：太空任务生成器 / Challenge: space mission generator
+# test-input: Kiwi
 import random
 
-dinners = ["披萨 pizza", "寿司 sushi", "饺子 dumplings", "炸鱼薯条 fish and chips"]
+crew = ["Kiwi", "小海龟", "机器人 9 号", "Tama", "Aroha", "Leo"]
+places = ["月球 the Moon", "火星 Mars", "国际空间站 the ISS", "木星的卫星 a moon of Jupiter"]
 
-print("今晚吃什么？让电脑决定！/ What's for dinner? Let the computer decide!")
-print("👉 " + random.choice(dinners))
-
-# 想一想 / Think:
-# 1. 再加一个 drinks 列表，也随机选一个 / add a drinks list and pick one too
-# 2. 用 for 循环一次抽 3 天的晚饭 / use a for loop to pick dinner for 3 days
+# ✍️ 设计说明 Design brief（先想好步骤，再写代码 / plan the steps first, then code）：
+# 1. 随机选 3 个「不重复」的宇航员，放进新列表 team（提示：选一个，就从 crew 里 remove 掉）
+#    Pick 3 DIFFERENT astronauts at random into a new list team (hint: once picked, remove them from crew)
+# 2. 随机选一个目的地，任务编号是 1 到 999 的随机数 / Pick a random destination and a mission number 1-999
+# 3. 打印一张任务卡：编号、目的地，再用 for 把 team 一个一个带编号打印出来
+#    Print a mission card: number, destination, then use for to print team members with numbers
+# 4. 🌟 问「谁想留在地球？」——如果这个名字在 team 里（in），把他换成 crew 里剩下的另一个人
+#    🌟 Ask "who wants to stay on Earth?" — if that name is in team, swap them for someone left in crew

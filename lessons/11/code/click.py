@@ -1,20 +1,20 @@
-# 🖱️ 点哪里，就在哪里盖章 / Click anywhere to stamp there
+# 🖱️ 点哪里，哪里就亮一颗星 / Click anywhere to light up a star
 import turtle
 import random
 
 screen = turtle.Screen()
+screen.bgcolor("black")
 t = turtle.Turtle()
-t.shape("turtle")
+t.hideturtle()
 t.penup()
 t.speed(0)
 
-colors = ["red", "orange", "gold", "limegreen", "deepskyblue", "violet"]
+colours = ["white", "gold", "lightblue", "pink"]
 
-def stamp_here(x, y):              # 点击时电脑会把 x, y 交给你 / the computer hands you x, y
+def star_here(x, y):               # 点击时电脑会把 x, y 交给你 / the computer hands you x, y
     t.goto(x, y)
-    t.color(random.choice(colors))
-    t.stamp()
-    print(f"盖章在 ({int(x)}, {int(y)})")
+    t.dot(random.randint(4, 12), random.choice(colours))
+    print(f"星星在 star at ({int(x)}, {int(y)})")
 
-screen.onclick(stamp_here)
+screen.onclick(star_here)
 print("点一下画布试试！ Click on the canvas!")

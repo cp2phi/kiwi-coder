@@ -11,8 +11,10 @@ playground: true
 
 <div class="box box-tip"><span class="zh">🕵️ 读代码的秘诀：<b>一行一行</b>，像电脑一样老实。用手指着每一行，嘴里说出「现在 x 是多少」。</span><span class="en">🕵️ The secret to reading code: go <b>one line at a time</b>, as literally as the computer does. Point at each line and say out loud "right now x is …".</span></div>
 
+<div class="box box-think"><span class="zh">🧗 第 7–9 关更难：代码里有<b>循环套循环、break、return、会变的列表</b>。光靠「看一眼」不够了——拿张纸，画一张表，把每个变量每一步的值写下来（这叫<b>追踪</b>）。</span><span class="en">🧗 Levels 7–9 are harder: <b>loops inside loops, break, return, and lists that change</b>. A quick glance won't do — grab paper, draw a table, and write down every variable's value at every step (that's called <b>tracing</b>).</span></div>
+
 <div class="levels-bar">
-<a href="#lv1" data-badge-id="reader-1">1</a><a href="#lv2" data-badge-id="reader-2">2</a><a href="#lv3" data-badge-id="reader-3">3</a><a href="#lv4" data-badge-id="reader-4">4</a><a href="#lv5" data-badge-id="reader-5">5</a><a href="#lv6" data-badge-id="reader-6">6</a>
+<a href="#lv1" data-badge-id="reader-1">1</a><a href="#lv2" data-badge-id="reader-2">2</a><a href="#lv3" data-badge-id="reader-3">3</a><a href="#lv4" data-badge-id="reader-4">4</a><a href="#lv5" data-badge-id="reader-5">5</a><a href="#lv6" data-badge-id="reader-6">6</a><a href="#lv7" data-badge-id="reader-7">7</a><a href="#lv8" data-badge-id="reader-8">8</a><a href="#lv9" data-badge-id="reader-9">9</a>
 </div>
 
 <div class="level-head" id="lv1" data-badge-id="reader-1"><span class="lv"><span class="zh">第 1 关</span><span class="en">Level 1</span></span><b><span class="zh">打招呼和变量</span><span class="en">Hello and variables</span></b><span class="pill">📘 <span class="zh">需要第 2 课</span><span class="en">Needs Lesson 2</span></span><span class="done-mark">⭐</span></div>
@@ -369,7 +371,222 @@ print(len(words))
 print(&quot;hello&quot; in words)
 </textarea></div>
 
-<div class="box box-think"><span class="box-title"><span class="zh">🧠 六关都读透了？</span><span class="en">🧠 Read all six levels?</span></span>
+<div class="level-head" id="lv7" data-badge-id="reader-7"><span class="lv"><span class="zh">第 7 关</span><span class="en">Level 7</span></span><b><span class="zh">循环里的循环</span><span class="en">Loops inside loops</span></b><span class="pill">📘 <span class="zh">需要第 3 + 4 课</span><span class="en">Needs Lessons 3 + 4</span></span><span class="done-mark">⭐</span></div>
+<h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
+<div class="two"><div>
+<pre>count = 0
+for i in range(3):
+    for j in range(4):
+        count = count + 1
+print(count)</pre>
+</div><div>
+<div class="quiz" data-answer="3">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>7</button><button>4</button><button>12</button><button>3</button></div>
+  <div class="why"><span class="zh">外面转 3 圈，<b>每一圈</b>里面都要转满 4 次：3 × 4 = 12。不是 3 + 4！</span><span class="en">The outer loop runs 3 times, and <b>each time</b> the inner loop runs 4 times: 3 × 4 = 12. Not 3 + 4!</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 1 题" data-title-en="▶ Check question 1" data-save="reader-7-1" data-rows="4" data-canvas="no"><textarea>count = 0
+for i in range(3):
+    for j in range(4):
+        count = count + 1
+print(count)
+</textarea></div>
+
+<h3>🔮 <span class="zh">第 2 题</span><span class="en">Question 2</span></h3>
+<div class="two"><div>
+<pre>for i in range(3):
+    for j in range(i):
+        print(i, j)</pre>
+</div><div>
+<div class="quiz" data-answer="1">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>1 0<br>2 0<br>2 1</button><button>0 0<br>1 0<br>1 1<br>2 0<br>2 1<br>2 2</button><button>1 1<br>2 1<br>2 2</button><button>0 0<br>1 0<br>2 0</button></div>
+  <div class="why"><span class="zh">里面的 range(i) 跟着 i 变：i = 0 时 range(0) 是空的，一次都不跑；i = 1 时 j 只有 0；i = 2 时 j 是 0、1。range 的最后一个数不算！</span><span class="en">The inner range(i) changes with i: when i = 0, range(0) is empty and runs zero times; when i = 1, j is only 0; when i = 2, j is 0, 1. The end number of range is left out!</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 2 题" data-title-en="▶ Check question 2" data-save="reader-7-2" data-rows="4" data-canvas="no"><textarea>for i in range(3):
+    for j in range(i):
+        print(i, j)
+</textarea></div>
+
+<h3>🔮 <span class="zh">第 3 题</span><span class="en">Question 3</span> <span class="pill">⭐</span></h3>
+<div class="two"><div>
+<pre>total = 0
+for i in range(1, 4):
+    for j in range(1, 4):
+        if j == i:
+            break
+        total = total + j
+print(total)</pre>
+</div><div>
+<div class="quiz" data-answer="2" data-badge="reader-7">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>0</button><button>4</button><button>10</button><button>12</button></div>
+  <div class="why"><span class="zh">break 只跳出<b>它所在的那一层</b>（里面的循环），外面的循环继续。i = 1：j = 1 马上 break，加 0；i = 2：加 1，然后 break；i = 3：加 1 和 2，然后 break。0 + 1 + 3 = 4。break 在加法前面，所以 j == i 那一次不加。</span><span class="en">break only leaves <b>the loop it is in</b> (the inner one); the outer loop keeps going. i = 1: j = 1 breaks straight away, adds 0; i = 2: adds 1, then breaks; i = 3: adds 1 and 2, then breaks. 0 + 1 + 3 = 4. The break comes before the adding, so the j == i round adds nothing.</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 3 题" data-title-en="▶ Check question 3" data-save="reader-7-3" data-rows="4" data-canvas="no"><textarea>total = 0
+for i in range(1, 4):
+    for j in range(1, 4):
+        if j == i:
+            break
+        total = total + j
+print(total)
+</textarea></div>
+
+<div class="level-head" id="lv8" data-badge-id="reader-8"><span class="lv"><span class="zh">第 8 关</span><span class="en">Level 8</span></span><b><span class="zh">while、break 和函数</span><span class="en">while, break and functions</span></b><span class="pill">📘 <span class="zh">需要第 6 + 7 课</span><span class="en">Needs Lessons 6 + 7</span></span><span class="done-mark">⭐</span></div>
+<h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
+<div class="two"><div>
+<pre>n = 1
+while True:
+    n = n * 2
+    if n &gt; 20:
+        break
+    print(n)
+print(&quot;end&quot;, n)</pre>
+</div><div>
+<div class="quiz" data-answer="3">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>2<br>4<br>8<br>16<br>end 16</button><button>2<br>4<br>8<br>16<br>32<br>end 32</button><button>2<br>4<br>8<br>16<br>end 32</button><button>1<br>2<br>4<br>8<br>16<br>end 32</button></div>
+  <div class="why"><span class="zh">顺序很重要：先乘 2，再检查，最后才 print。n 变成 32 的时候，32 > 20，break 马上跳出——32 来不及 print。但 n 已经是 32 了，所以最后是 end 32。</span><span class="en">Order matters: double first, then check, and only then print. When n becomes 32, 32 > 20 and break jumps out at once — 32 never gets printed. But n is already 32, so the last line is end 32.</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 1 题" data-title-en="▶ Check question 1" data-save="reader-8-1" data-rows="4" data-canvas="no"><textarea>n = 1
+while True:
+    n = n * 2
+    if n &gt; 20:
+        break
+    print(n)
+print(&quot;end&quot;, n)
+</textarea></div>
+
+<h3>🔮 <span class="zh">第 2 题</span><span class="en">Question 2</span></h3>
+<div class="two"><div>
+<pre>def grow(x):
+    x = x + 10
+    return x
+
+x = 5
+y = grow(grow(x))
+print(x, y)</pre>
+</div><div>
+<div class="quiz" data-answer="4">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>25 25</button><button>5 15</button><button>15 25</button><button>5 25</button></div>
+  <div class="why"><span class="zh">grow(grow(5))：里面的先算，grow(5) = 15，再 grow(15) = 25。函数里的 x 是<b>它自己的</b>x（参数），改它不会改外面的 x，所以外面的 x 还是 5。</span><span class="en">grow(grow(5)): the inner one runs first, grow(5) = 15, then grow(15) = 25. The x inside the function is <b>its own</b> x (the parameter); changing it doesn't touch the x outside, which stays 5.</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 2 题" data-title-en="▶ Check question 2" data-save="reader-8-2" data-rows="4" data-canvas="no"><textarea>def grow(x):
+    x = x + 10
+    return x
+
+x = 5
+y = grow(grow(x))
+print(x, y)
+</textarea></div>
+
+<h3>🔮 <span class="zh">第 3 题</span><span class="en">Question 3</span> <span class="pill">⭐</span></h3>
+<div class="two"><div>
+<pre>def check(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return &quot;no&quot;
+    return &quot;yes&quot;
+
+print(check(7), check(9), check(2))</pre>
+</div><div>
+<div class="quiz" data-answer="3" data-badge="reader-8">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>yes no no</button><button>yes<br>no<br>yes</button><button>yes no yes</button><button>yes yes yes</button></div>
+  <div class="why"><span class="zh">return 一执行，函数<b>马上结束</b>。check(9)：i = 3 时 9 % 3 == 0，立刻 return "no"。check(7)：2–6 都除不尽，循环跑完才 return "yes"。check(2)：range(2, 2) 是空的，循环一次都不跑，直接 return "yes"。一个 print 里用逗号分开，所以在同一行。</span><span class="en">As soon as return runs, the function <b>ends</b>. check(9): at i = 3, 9 % 3 == 0, so it returns "no" right away. check(7): nothing from 2 to 6 divides it, so the loop finishes and it returns "yes". check(2): range(2, 2) is empty, the loop never runs, and it returns "yes". One print with commas puts them on one line.</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 3 题" data-title-en="▶ Check question 3" data-save="reader-8-3" data-rows="4" data-canvas="no"><textarea>def check(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return &quot;no&quot;
+    return &quot;yes&quot;
+
+print(check(7), check(9), check(2))
+</textarea></div>
+
+<div class="level-head" id="lv9" data-badge-id="reader-9"><span class="lv"><span class="zh">第 9 关</span><span class="en">Level 9</span></span><b><span class="zh">列表、字符串和字典</span><span class="en">Lists, strings and dictionaries</span></b><span class="pill">📘 <span class="zh">需要第 5 + 8 + 9 课</span><span class="en">Needs Lessons 5 + 8 + 9</span></span><span class="done-mark">⭐</span></div>
+<h3>🔮 <span class="zh">第 1 题</span><span class="en">Question 1</span></h3>
+<div class="two"><div>
+<pre>nums = [3, 1, 4]
+for x in nums:
+    x = x * 10
+print(nums)
+for i in range(len(nums)):
+    nums[i] = nums[i] * 10
+print(nums)</pre>
+</div><div>
+<div class="quiz" data-answer="2">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>[30, 10, 40]<br>[300, 100, 400]</button><button>[3, 1, 4]<br>[30, 10, 40]</button><button>[30, 10, 40]<br>[30, 10, 40]</button><button>[3, 1, 4]<br>[3, 1, 4]</button></div>
+  <div class="why"><span class="zh">第一个循环里，x 只是从列表里<b>抄出来</b>的一个数，x = x * 10 改的是抄本，列表没变。第二个循环用 nums[i] = … 直接往列表的第 i 格里放新数，列表才真的变了。</span><span class="en">In the first loop, x is just a number <b>copied out</b> of the list; x = x * 10 changes the copy, not the list. The second loop uses nums[i] = … to put a new number straight into slot i, so the list really changes.</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 1 题" data-title-en="▶ Check question 1" data-save="reader-9-1" data-rows="4" data-canvas="no"><textarea>nums = [3, 1, 4]
+for x in nums:
+    x = x * 10
+print(nums)
+for i in range(len(nums)):
+    nums[i] = nums[i] * 10
+print(nums)
+</textarea></div>
+
+<h3>🔮 <span class="zh">第 2 题</span><span class="en">Question 2</span></h3>
+<div class="two"><div>
+<pre>answers = [&quot; Yes&quot;, &quot;NO &quot;, &quot;yes&quot;, &quot;maybe&quot;]
+count = 0
+for a in answers:
+    a = a.strip().lower()
+    if a == &quot;yes&quot;:
+        count = count + 1
+    elif a == &quot;no&quot;:
+        count = count - 1
+print(count)
+print(answers[0] == &quot;yes&quot;)</pre>
+</div><div>
+<div class="quiz" data-answer="1">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>1<br>False</button><button>1<br>True</button><button>2<br>False</button><button>0<br>False</button></div>
+  <div class="why"><span class="zh">strip() 去掉两头空格、lower() 变小写：" Yes" → "yes"（+1），"NO " → "no"（-1），"yes"（+1），"maybe" 都不是。1 - 1 + 1 = 1。但 a = … 只改了变量 a，列表里的 answers[0] 还是原来的 " Yes"，不等于 "yes"。</span><span class="en">strip() removes spaces at both ends and lower() makes it lowercase: " Yes" → "yes" (+1), "NO " → "no" (-1), "yes" (+1), "maybe" is neither. 1 - 1 + 1 = 1. But a = … only changes the variable a; answers[0] in the list is still " Yes", which is not "yes".</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 2 题" data-title-en="▶ Check question 2" data-save="reader-9-2" data-rows="4" data-canvas="no"><textarea>answers = [&quot; Yes&quot;, &quot;NO &quot;, &quot;yes&quot;, &quot;maybe&quot;]
+count = 0
+for a in answers:
+    a = a.strip().lower()
+    if a == &quot;yes&quot;:
+        count = count + 1
+    elif a == &quot;no&quot;:
+        count = count - 1
+print(count)
+print(answers[0] == &quot;yes&quot;)
+</textarea></div>
+
+<h3>🔮 <span class="zh">第 3 题</span><span class="en">Question 3</span> <span class="pill">⭐</span></h3>
+<div class="two"><div>
+<pre>word = &quot;banana&quot;
+counts = {}
+for ch in word:
+    if ch in counts:
+        counts[ch] = counts[ch] + 1
+    else:
+        counts[ch] = 1
+print(counts[&quot;a&quot;], counts[&quot;n&quot;], len(counts))</pre>
+</div><div>
+<div class="quiz" data-answer="4" data-badge="reader-9">
+  <p class="q"><span class="zh">这段代码会打印什么？</span><span class="en">What will this print?</span></p>
+  <div class="opts"><button>3 2 6</button><button>1 1 3</button><button>2 3 3</button><button>3 2 3</button></div>
+  <div class="why"><span class="zh">这是数数的经典写法：第一次见到一个字母就放 1，再见到就 +1。banana：b 1 次、a 3 次、n 2 次。len(counts) 数的是字典里有几个<b>钥匙</b>（b、a、n），不是有几个字母，所以是 3。</span><span class="en">This is the classic counting pattern: the first time a letter appears, store 1; after that, add 1. banana: b once, a 3 times, n twice. len(counts) counts the <b>keys</b> in the dictionary (b, a, n), not the letters, so it's 3.</span></div>
+</div></div></div>
+<div class="playground" data-title="▶ 验证第 3 题" data-title-en="▶ Check question 3" data-save="reader-9-3" data-rows="4" data-canvas="no"><textarea>word = &quot;banana&quot;
+counts = {}
+for ch in word:
+    if ch in counts:
+        counts[ch] = counts[ch] + 1
+    else:
+        counts[ch] = 1
+print(counts[&quot;a&quot;], counts[&quot;n&quot;], len(counts))
+</textarea></div>
+
+<div class="box box-think"><span class="box-title"><span class="zh">🧠 九关都读透了？</span><span class="en">🧠 Read all nine levels?</span></span>
 <span class="zh">去 <a href="{{ '/gallery/' | relative_url }}">作品墙</a> 随便打开一个作品，先不运行，给老师讲讲它每一行在做什么——这就是真正的读心术。</span>
 <span class="en">Open any work in the <a href="{{ '/gallery/' | relative_url }}">Gallery</a>, don't run it, and explain to your teacher what each line does — that's real mind reading.</span></div>
 

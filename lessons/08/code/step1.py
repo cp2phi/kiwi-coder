@@ -1,9 +1,10 @@
 # ✊ 第 1 步：电脑出拳 Step 1: the computer plays
-# 把 ___ 填好 / Fill in ___
 import random
 
 choices = ["石头", "剪刀", "布"]     # rock, scissors, paper
 
-computer = random.choice(___)       # 从哪个列表里随机挑？ pick at random from which list?
+def computer_play():
+    return ___                     # 👈 交回一个随机的拳 / return a random play
 
-print("电脑出了 / Computer played:", computer)
+for i in range(5):
+    print("电脑出了 / Computer played:", computer_play())

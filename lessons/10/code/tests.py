@@ -1,25 +1,35 @@
 # test-expect-error: AssertionError
 # 🧪 让电脑帮你检查：assert  Let the computer check for you: assert
-# assert 后面的话必须是 True，否则程序立刻报错——这就是「测试」
-# What comes after assert must be True, or the program stops with an error — that's a "test"
+# 三个太空项目里各拿一个「纯函数」：只吃数字、吐出答案，不碰海龟——最好测！
+# One "pure function" from each space project: numbers in, answer out, no turtles — the easiest kind to test!
 
-def add(a, b):
-    return a + b
+def is_safe_landing(speed, drift):      # 🚀 着陆安全吗？速度 ≤ 2 而且离中心 ≤ 40 / safe landing? speed ≤ 2 and drift ≤ 40
+    return speed <= 2 and drift <= 40
 
-def double(n):
-    return n + n          # 两倍 = 自己加自己 / double = add it to itself
+def keep_inside(x):                     # ☄️ 别飞出画布 / don't fly off the screen
+    if x > 270:
+        return 270
+    elif x < -270:
+        return -270
+    return x
 
-# 一串测试 / a row of tests
-assert add(2, 3) == 5,      "2 + 3 应该是 5"
-assert add(10, -4) == 6,    "10 - 4 应该是 6"
-assert double(4) == 8,      "4 的两倍应该是 8"
-assert double(0) == 0,      "0 的两倍应该是 0"
-assert double(-3) == -6,    "-3 的两倍应该是 -6"
-assert double(2.5) == 5,    "2.5 的两倍应该是 5"
-assert double(3) == 6,      "3 的两倍应该是 6"
+def all_systems_go(checks):             # 🛰️ 每个系统都是 GO 吗？/ is every system GO?
+    for system in checks:
+        if checks[system] != "GO":
+            return False
+    return True
 
-# 🐞 下面这个测试会失败——故意的！读一读报错，再想想怎么改
-# 🐞 This test fails on purpose! Read the error, then decide what to fix
-assert double(5) == 11,     "5 的两倍应该是 10 —— 咦，这个测试写对了吗？"
+# 一排测试 / a row of tests
+assert is_safe_landing(1, 10) == True,  "又慢又准 = 安全 / slow and centred = safe"
+assert is_safe_landing(5, 10) == False, "太快 = 不安全 / too fast = unsafe"
+assert is_safe_landing(2, 40) == True,  "刚好在边上也算安全 / exactly on the limit is still safe"
+assert keep_inside(0) == 0,             "在中间不用动 / in the middle: no change"
+assert keep_inside(-400) == -270,       "飞出左边要拉回来 / pulled back from the left"
+assert all_systems_go({"燃料 fuel": "GO", "天气 weather": "GO"}) == True,     "全部 GO / all GO"
+assert all_systems_go({"燃料 fuel": "GO", "天气 weather": "NO-GO"}) == False, "有一个 NO-GO 就不能发射 / one NO-GO = no launch"
+
+# 🐞 下面这个测试会失败——故意的！读报错，再想想：是函数错了，还是测试错了？
+# 🐞 This test fails on purpose! Read the error, then ask: is the function wrong, or the test?
+assert keep_inside(300) == 300, "飞到 300 应该被拉回 270 —— 咦，这个测试写对了吗？/ 300 should be pulled back to 270 — is this test right?"
 
 print("✅ 所有测试都通过了！/ All tests passed!")

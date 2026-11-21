@@ -1,18 +1,20 @@
-# test-input: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
-# 🎲 猜数字 2.0：用 while 一直猜到对为止，还会数你猜了几次
-# Guess the number 2.0: keep guessing with while until you get it, and count the tries
+# test-input: 1 | 2 | 3 | 4 | 5 | 6
+# 🎲 猜数字 2.0：只要「还没猜对」而且「还有机会」就继续 / Guess 2.0: keep going while "not right yet" AND "tries left"
 import random
 
-secret = random.randint(1, 10)
+secret = random.randint(1, 50)
 guess = 0
 tries = 0
 
-while guess != secret:                        # 没猜对就继续 / keep going until correct
-    guess = int(input("猜一个 1 到 10 的数字 / Guess 1 to 10: "))
+while guess != secret and tries < 6:          # 两个条件都要 True / both must be True
+    guess = int(input(f"第 {tries + 1} 次，猜 1 到 50 / Try {tries + 1}, guess 1-50: "))
     tries += 1                                # 和 tries = tries + 1 一样 / same as tries = tries + 1
     if guess < secret:
         print("太小了 / Too small")
     elif guess > secret:
         print("太大了 / Too big")
 
-print(f"🎉 答对了！一共猜了 {tries} 次 / Correct! It took {tries} tries")
+# ✍️ 循环停下来只有两个原因：猜对了，或者机会用完了。
+#    写 if / else：猜对 → 「🎉 用了 ? 次」；不然 → 「😢 答案是 ?」
+# ✍️ The loop stops for only two reasons: you got it, or you ran out of tries.
+#    Write if / else: right → "🎉 took ? tries"; otherwise → "😢 the answer was ?"

@@ -8,12 +8,12 @@
 # 我学到了 I learned：
 #
 # 👇 把 week11-project 的代码粘贴到下面，然后：
-#    ① 最前面加标题画面 / 横幅（第 12 课学一学里有）
-#    ② 把乱七八糟的测试 print 删掉
-#    ③ 从头运行一次，没有红字
+#    ① 最前面加标题画面（星空 + 任务名，第 12 课学一学里有）
+#    ② 把侦探 print 删掉
+#    ③ 跑一遍 GO / NO-GO 起飞前检查，全部 GO 再存
 # 👇 Paste your week11-project code below, then:
-#    ① add a title screen / banner at the top (from Lesson 12)
-#    ② remove leftover debugging prints
-#    ③ run from scratch with no red text
+#    ① add the title screen at the top (starfield + mission name, from Lesson 12)
+#    ② remove leftover detective prints
+#    ③ run the GO / NO-GO pre-flight check; save only when it's all GO
 
 print("🏆 展示版 / showcase version")
